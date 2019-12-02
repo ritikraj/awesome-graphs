@@ -17,17 +17,16 @@ class AwesomeGraph {
 
         this.init(id, {segments : segments ? segments : this.segments});
     }
-    calculate(arr, thickness = this.maxArea) {
-        if(Array.isArray(arr)) {
+    calculate(data, thickness = this.maxArea) {
+        if(Array.isArray(data)) {
             let newArr = [];
             for(let i = 0; i < this.segments; i++) {
-                newArr.push(thickness*arr[i]/this.maxValue);
+                newArr.push(thickness*data[i]/this.maxValue);
             }
             return newArr;
         }
-        else return (arr/this.maxValue * this.totalAngle);
+        else return (data/this.maxValue * this.totalAngle);
     }
-
     changeValuesToPoints(array) {
         let coordinates = [];
         let a,b,v,angle;
@@ -40,25 +39,22 @@ class AwesomeGraph {
         }
         return coordinates;
     }
-
     drawSegmentedCircles(color, array = 0, radius = this.radius, area = this.maxArea) {
         let startAngle = 0.5 * Math.PI;
         for(let i = 0; i < this.segments; i++){
             let width = this.totalAngle / this.segments;
-            // let spacer = i === this.segments.length - 1 ? 0 : this.spacer;
             let endAngle =  startAngle + width - this.spacer;
             this.context.beginPath();
             if(array === 0) this.context.arc(this.center, this.center, radius, startAngle , endAngle);
-            else this.context.arc(this.center, this.center, radius + array[i]/2 - area/2, startAngle , endAngle);
+            else this.context.arc(this.center, this.center, radius + (array[i] === 0 ? 0.1 : array[i])/2 - area/2, startAngle , endAngle);
             startAngle = endAngle + this.spacer;
             this.context.strokeStyle = color;
             if(array === 0) this.context.lineWidth = area;
-            else this.context.lineWidth = array[i];
+            else this.context.lineWidth = array[i] === 0 ? 0.1 : array[i];
             this.context.stroke();
             this.context.closePath();
         }
     }
-
     drawAThreeQuarterCircle(color, radius = this.radius, value = this.totalAngle, thickness = this.thickness) {
         let startAngle = 0.5 * Math.PI;
         this.context.beginPath();
@@ -68,7 +64,6 @@ class AwesomeGraph {
         this.context.stroke();
         this.context.closePath();
     }
-
     drawFullCircle(radius, strokeColor, strokeWidth) {
         this.context.beginPath();
         this.context.arc(this.center, this.center, radius, 0 , 2 * Math.PI);
@@ -77,7 +72,6 @@ class AwesomeGraph {
         this.context.stroke();
         this.context.closePath();
     }
-
     drawPolygon(color, width, coordinates) {
         this.context.beginPath();
         for(let i = 0; i < coordinates.length; i++) {
@@ -90,7 +84,6 @@ class AwesomeGraph {
         }
         this.context.closePath();
     }
-
     animatePie(time) {
         let props = [], a = [];
         for(let i = 0;  i< this.animationProps.length; i++) {
@@ -116,7 +109,6 @@ class AwesomeGraph {
         };
         animation();
     }
-
     animatePolyAndBarGraph(time) {
         let arrays = [], a = [];
         for(let i = 0;  i< this.animationProps.length; i++) {
@@ -128,6 +120,7 @@ class AwesomeGraph {
             this.context.clearRect(0,0,300,300);
             arrays.forEach((props, i) => {
                 props.forEach( (prop, index) => {
+                    prop = prop === 0 ? 0.1 : prop;
                     a.push(0);
                     a[index] = a[index] + prop / (time);
                 });
@@ -144,7 +137,9 @@ class AwesomeGraph {
         };
         animation();
     }
-
+    setMaxValue(maxValue) {
+        this.maxValue = maxValue;
+    }
     init(id, props) {
         this.segments = props.segments;
         let canvas = document.createElement("canvas");
@@ -152,7 +147,7 @@ class AwesomeGraph {
         canvas.width = this.canvasWidth;
         canvas.height = this.canvasHeight;
         this.context = canvas.getContext("2d");
-        this.context.clearRect(0,0,this.canvasWidth,this.canvasHeight)
+        this.context.clearRect(0,0,this.canvasWidth,this.canvasHeight);
     }
 }
 
@@ -161,6 +156,9 @@ class TypeOne extends AwesomeGraph{
         super(id, segments);
         this.foreground = 'rgb(206, 136, 186)';
         this.background = 'rgb(245, 231, 241)';
+    }
+    setLabels(array) {
+
     }
     build(array, foregroundColor = this.foreground, backgroundColor = this.background) {
         this.drawSegmentedCircles(backgroundColor);
@@ -183,18 +181,9 @@ class TypeTwo extends AwesomeGraph{
         this.foreground = 'rgb(123, 146, 180)';
         this.background = 'rgb(229, 233, 240)';
     }
-    drawGraph(color, value = this.totalAngle) {
-        let startAngle = 0.5 * Math.PI;
-        this.context.beginPath();
-        this.context.arc(this.center, this.center, this.radius + 10, startAngle , startAngle + value);
-        this.context.strokeStyle = color;
-        this.context.lineWidth = this.maxArea - 20;
-        this.context.stroke();
-        this.context.closePath();
-    }
     build(value, backgroundColor = this.background, foregroundColor = this.foreground) {
-        this.drawGraph(backgroundColor);
-        this.drawGraph(foregroundColor, this.calculate(value));
+        this.drawAThreeQuarterCircle(backgroundColor, this.radius + 10, this.totalAngle, this.maxArea - 20);
+        this.drawAThreeQuarterCircle(foregroundColor, this.radius + 10, this.calculate(value), this.maxArea - 20);
         if(this.firstBuild) {
             this.firstBuild = false;
             this.animationProps.push(value);
@@ -253,47 +242,61 @@ class TypeThree extends AwesomeGraph{
                 this.buildPie(i);
                 window.requestAnimationFrame(animation);
             }
-            else this.buildPie(props);
-        };
-        animation();
-    }
-    animatePolyAndBarGraph(time) {
-        let arrays = [], a = [];
-        for(let i = 0;  i< this.animationProps.length; i++) {
-            if(Array.isArray(this.animationProps[i])) {
-                arrays.push(this.animationProps[i]);
+            else {
+                this.buildSegmented(this.animationProps[0]);
+                this.buildPie(this.animationProps[1]);
+                this.buildPolygon(this.animationProps[2]);
             }
-        }
-        const animation = () => {
-            arrays.forEach((props, i) => {
-                props.forEach( (prop, index) => {
-                    a.push(0);
-                    a[index] = a[index] + prop / (time);
-                });
-                let anim = true;
-                a.forEach( (ai, index) => {
-                    if(ai > props[index]) anim = false;
-                });
-                this.context.clearRect(0,0,300,300);
-                if(anim) {
-                    this.buildSegmented(a);
-                    this.buildPolygon(a);
-                    window.requestAnimationFrame(animation);
-                }
-                else {
-                    this.buildSegmented(props);
-                    this.buildPolygon(props);
-                }
-            });
         };
         animation();
     }
-    animate(pieChartTime = 18, polygonBarGraphTime = 30) {
-        this.animatePie(pieChartTime);
-        this.animatePolyAndBarGraph(polygonBarGraphTime);
+    animate(pieChartTime = 18, polygonBarGraphTime = 20) {
+        let props = this.animationProps;
+        let barAnimatedValues = [];
+        let polygonAnimatedValues = [];
+        let pieAnimatedValue = 0;
+        let isAnimationPossible = [true, true, true];
+        const animation = () => {
+            this.context.clearRect(0,0,this.canvasWidth,this.canvasHeight);
+            props[0].forEach( (prop, index) => {
+                prop = prop === 0 ? 0.1 : prop;
+                barAnimatedValues.push(0);
+                barAnimatedValues[index] = barAnimatedValues[index] + prop / (polygonBarGraphTime);
+            });
+            barAnimatedValues.forEach( (value, index) => {
+                if(value > props[0][index]) isAnimationPossible[0] = false;
+            });
+            pieAnimatedValue = pieAnimatedValue + props[1] / pieChartTime;
+            if (pieAnimatedValue > props[1]) {
+                isAnimationPossible[1] = false;
+            }
+            props[2].forEach( (prop, index) => {
+                prop = prop === 0 ? 0.1 : prop;
+                polygonAnimatedValues.push(0);
+                polygonAnimatedValues[index] = polygonAnimatedValues[index] + prop / (polygonBarGraphTime);
+            });
+            polygonAnimatedValues.forEach( (value, index) => {
+                if(value > props[2][index]) isAnimationPossible[2] = false;
+            });
+
+            if(isAnimationPossible[0] || isAnimationPossible[1] || isAnimationPossible[2]) {
+                if (isAnimationPossible[0]) this.buildSegmented(barAnimatedValues);
+                else this.buildSegmented(props[0]);
+                if (isAnimationPossible[1]) this.buildPie(pieAnimatedValue);
+                else this.buildPie(props[1]);
+                if (isAnimationPossible[2]) this.buildPolygon(polygonAnimatedValues);
+                else this.buildPolygon(props[2]);
+                window.requestAnimationFrame(animation);
+            }
+            else {
+                this.buildSegmented(props[0]);
+                this.buildPie(props[1]);
+                this.buildPolygon(props[2]);
+            }
+        };
+        animation();
         return this;
     }
-
 }
 
 class TypeFour extends AwesomeGraph{
@@ -336,6 +339,9 @@ class TypeFour extends AwesomeGraph{
     }
     insertValues(values, foregroundPolygonColor) {
         this.drawPolygon(foregroundPolygonColor, 5, this.changeValuesToPoints(values))
+    }
+    setLabels(array) {
+
     }
     build(values,
           circlesColor = this.circleColor,

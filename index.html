@@ -129,17 +129,23 @@
     </div>
 </div>
 
+<!--<div class="demo-graph m-3 float-left" id="demo-graph-1"></div>-->
+<!--<div class="demo-graph m-3 float-left" id="demo-graph-2"></div>-->
+<!--<div class="demo-graph m-3 float-left" id="demo-graph-3"></div>-->
+<!--<div class="demo-graph m-3 float-left" id="demo-graph-4"></div>-->
+<!--<div class="demo-graph m-3 float-left" id="demo-graph-5"></div>-->
+
 <script src="awesome-graph.js"></script>
 <script>
 
-    const barGraphValues = [426,515,140,251,690];
-    const pieChartValue = 505;
-    const polygonValues = [426,555,740,351,300];
-    const pieChartValue2 = 600;
+    const barGraphValues = [340,440,660,770,221];
+    const pieChartValue = 456;
+    const polygonValues = [330,330,440,550,660];
+    const pieChartValue2 = 0;
 
-    new TypeOne("demo-graph-1").build(barGraphValues).animate(140);
-    new TypeTwo("demo-graph-2").build(pieChartValue).animate(200);
-    new TypeThree("demo-graph-3").build(barGraphValues, pieChartValue, polygonValues).animate(20);
+    new TypeOne("demo-graph-1").build(barGraphValues).animate();
+    new TypeTwo("demo-graph-2").build(pieChartValue).animate(20);
+    new TypeThree("demo-graph-3").build(barGraphValues, pieChartValue, polygonValues).animate(20,10);
     new TypeFour("demo-graph-4").build(polygonValues).animate(30);
     new TypeFive("demo-graph-5").build(pieChartValue, pieChartValue2).animate(30);
 
