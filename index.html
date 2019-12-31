@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pie-Bar-Graph</title>
+
+    <style>
+        .demo-graph {
+            width: 300px;
+            height: 300px;
+            float: left;
+            /*background: white;*/
+            margin: 50px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="demo-graph-1" class="demo-graph"></div>
+<div id="demo-graph-2" class="demo-graph"></div>
+<div id="demo-graph-3" class="demo-graph"></div>
+<div id="demo-graph-4" class="demo-graph"></div>
+<div id="demo-graph-5" class="demo-graph"></div>
+
+<script src="piebargraph.js"></script>
+<script>
+
+    const barGraphValues = [426,515,140,251,690];
+    const pieChartValue = 505;
+    const polygonValues = [426,555,740,351,300];
+    const pieChartValue2 = 599;
+
+
+    new TypeOne("demo-graph-1").build(barGraphValues).animate(140);
+    new TypeTwo("demo-graph-2").build(pieChartValue).animate(200);
+    new TypeThree("demo-graph-3").build(barGraphValues, pieChartValue, polygonValues).animate(20);
+    new TypeFour("demo-graph-4").build(polygonValues).animate(30);
+    new TypeFive("demo-graph-5").build(pieChartValue, pieChartValue2).animate(30);
+
+
+</script>
+
+</body>
+</html>
