@@ -3,7 +3,7 @@ class AwesomeGraph {
         this.canvasWidth = 300;
         this.canvasHeight = 300;
         this.context = null;
-        this.radius = 80;
+        this.radius = 85;
         this.center = 150;
 
         this.segments = 5;
