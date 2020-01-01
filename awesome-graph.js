@@ -1,34 +1,38 @@
 class AwesomeGraph {
     constructor (id, segments) {
-        this.segments = 5;
+        this.canvasWidth = 300;
+        this.canvasHeight = 300;
         this.context = null;
+        this.radius = 100;
+        this.center = 150;
+
+        this.segments = 5;
         this.totalAngle = 1.5 * Math.PI;
         this.maxArea = 80;
         this.thickness = this.maxArea - 40;
-        this.radius = 100;
-        this.center = 150;
         this.spacer = 0.03;
-        this.maxValueOfProperty = 900;
+        this.maxValue = 900;
         this.animationProps = [];
         this.firstBuild = true;
+
         this.init(id, {segments : segments ? segments : this.segments});
     }
     calculate(arr, thickness = this.maxArea) {
         if(Array.isArray(arr)) {
             let newArr = [];
             for(let i = 0; i < this.segments; i++) {
-                newArr.push(thickness*arr[i]/this.maxValueOfProperty);
+                newArr.push(thickness*arr[i]/this.maxValue);
             }
             return newArr;
         }
-        else return (arr/this.maxValueOfProperty * this.totalAngle);
+        else return (arr/this.maxValue * this.totalAngle);
     }
 
     changeValuesToPoints(array) {
         let coordinates = [];
         let a,b,v,angle;
         for(let i = 0; i < this.segments; i++) {
-            v = array[i] * this.radius / this.maxValueOfProperty;
+            v = array[i] * this.radius / this.maxValue;
             angle = (1.5 * Math.PI) + i * ( 2 * Math.PI / this.segments);
             a = Math.abs(this.center + v * Math.cos(angle));
             b = Math.abs(this.center + v * Math.sin(angle));
@@ -142,13 +146,13 @@ class AwesomeGraph {
     }
 
     init(id, props) {
-        this.segments = props.segments ? props.segments : this.segments;
+        this.segments = props.segments;
         let canvas = document.createElement("canvas");
         document.getElementById(id).append(canvas);
-        canvas.width = 300;
-        canvas.height = 300;
+        canvas.width = this.canvasWidth;
+        canvas.height = this.canvasHeight;
         this.context = canvas.getContext("2d");
-        this.context.clearRect(0,0,300,300)
+        this.context.clearRect(0,0,this.canvasWidth,this.canvasHeight)
     }
 }
 
@@ -174,8 +178,8 @@ class TypeOne extends AwesomeGraph{
 }
 
 class TypeTwo extends AwesomeGraph{
-    constructor(id, segments) {
-        super(id, segments);
+    constructor(id) {
+        super(id);
         this.foreground = 'rgb(123, 146, 180)';
         this.background = 'rgb(229, 233, 240)';
     }
@@ -352,8 +356,6 @@ class TypeFour extends AwesomeGraph{
         return this;
     }
 }
-
-
 
 class TypeFive extends AwesomeGraph{
     constructor(id, segments) {

@@ -2,33 +2,140 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Pie-Bar-Graph</title>
+    <title>Awesome Graphs</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
 
     <style>
         .demo-graph {
+            max-width: 300px;
             width: 300px;
             height: 300px;
             float: left;
-            /*background: white;*/
             margin: 50px;
+        }
+        code {
+            padding: 20px;
+            background: #fafafa;
+            display: block;
+        }
+        .desc {
+            max-width: max-content;
+            padding-right: 20px;
         }
     </style>
 </head>
 <body>
 
-<div id="demo-graph-1" class="demo-graph"></div>
-<div id="demo-graph-2" class="demo-graph"></div>
-<div id="demo-graph-3" class="demo-graph"></div>
-<div id="demo-graph-4" class="demo-graph"></div>
-<div id="demo-graph-5" class="demo-graph"></div>
+<div class="container-fluid">
+    <h1 class="display-4 py-4 text-center">
+        Awesome Graphs
+    </h1>
+    <div class="row">
+        <div class="col-12">
+            <div class="row align-items-center">
+                <div id="demo-graph-1" class="demo-graph col"></div>
+                <div class="col desc">
+                    <h1 class="mb-3">Type One</h1>
+                    <p>
+                        <code>
+                            // demo-graph-1 = ID of the div <br>
+                            new TypeOne("demo-graph-1").build([426,515,140,251,690]);<br><br>
 
-<script src="piebargraph.js"></script>
+                            // animate(parts[optional]) <br>
+                            new TypeOne("demo-graph-1").build([426,515,140,251,690]).animate(140);
+                        </code>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="row align-items-center">
+                <div id="demo-graph-2" class="demo-graph col"></div>
+                <div class="col desc">
+                    <h1 class="mb-3">Type Two</h1>
+                    <p>
+                        <code>
+                            // demo-graph-2 = ID of the div <br>
+                            new TypeOne("demo-graph-2").build(505);<br><br>
+
+                            // animate(parts[optional]) <br>
+                            new TypeOne("demo-graph-2").build(505).animate(200);
+                        </code>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="row align-items-center">
+                <div id="demo-graph-3" class="demo-graph col"></div>
+                <div class="col desc">
+                    <h1 class="mb-3">Type Three</h1>
+                    <p>
+                        <code>
+                            const barGraphValues = [426,515,140,251,690];<br>
+                            const pieChartValue = 505;<br>
+                            const polygonValues = [426,555,740,351,300];<br><br>
+
+                            // demo-graph-3 = ID of the div <br>
+                            new TypeOne("demo-graph-3").build(barGraphValues, pieChartValue, polygonValues);<br><br>
+
+                            // animate(parts[optional]) <br>
+                            new TypeOne("demo-graph-3").build(barGraphValues, pieChartValue, polygonValues).animate(20);
+                        </code>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="row align-items-center">
+                <div id="demo-graph-4" class="demo-graph col"></div>
+                <div class="col desc">
+                    <h1 class="mb-3">Type Four</h1>
+                    <p>
+                        <code>
+                            // demo-graph-4 = ID of the div <br>
+                            new TypeOne("demo-graph-4").build([426,555,740,351,300]);<br><br>
+
+                            // animate(parts[optional]) <br>
+                            new TypeOne("demo-graph-4").build([426,555,740,351,300]).animate(30);
+                        </code>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12">
+            <div class="row align-items-center">
+                <div id="demo-graph-5" class="demo-graph col"></div>
+                <div class="col desc">
+                    <h1 class="mb-3">Type Five</h1>
+                    <p>
+                        <code>
+                            // demo-graph-5 = ID of the div <br>
+                            new TypeOne("demo-graph-5").build(500, 600);<br><br>
+
+                            // animate(parts[optional]) <br>
+                            new TypeOne("demo-graph-5").build(500, 600).animate(30);
+                        </code>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script src="awesome-graph.js"></script>
 <script>
 
     const barGraphValues = [426,515,140,251,690];
     const pieChartValue = 505;
     const polygonValues = [426,555,740,351,300];
-    const pieChartValue2 = 599;
+    const pieChartValue2 = 600;
+
     new TypeOne("demo-graph-1").build(barGraphValues).animate(140);
     new TypeTwo("demo-graph-2").build(pieChartValue).animate(200);
     new TypeThree("demo-graph-3").build(barGraphValues, pieChartValue, polygonValues).animate(20);

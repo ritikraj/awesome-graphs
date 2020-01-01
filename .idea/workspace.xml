@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="402062b2-3c3e-417f-bbde-966ea9c19d1a" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/piebargraph.js" beforeDir="false" afterPath="$PROJECT_DIR$/awesome-graph.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -14,21 +16,35 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="false">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="351">
-              <caret line="30" column="31" selection-start-line="30" selection-start-column="31" selection-end-line="30" selection-end-column="31" />
+            <state relative-caret-position="1096">
+              <caret line="132" column="30" selection-start-line="132" selection-start-column="30" selection-end-line="132" selection-end-column="30" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/piebargraph.js">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/awesome-graph.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="9504">
-              <caret line="288" column="37" selection-start-line="288" selection-start-column="37" selection-end-line="288" selection-end-column="37" />
+            <state relative-caret-position="-264">
+              <caret line="16" selection-start-line="16" selection-end-line="16" />
+              <folding>
+                <element signature="n#!!block;n#calculate#0;n#AwesomeGraph#0" />
+                <element signature="n#!!block;n#changeValuesToPoints#0;n#AwesomeGraph#0" />
+                <element signature="n#!!block;n#drawSegmentedCircles#0;n#AwesomeGraph#0" />
+                <element signature="n#!!block;n#drawFullCircle#0;n#AwesomeGraph#0" />
+                <element signature="n#!!block;n#drawPolygon#0;n#AwesomeGraph#0" />
+                <element signature="n#!!block;n#animatePie#0;n#AwesomeGraph#0" />
+                <element signature="n#!!block;n#animatePolyAndBarGraph#0;n#AwesomeGraph#0" />
+                <element signature="n#TypeOne#0" />
+                <element signature="n#TypeTwo#0" />
+                <element signature="n#TypeThree#0" />
+                <element signature="n#TypeFour#0" />
+                <element signature="n#TypeFive#0" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -48,10 +64,12 @@
       <find>AwesomeChart</find>
       <find>centerX</find>
       <find>centerY</find>
+      <find>maxValueOfProperty</find>
     </findStrings>
     <replaceStrings>
       <replace>AwesomeGraph</replace>
       <replace>center</replace>
+      <replace>maxValue</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -121,24 +139,21 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1577701353616</updated>
-      <workItem from="1577701355075" duration="35929000" />
+      <workItem from="1577701355075" duration="38606000" />
+      <workItem from="1577864768478" duration="1129000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="35929000" />
+    <option name="totallyTimeSpent" value="39735000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Favorites" side_tool="true" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24973656" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" />
-      <window_info anchor="bottom" id="Terminal" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" />
@@ -146,6 +161,10 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Terminal" order="9" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -155,17 +174,31 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/index.html">
+    <entry file="file://$PROJECT_DIR$/awesome-graph.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="30" column="31" selection-start-line="30" selection-start-column="31" selection-end-line="30" selection-end-column="31" />
+        <state relative-caret-position="-264">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
+          <folding>
+            <element signature="n#!!block;n#calculate#0;n#AwesomeGraph#0" />
+            <element signature="n#!!block;n#changeValuesToPoints#0;n#AwesomeGraph#0" />
+            <element signature="n#!!block;n#drawSegmentedCircles#0;n#AwesomeGraph#0" />
+            <element signature="n#!!block;n#drawFullCircle#0;n#AwesomeGraph#0" />
+            <element signature="n#!!block;n#drawPolygon#0;n#AwesomeGraph#0" />
+            <element signature="n#!!block;n#animatePie#0;n#AwesomeGraph#0" />
+            <element signature="n#!!block;n#animatePolyAndBarGraph#0;n#AwesomeGraph#0" />
+            <element signature="n#TypeOne#0" />
+            <element signature="n#TypeTwo#0" />
+            <element signature="n#TypeThree#0" />
+            <element signature="n#TypeFour#0" />
+            <element signature="n#TypeFive#0" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/piebargraph.js">
+    <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="9504">
-          <caret line="288" column="37" selection-start-line="288" selection-start-column="37" selection-end-line="288" selection-end-column="37" />
+        <state relative-caret-position="1096">
+          <caret line="132" column="30" selection-start-line="132" selection-start-column="30" selection-end-line="132" selection-end-column="30" />
         </state>
       </provider>
     </entry>
