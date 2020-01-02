@@ -1,35 +1,37 @@
 class AwesomeGraph {
-    constructor(id, segments) {
-        this.canvasWidth = 300;
-        this.canvasHeight = 300;
+    constructor(id) {
+        this.id = id;
+        this.multiplier = 1;
+        this.canvasWidth = 300 * this.multiplier;
+        this.canvasHeight = 300 * this.multiplier;
         this.context = null;
-        this.radius = 85;
-        this.center = 150;
-
+        this.center = this.canvasHeight / 2;
+        this.radius = 7 * this.center / 12;
 
         this.foreground = "";
         this.background = "";
 
         this.segments = 5;
         this.totalAngle = 1.5 * Math.PI;
-        this.maxArea = 80;
-        this.thickness = this.maxArea - 40;
+        this.maxArea = this.radius / 2;
+        this.thickness = this.maxArea / 2;
         this.spacer = 0.03;
         this.maxValue = 900;
         this.animationProps = [];
         this.labels = [];
         this.firstBuild = true;
-
-        this.init(id, {segments: segments ? segments : this.segments});
     }
+
+
+
 
     calculate(data, thickness = this.maxArea) {
         if (Array.isArray(data)) {
-            let newArr = [];
+            let newValues = [];
             for (let i = 0; i < this.segments; i++) {
-                newArr.push(thickness * data[i] / this.maxValue);
+                newValues.push(thickness * data[i] / this.maxValue);
             }
-            return newArr;
+            return newValues;
         } else return (data / this.maxValue * this.totalAngle);
     }
 
@@ -95,7 +97,7 @@ class AwesomeGraph {
         this.context.closePath();
     }
 
-    animatePie(time, total = true) {
+    animatePie(time) {
         let props = [], a = [];
         for (let i = 0; i < this.animationProps.length; i++) {
             if (!Array.isArray(this.animationProps[i])) {
@@ -104,7 +106,7 @@ class AwesomeGraph {
             }
         }
         const animation = () => {
-            this.context.clearRect(0, 0, 300, 300);
+            this.context.clearRect(0, 0, this.canvasWidth, this.canvasHeight);
             props.forEach((prop, index) => {
                 a[index] = a[index] + prop / time;
             });
@@ -122,7 +124,7 @@ class AwesomeGraph {
         animation();
     }
 
-    animatePolyAndBarGraph(time, total = true) {
+    animatePolyAndBarGraph(time) {
         let arrays = [], a = [];
         for (let i = 0; i < this.animationProps.length; i++) {
             if (Array.isArray(this.animationProps[i])) {
@@ -130,7 +132,7 @@ class AwesomeGraph {
             }
         }
         const animation = () => {
-            this.context.clearRect(0, 0, 300, 300);
+            this.context.clearRect(0, 0, this.canvasWidth, this.canvasHeight);
             arrays.forEach((props, i) => {
                 props.forEach((prop, index) => {
                     prop = prop === 0 ? 0.1 : prop;
@@ -153,8 +155,25 @@ class AwesomeGraph {
         animation();
     }
 
+
+    build() {
+        this.init(this.id);
+        return this;
+    }
+
     setMaxValue(maxValue) {
         this.maxValue = maxValue;
+        return this;
+    }
+
+    setMultiplier(multiplier) {
+        this.multiplier = multiplier;
+        return this;
+    }
+
+    setSegments(segments) {
+        this.segments = segments;
+        return this;
     }
 
     setLabels() {
@@ -163,23 +182,24 @@ class AwesomeGraph {
     showTotal() {
     }
 
-    showTotalMethod(total, position) {
-        let font = "Roboto, sans-serif";
+    showTotalMethod(total, position, font = "Roboto, sans-serif") {
         let average = 0;
+        let fontSizeLg = 36 * this.multiplier;
+        let fontSizeSm = 16 * this.multiplier;
         total.map(item => average = average + item);
-        average = parseInt(average/total.length);
-        this.context.font = "normal normal bold 40px " + font;
+        average = parseInt(average / total.length);
+        this.context.font = "normal normal bold "+ fontSizeLg +"px " + font;
         this.context.fillStyle = "#000";
         if (position === "center") {
             this.context.textAlign = "center";
-            this.context.fillText(average, 150, 160);
-            this.context.font = "normal normal 300 20px " + font;
-            this.context.fillText("/ " + this.maxValue, 160, 185);
+            this.context.fillText(average, this.center, this.center + 10 * this.multiplier);
+            this.context.font = "normal normal 300 "+ fontSizeSm +"px " + font;
+            this.context.fillText("/ " + this.maxValue, this.center + 5 * this.multiplier, this.center + 35 * this.multiplier);
         }
         if (position === "bottom") {
-            this.context.fillText(average, 160, 240);
-            this.context.font = "normal normal 300 20px " + font;
-            this.context.fillText("/ "+this.maxValue, 180, 265);
+            this.context.fillText(average, this.center + 10 * this.multiplier, this.center + 75 * this.multiplier);
+            this.context.font = "normal normal 300 "+ fontSizeSm +"px " + font;
+            this.context.fillText("/ "+this.maxValue, this.center + 30 * this.multiplier, this.center + 95 * this.multiplier);
         }
 
     }
@@ -191,31 +211,39 @@ class AwesomeGraph {
         this.context.beginPath();
         this.context.fillStyle = this.foreground;
         this.context.lineWidth = 1;
-        this.context.moveTo(144, 100);
-        this.context.lineTo(156,100);
-        this.context.quadraticCurveTo(160,100,160,104);
-        this.context.lineTo(160,116);
-        this.context.quadraticCurveTo(160,120,156,120);
-        this.context.lineTo(144,120);
-        this.context.quadraticCurveTo(140,120,140,116);
-        this.context.lineTo(140,104);
-        this.context.quadraticCurveTo(140,100,144,100);
+        let x1 = 140 * this.multiplier, y1 = 100 * this.multiplier;
+        let x2 = 160 * this.multiplier, y2 = 120 * this.multiplier;
+        let borderRadius = 4 * this.multiplier;
+        let fontSize = 14 * this.multiplier;
+        this.context.moveTo(x1 + borderRadius, y1);
+        this.context.lineTo(x2 - borderRadius,y1);
+        this.context.quadraticCurveTo(x2,y1,x2,y1 + borderRadius);
+        this.context.lineTo(x2,y2 - borderRadius);
+        this.context.quadraticCurveTo(x2,y2,x2 - borderRadius,y2);
+        this.context.lineTo(x1 + borderRadius,y2);
+        this.context.quadraticCurveTo(x1,y2,x1,y2 - borderRadius);
+        this.context.lineTo(x1,y1 + borderRadius);
+        this.context.quadraticCurveTo(x1,y1,x1 + borderRadius,y1);
         this.context.closePath();
         this.context.fill();
         this.context.fillStyle = "#FFF";
-        this.context.font = "normal normal bold 14px Roboto";
+        this.context.font = "normal normal bold "+fontSize+"px Roboto";
         this.context.textAlign = "center";
-        this.context.fillText(data, 150, 115);
+        this.context.fillText(data, this.center, this.center - 35 * this.multiplier);
 
     }
 
-    build() {
-    }
 
-    init(id, props) {
-        this.segments = props.segments;
+    init(id) {
         let canvas = document.createElement("canvas");
+        document.getElementById(id).innerHTML = "";
         document.getElementById(id).append(canvas);
+        this.canvasWidth = 300 * this.multiplier;
+        this.canvasHeight = 300 * this.multiplier;
+        this.center = this.canvasHeight / 2;
+        this.radius = 7 * this.center / 12;
+        this.maxArea = this.radius / 2;
+        this.thickness = -2 * this.multiplier +2 * this.maxArea / 3;
         canvas.width = this.canvasWidth;
         canvas.height = this.canvasHeight;
         this.context = canvas.getContext("2d");
@@ -224,10 +252,10 @@ class AwesomeGraph {
 }
 
 class TypeOne extends AwesomeGraph {
-    constructor(id, segments) {
-        super(id, segments);
-        this.radius = this.radius + 5 ;
-        this.maxArea = this.maxArea - 30;
+    constructor(id) {
+        super(id);
+        this.radius = this.radius + 5 * this.multiplier ;
+        this.maxArea = this.maxArea - 30 * this.multiplier;
         this.foreground = 'rgb(206, 136, 186)';
         this.background = 'rgb(245, 231, 241)';
     }
@@ -236,11 +264,12 @@ class TypeOne extends AwesomeGraph {
         this.labels = array;
         let width = this.totalAngle / this.segments;
         let angle = 0.5 * Math.PI + width / 2;
+        let fontSize = 22 * this.multiplier;
         let x, y;
         for (let i = 0; i < this.segments; i++) {
-            x = Math.abs((this.radius + 43) * Math.cos(angle) + 150);
-            y = Math.abs((this.radius + 43) * Math.sin(angle) + 155);
-            this.context.font = "22px " + font;
+            x = Math.abs((this.radius + 43 * this.multiplier) * Math.cos(angle) + this.center);
+            y = Math.abs((this.radius + 43 * this.multiplier) * Math.sin(angle) + this.center + 5 * this.multiplier);
+            this.context.font = fontSize+"px " + font;
             this.context.textAlign = "center";
             this.context.fillStyle = this.foreground;
             this.context.fillText(array[i], x, y);
@@ -250,6 +279,7 @@ class TypeOne extends AwesomeGraph {
     }
 
     build(array, foregroundColor = this.foreground, backgroundColor = this.background) {
+        super.build();
         this.drawSegmentedCircles(backgroundColor);
         this.drawSegmentedCircles(foregroundColor, this.calculate(array));
         if (this.firstBuild) {
@@ -282,13 +312,15 @@ class TypeTwo extends AwesomeGraph {
     }
 
     build(value, backgroundColor = this.background, foregroundColor = this.foreground) {
-        this.drawAThreeQuarterCircle(backgroundColor, this.radius + 10, this.totalAngle, this.maxArea - 20);
-        this.drawAThreeQuarterCircle(foregroundColor, this.radius + 10, this.calculate(value), this.maxArea - 20);
+        super.build();
+        this.drawAThreeQuarterCircle(backgroundColor, this.radius + 5 * this.multiplier, this.totalAngle, this.maxArea - 5 * this.multiplier);
+        this.drawAThreeQuarterCircle(foregroundColor, this.radius + 5 * this.multiplier, this.calculate(value), this.maxArea - 5 * this.multiplier);
         if (this.firstBuild) {
             this.firstBuild = false;
             this.animationProps.push(value);
         }
         this.showTotal();
+        this.showType();
         return this;
     }
 
@@ -307,14 +339,17 @@ class TypeTwo extends AwesomeGraph {
 }
 
 class TypeThree extends AwesomeGraph {
-    constructor(id, segments) {
-        super(id, segments);
+    constructor(id) {
+        super(id);
         this.foreground = 'rgb(245, 160, 78)';
         this.background = 'rgb(253, 236, 220)';
-        this.outerThickness = this.maxArea - 40;
-        this.innerThickness = this.maxArea - 55;
-        this.outerRadius = this.radius + 20;
-        this.innerRadius = this.radius - 20;
+    }
+
+    setValues() {
+        this.outerThickness = this.maxArea - 10 * this.multiplier;
+        this.innerThickness = this.maxArea - 20 * this.multiplier;
+        this.outerRadius = this.radius + 10 * this.multiplier;
+        this.innerRadius = this.radius - this.outerThickness + 5 * this.multiplier;
     }
 
     buildPie(pieChartValue, backgroundColor = this.background, foregroundColor = this.foreground) {
@@ -329,12 +364,14 @@ class TypeThree extends AwesomeGraph {
 
     buildPolygon(polygonValue, foregroundColor = this.foreground) {
         polygonValue = polygonValue.map(item => item / 2);
-        this.drawPolygon(foregroundColor, 3, this.changeValuesToPoints(polygonValue));
+        this.drawPolygon(foregroundColor, 3 * this.multiplier, this.changeValuesToPoints(polygonValue));
     }
 
     build(barGraphValue, pieChartValue, polygonValue,
           backgroundColor = this.background,
           foregroundColor = this.foreground) {
+        super.build();
+        this.setValues();
         if (this.firstBuild) {
             this.firstBuild = false;
             this.animationProps.push(barGraphValue);
@@ -402,8 +439,8 @@ class TypeThree extends AwesomeGraph {
 }
 
 class TypeFour extends AwesomeGraph {
-    constructor(id, segments) {
-        super(id, segments);
+    constructor(id) {
+        super(id);
         this.radius = 110;
         this.circleColor = 'rgb(1, 103, 143)';
         this.linesColor = 'rgb(226, 226, 228)';
@@ -417,7 +454,7 @@ class TypeFour extends AwesomeGraph {
             this.context.moveTo(this.center, this.center);
             this.context.lineTo(coordinates[i].x, coordinates[i].y);
             this.context.strokeStyle = color;
-            this.context.lineWidth = width;
+            this.context.lineWidth = width * this.multiplier;
             this.context.stroke();
         }
         this.context.closePath();
@@ -436,28 +473,29 @@ class TypeFour extends AwesomeGraph {
 
     drawBackground(circlesColor, backgroundPolygonColor, linesColor) {
         for (let i = 0; i < 10; i++) {
-            this.drawFullCircle(this.radius - 10 * i, circlesColor, 0.5)
+            this.drawFullCircle(this.radius - 8 * i * this.multiplier, circlesColor, 0.5 * this.multiplier)
         }
         let coordinates = this.regularPolygonCoordinates();
-        this.drawPolygon(backgroundPolygonColor, 1, coordinates);
-        this.drawLinesFromOrigin(linesColor, 2, coordinates);
+        this.drawPolygon(backgroundPolygonColor, this.multiplier, coordinates);
+        this.drawLinesFromOrigin(linesColor, this.multiplier, coordinates);
     }
 
     insertValues(values, foregroundPolygonColor) {
-        this.drawPolygon(foregroundPolygonColor, 5, this.changeValuesToPoints(values))
+        this.drawPolygon(foregroundPolygonColor, 5 * this.multiplier, this.changeValuesToPoints(values))
     }
 
     setLabels(array, font = "Roboto") {
         this.labels = array;
         let coordinates = this.regularPolygonCoordinates();
+        let fontSize = 22 * this.multiplier;
         for (let i = 0; i < this.segments; i++) {
-            let shiftX = coordinates[i].x >= this.center ? 20 : -15;
-            let shiftY = coordinates[i].y >= this.center ? 20 : -15;
-            if (coordinates[i].x > this.center - 5 && coordinates[i].x < this.center + 5) shiftX = 0;
-            if (coordinates[i].y > this.center - 5 && coordinates[i].y < this.center + 5) shiftY = 0;
+            let shiftX = coordinates[i].x >= this.center ? 20 * this.multiplier : -15 * this.multiplier;
+            let shiftY = coordinates[i].y >= this.center ? 20 * this.multiplier : -15 * this.multiplier;
+            if (coordinates[i].x > this.center - 5 * this.multiplier && coordinates[i].x < this.center + 5 * this.multiplier) shiftX = 0;
+            if (coordinates[i].y > this.center - 5 * this.multiplier && coordinates[i].y < this.center + 5 * this.multiplier) shiftY = 0;
             let x = coordinates[i].x + shiftX;
             let y = coordinates[i].y + shiftY;
-            this.context.font = "22px " + font;
+            this.context.font = fontSize+"px " + font;
             this.context.fillStyle = this.foregroundPolygonColor;
             this.context.textAlign = "center";
             this.context.fillText(array[i], x, y);
@@ -471,6 +509,7 @@ class TypeFour extends AwesomeGraph {
           linesColor = this.linesColor,
           foregroundPolygonColor = this.foregroundPolygonColor) {
 
+        super.build();
         this.drawBackground(circlesColor, backgroundPolygonColor, linesColor);
         this.insertValues(values, foregroundPolygonColor);
         if (this.firstBuild) {
@@ -487,18 +526,23 @@ class TypeFour extends AwesomeGraph {
 }
 
 class TypeFive extends AwesomeGraph {
-    constructor(id, segments) {
-        super(id, segments);
-        this.radius = 120;
-        this.gap = 47;
+    constructor(id) {
+        super(id);
         this.backgroundColor = 'rgb(253, 236, 220)';
         this.foregroundColor = 'rgb(245, 160, 78)';
+    }
+
+    setValues() {
+        this.radius += 20 * this.multiplier;
+        this.gap = 35 * this.multiplier;
     }
 
     build(value1,
           value2,
           backgroundColor = this.backgroundColor,
           foregroundColor = this.foregroundColor) {
+        super.build();
+        this.setValues();
         if (this.firstBuild) {
             this.firstBuild = false;
             this.animationProps.push(value1);

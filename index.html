@@ -10,9 +10,9 @@
 
     <style>
         .demo-graph {
-            max-width: 300px;
-            width: 300px;
-            height: 300px;
+            max-width: max-content;
+            /*width: 300px;*/
+            height: max-content;
         }
         code {
             padding: 20px;
@@ -138,18 +138,28 @@
 <script src="awesome-graph.js"></script>
 <script>
 
-    const barGraphValues = [500,400,500,400,600];
+    const barGraphValues = [500,400,500,400,600,344,344];
     // const barGraphValues = [0,0,0,0,0];
     const pieChartValue = 456;
     const polygonValues = [500,400,500,400,600];
     const pieChartValue2 = 800;
     const labels = ["Ab","Mo","Fo","Jo","Ho"];
 
-    new TypeOne("demo-graph-1").build(barGraphValues).setLabels(labels).animate();
-    new TypeTwo("demo-graph-2").build(pieChartValue).animate();
-    new TypeThree("demo-graph-3").build(barGraphValues, pieChartValue, polygonValues).animate();
-    new TypeFour("demo-graph-4").build(polygonValues).setLabels(labels).animate();
-    new TypeFive("demo-graph-5").build(pieChartValue, pieChartValue2).animate();
+    const t1 = new TypeOne("demo-graph-1");
+    t1.setMultiplier(2).setMaxValue(900).setSegments(5).build(barGraphValues).setLabels(labels).animate();
+
+
+    const t2 = new TypeTwo("demo-graph-2");
+    t2.setMultiplier(2).build(pieChartValue).animate();
+
+    const t3 = new TypeThree("demo-graph-3");
+    t3.setMultiplier(2).build(barGraphValues, pieChartValue, polygonValues).animate();
+
+    const t4 = new TypeFour("demo-graph-4");
+    t4.setMultiplier(2).build(polygonValues).setLabels(labels).animate();
+
+    const t5 = new TypeFive("demo-graph-5");
+    t5.setMultiplier(2).build(pieChartValue, pieChartValue2).animate();
 
 
 </script>
