@@ -45,8 +45,8 @@
                             // demo-graph-1 = ID of the div <br>
                             new TypeOne("demo-graph-1").build([426,515,140,251,690]);<br><br>
 
-                            // animate(parts[optional]) <br>
-                            new TypeOne("demo-graph-1").build([426,515,140,251,690]).animate(140);
+                            // animate(frames [optional]) <br>
+                            new TypeOne("demo-graph-1").build([426,515,140,251,690]).animate(140).setLabels(["Ab","Mo","Fo","Jo","Ho"]);
                         </code>
                     </p>
                 </div>
@@ -62,7 +62,7 @@
                             // demo-graph-2 = ID of the div <br>
                             new TypeTwo("demo-graph-2").build(505);<br><br>
 
-                            // animate(parts[optional]) <br>
+                            // animate(frames [optional]) <br>
                             new TypeTwo("demo-graph-2").build(505).animate(200);
                         </code>
                     </p>
@@ -83,8 +83,8 @@
                             // demo-graph-3 = ID of the div <br>
                             new TypeThree("demo-graph-3").build(barGraphValues, pieChartValue, polygonValues);<br><br>
 
-                            // animate(parts[optional]) <br>
-                            new TypeThree("demo-graph-3").build(barGraphValues, pieChartValue, polygonValues).animate(20);
+                            // animate(framesForPieChart [optional], framesForOtherTwoCharts [optional]) <br>
+                            new TypeThree("demo-graph-3").build(barGraphValues, pieChartValue, polygonValues).animate(20,20);
                         </code>
                     </p>
                 </div>
@@ -100,8 +100,8 @@
                             // demo-graph-4 = ID of the div <br>
                             new TypeFour("demo-graph-4").build([426,555,740,351,300]);<br><br>
 
-                            // animate(parts[optional]) <br>
-                            new TypeFour("demo-graph-4").build([426,555,740,351,300]).animate(30);
+                            // animate(frames [optional]) <br>
+                            new TypeFour("demo-graph-4").build([426,555,740,351,300]).animate(30).setLabels(["Ab","Mo","Fo","Jo","Ho"]);
                         </code>
                     </p>
                 </div>
@@ -118,7 +118,7 @@
                             // demo-graph-5 = ID of the div <br>
                             new TypeFive("demo-graph-5").build(500, 600);<br><br>
 
-                            // animate(parts[optional]) <br>
+                            // animate(frames [optional]) <br>
                             new TypeFive("demo-graph-5").build(500, 600).animate(30);
                         </code>
                     </p>
@@ -141,14 +141,14 @@
     const barGraphValues = [340,440,660,770,221];
     const pieChartValue = 456;
     const polygonValues = [900,900,900,900,900];
-    const pieChartValue2 = 0;
+    const pieChartValue2 = 800;
     const labels = ["Ab","Mo","Fo","Jo","Ho"];
 
     new TypeOne("demo-graph-1").build(barGraphValues).setLabels(labels).animate();
     new TypeTwo("demo-graph-2").build(pieChartValue).animate(20);
     new TypeThree("demo-graph-3").build(barGraphValues, pieChartValue, polygonValues).animate(20,10);
     new TypeFour("demo-graph-4").build(polygonValues).animate().setLabels(labels);
-    new TypeFive("demo-graph-5").build(pieChartValue, pieChartValue2).animate(30);
+    new TypeFive("demo-graph-5").build(pieChartValue, pieChartValue2).animate(20);
 
 
 </script>

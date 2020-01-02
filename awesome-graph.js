@@ -163,7 +163,7 @@ class TypeOne extends AwesomeGraph{
         this.background = 'rgb(245, 231, 241)';
         this.textSpace = 66;
     }
-    setLabels(array, font = "A") {
+    setLabels(array, font = "Roboto") {
         this.labels = array;
         let width = this.totalAngle / this.segments;
         let angle =  0.5 * Math.PI + width/2 ;
@@ -171,7 +171,7 @@ class TypeOne extends AwesomeGraph{
         for(let i =0; i < this.segments; i++) {
             x = (this.radius + this.textSpace) * Math.cos(angle) + 1.85*this.radius;
             y = (this.radius + this.textSpace) * Math.sin(angle) + 1.85*this.radius + 20;
-            this.context.font = "22px Roboto";
+            this.context.font = "22px "+font;
             this.context.fillText(array[i], x, y);
             angle =  angle + width;
         }
@@ -339,7 +339,7 @@ class TypeFour extends AwesomeGraph{
     insertValues(values, foregroundPolygonColor) {
         this.drawPolygon(foregroundPolygonColor, 5, this.changeValuesToPoints(values))
     }
-    setLabels(array) {
+    setLabels(array, font = "Roboto") {
         this.labels = array;
         let coordinates = this.regularPolygonCoordinates();
         for(let i =0; i < this.segments; i++) {
@@ -348,7 +348,7 @@ class TypeFour extends AwesomeGraph{
             let signY = Math.sin(angle) > 0 ? 1 : -1;
             let x = coordinates[i].x + 15 * signX;
             let y = coordinates[i].y + 15 * signY;
-            this.context.font = "22px Roboto";
+            this.context.font = "22px "+font;
             this.context.fillText(array[i], x, y);
         }
         return this;
