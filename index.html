@@ -142,11 +142,12 @@
     const pieChartValue = 456;
     const polygonValues = [330,330,440,550,660];
     const pieChartValue2 = 0;
+    const labels = ["Ab","Mo","Fo","Jo","Ho"];
 
-    new TypeOne("demo-graph-1").build(barGraphValues).animate();
+    new TypeOne("demo-graph-1").build(barGraphValues).setLabels(labels).animate();
     new TypeTwo("demo-graph-2").build(pieChartValue).animate(20);
     new TypeThree("demo-graph-3").build(barGraphValues, pieChartValue, polygonValues).animate(20,10);
-    new TypeFour("demo-graph-4").build(polygonValues).animate(30);
+    new TypeFour("demo-graph-4").build(polygonValues).setLabels(labels).animate();
     new TypeFive("demo-graph-5").build(pieChartValue, pieChartValue2).animate(30);
 
 

@@ -13,6 +13,7 @@ class AwesomeGraph {
         this.spacer = 0.03;
         this.maxValue = 900;
         this.animationProps = [];
+        this.labels = [];
         this.firstBuild = true;
 
         this.init(id, {segments : segments ? segments : this.segments});
@@ -133,6 +134,7 @@ class AwesomeGraph {
                     window.requestAnimationFrame(animation);
                 }
                 else this.build(props);
+                this.setLabels(this.labels);
             });
         };
         animation();
@@ -140,6 +142,8 @@ class AwesomeGraph {
     setMaxValue(maxValue) {
         this.maxValue = maxValue;
     }
+    setLabels() {}
+    build() {}
     init(id, props) {
         this.segments = props.segments;
         let canvas = document.createElement("canvas");
@@ -154,11 +158,24 @@ class AwesomeGraph {
 class TypeOne extends AwesomeGraph{
     constructor (id, segments) {
         super(id, segments);
+        this.radius = this.radius - 10;
         this.foreground = 'rgb(206, 136, 186)';
         this.background = 'rgb(245, 231, 241)';
+        this.textSpace = 66;
     }
-    setLabels(array) {
-
+    setLabels(array, font = "A") {
+        this.labels = array;
+        let width = this.totalAngle / this.segments;
+        let angle =  0.5 * Math.PI + width/2 ;
+        let x,y;
+        for(let i =0; i < this.segments; i++) {
+            x = (this.radius + this.textSpace) * Math.cos(angle) + 1.85*this.radius;
+            y = (this.radius + this.textSpace) * Math.sin(angle) + 1.85*this.radius + 20;
+            this.context.font = "22px Roboto";
+            this.context.fillText(array[i], x, y);
+            angle =  angle + width;
+        }
+        return this;
     }
     build(array, foregroundColor = this.foreground, backgroundColor = this.background) {
         this.drawSegmentedCircles(backgroundColor);
@@ -302,7 +319,7 @@ class TypeThree extends AwesomeGraph{
 class TypeFour extends AwesomeGraph{
     constructor(id, segments) {
         super(id, segments);
-        this.radius = 120;
+        this.radius = 110;
         this.circleColor = 'rgb(1, 103, 143)';
         this.linesColor = 'rgb(226, 226, 228)';
         this.foregroundPolygonColor = 'rgb(103, 197, 202)';
@@ -341,7 +358,18 @@ class TypeFour extends AwesomeGraph{
         this.drawPolygon(foregroundPolygonColor, 5, this.changeValuesToPoints(values))
     }
     setLabels(array) {
-
+        this.labels = array;
+        let coordinates = this.regularPolygonCoordinates();
+        for(let i =0; i < this.segments; i++) {
+            let angle = (1.5 * Math.PI) + i * ( 2 * Math.PI / this.segments);
+            let signX = Math.cos(angle) > 0 ? 1 : -1;
+            let signY = Math.sin(angle) > 0 ? 1 : -1;
+            let x = coordinates[i].x + 15 * signX;
+            let y = coordinates[i].y + 15 * signY;
+            this.context.font = "22px Roboto";
+            this.context.fillText(array[i], x, y);
+        }
+        return this;
     }
     build(values,
           circlesColor = this.circleColor,
