@@ -138,17 +138,18 @@
 <script src="awesome-graph.js"></script>
 <script>
 
-    const barGraphValues = [340,440,660,770,221];
+    const barGraphValues = [500,400,500,400,600];
+    // const barGraphValues = [0,0,0,0,0];
     const pieChartValue = 456;
-    const polygonValues = [900,900,900,900,900];
+    const polygonValues = [500,400,500,400,600];
     const pieChartValue2 = 800;
     const labels = ["Ab","Mo","Fo","Jo","Ho"];
 
     new TypeOne("demo-graph-1").build(barGraphValues).setLabels(labels).animate();
-    new TypeTwo("demo-graph-2").build(pieChartValue).animate(20);
-    new TypeThree("demo-graph-3").build(barGraphValues, pieChartValue, polygonValues).animate(20,10);
-    new TypeFour("demo-graph-4").build(polygonValues).animate().setLabels(labels);
-    new TypeFive("demo-graph-5").build(pieChartValue, pieChartValue2).animate(20);
+    new TypeTwo("demo-graph-2").build(pieChartValue).animate();
+    new TypeThree("demo-graph-3").build(barGraphValues, pieChartValue, polygonValues).animate();
+    new TypeFour("demo-graph-4").build(polygonValues).setLabels(labels).animate();
+    new TypeFive("demo-graph-5").build(pieChartValue, pieChartValue2).animate();
 
 
 </script>
