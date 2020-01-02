@@ -232,7 +232,7 @@ class TypeThree extends AwesomeGraph{
         this.drawSegmentedCircles(foregroundColor, this.calculate(barGraphValue, this.outerThickness), this.outerRadius, this.outerThickness);
     }
     buildPolygon(polygonValue, foregroundColor = this.foreground) {
-        polygonValue = polygonValue.map( item => 2*item/3);
+        polygonValue = polygonValue.map( item => 4*item/7);
         this.drawPolygon(foregroundColor, 4, this.changeValuesToPoints(polygonValue));
     }
     build(barGraphValue, pieChartValue, polygonValue,
@@ -248,24 +248,6 @@ class TypeThree extends AwesomeGraph{
         this.buildSegmented(barGraphValue, backgroundColor, foregroundColor);
         this.buildPolygon(polygonValue, foregroundColor);
         return this;
-    }
-
-    animatePie(time) {
-        this.context.clearRect(0,0,300,300);
-        let props = this.animationProps[1], i = 0;
-        const animation = () => {
-            i = i + props / time;
-            if (i <= props) {
-                this.buildPie(i);
-                window.requestAnimationFrame(animation);
-            }
-            else {
-                this.buildSegmented(this.animationProps[0]);
-                this.buildPie(this.animationProps[1]);
-                this.buildPolygon(this.animationProps[2]);
-            }
-        };
-        animation();
     }
     animate(pieChartTime = 18, polygonBarGraphTime = 20) {
         let props = this.animationProps;
