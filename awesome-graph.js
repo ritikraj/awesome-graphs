@@ -232,7 +232,7 @@ class TypeThree extends AwesomeGraph{
         this.drawSegmentedCircles(foregroundColor, this.calculate(barGraphValue, this.outerThickness), this.outerRadius, this.outerThickness);
     }
     buildPolygon(polygonValue, foregroundColor = this.foreground) {
-        polygonValue = polygonValue.map( item => 4*item/7);
+        polygonValue = polygonValue.map( item => item/2);
         this.drawPolygon(foregroundColor, 4, this.changeValuesToPoints(polygonValue));
     }
     build(barGraphValue, pieChartValue, polygonValue,
