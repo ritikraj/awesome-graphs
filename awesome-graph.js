@@ -86,15 +86,16 @@ class AwesomeGraph {
 
     drawPolygon(color, width, coordinates) {
         this.context.beginPath();
+        this.context.moveTo(coordinates[0].x, coordinates[0].y);
+        this.context.lineJoin = "round";
         for (let i = 0; i < coordinates.length; i++) {
-            this.context.moveTo(coordinates[i].x, coordinates[i].y);
             if (i === coordinates.length - 1) this.context.lineTo(coordinates[0].x, coordinates[0].y);
             else this.context.lineTo(coordinates[i + 1].x, coordinates[i + 1].y);
-            this.context.strokeStyle = color;
-            this.context.lineWidth = width;
-            this.context.stroke();
         }
         this.context.closePath();
+        this.context.strokeStyle = color;
+        this.context.lineWidth = width;
+        this.context.stroke();
     }
 
     animatePie(time) {

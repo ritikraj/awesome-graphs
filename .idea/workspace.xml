@@ -19,8 +19,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2878">
-              <caret line="161" column="22" selection-start-line="161" selection-start-column="22" selection-end-line="161" selection-end-column="22" />
+            <state relative-caret-position="3439">
+              <caret line="149" column="42" selection-start-line="149" selection-start-column="42" selection-end-line="149" selection-end-column="42" />
             </state>
           </provider>
         </entry>
@@ -28,14 +28,13 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/awesome-graph.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3861">
-              <caret line="440" selection-start-line="440" selection-end-line="526" />
+            <state relative-caret-position="462">
+              <caret line="92" column="30" lean-forward="true" selection-start-line="92" selection-start-column="30" selection-end-line="92" selection-end-column="30" />
               <folding>
                 <element signature="n#!!block;n#calculate#0;n#AwesomeGraph#0" />
                 <element signature="n#!!block;n#changeValuesToPoints#0;n#AwesomeGraph#0" />
                 <element signature="n#!!block;n#drawSegmentedCircles#0;n#AwesomeGraph#0" />
                 <element signature="n#!!block;n#drawFullCircle#0;n#AwesomeGraph#0" />
-                <element signature="n#!!block;n#drawPolygon#0;n#AwesomeGraph#0" />
                 <element signature="n#!!block;n#animatePie#0;n#AwesomeGraph#0" />
                 <element signature="n#!!block;n#animatePolyAndBarGraph#0;n#AwesomeGraph#0" />
                 <element signature="n#!!block;n#setMaxValue#0;n#AwesomeGraph#0" />
@@ -156,12 +155,12 @@
       <updated>1577701353616</updated>
       <workItem from="1577701355075" duration="38606000" />
       <workItem from="1577864768478" duration="8830000" />
-      <workItem from="1575267791035" duration="22117000" />
+      <workItem from="1575267791035" duration="23937000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="69553000" />
+    <option name="totallyTimeSpent" value="71373000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
@@ -192,21 +191,20 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2878">
-          <caret line="161" column="22" selection-start-line="161" selection-start-column="22" selection-end-line="161" selection-end-column="22" />
+        <state relative-caret-position="3439">
+          <caret line="149" column="42" selection-start-line="149" selection-start-column="42" selection-end-line="149" selection-end-column="42" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/awesome-graph.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3861">
-          <caret line="440" selection-start-line="440" selection-end-line="526" />
+        <state relative-caret-position="462">
+          <caret line="92" column="30" lean-forward="true" selection-start-line="92" selection-start-column="30" selection-end-line="92" selection-end-column="30" />
           <folding>
             <element signature="n#!!block;n#calculate#0;n#AwesomeGraph#0" />
             <element signature="n#!!block;n#changeValuesToPoints#0;n#AwesomeGraph#0" />
             <element signature="n#!!block;n#drawSegmentedCircles#0;n#AwesomeGraph#0" />
             <element signature="n#!!block;n#drawFullCircle#0;n#AwesomeGraph#0" />
-            <element signature="n#!!block;n#drawPolygon#0;n#AwesomeGraph#0" />
             <element signature="n#!!block;n#animatePie#0;n#AwesomeGraph#0" />
             <element signature="n#!!block;n#animatePolyAndBarGraph#0;n#AwesomeGraph#0" />
             <element signature="n#!!block;n#setMaxValue#0;n#AwesomeGraph#0" />
