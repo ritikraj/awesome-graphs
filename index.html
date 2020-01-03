@@ -140,10 +140,10 @@
                     <p>
                         <code>
                             // demo-graph-6 = ID of the div <br>
-                            new TypeSix("demo-graph-6").build(80);<br><br>
+                            new TypeSix("demo-graph-6").build(15);<br><br>
 
                             // animate(frames [optional]) <br>
-                            new TypeSix("demo-graph-6").build(80).animate();
+                            new TypeSix("demo-graph-6").build(15).animate();
                         </code>
                     </p>
                 </div>
@@ -162,10 +162,10 @@
 <script src="awesome-graph.js"></script>
 <script>
 
-    const barGraphValues = [500,400,500,400,600,344,344];
-    const pieChartValue = 850;
-    const polygonValues = [500,400,500,900,600];
-    const pieChartValue2 = 800;
+    const barGraphValues = [426,515,140,251,690];
+    const pieChartValue = 500;
+    const polygonValues = [426,555,740,351,300];
+    const pieChartValue2 = 600;
     const labels = ["Ab","Mo","Fo","Jo","Ho"];
 
     function f(val = pieChartValue) {
@@ -186,7 +186,6 @@
 
         const t6 = new TypeSix("demo-graph-6");
         t6.setMultiplier(2).build(15).animate();
-
     }
 
     f();
