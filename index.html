@@ -132,6 +132,24 @@
             </div>
         </div>
 
+        <div class="col-12">
+            <div class="row align-items-center">
+                <div id="demo-graph-6" class="demo-graph col"></div>
+                <div class="col desc">
+                    <h1 class="mb-3">Type Six</h1>
+                    <p>
+                        <code>
+                            // demo-graph-6 = ID of the div <br>
+                            new TypeSix("demo-graph-6").build(80);<br><br>
+
+                            // animate(frames [optional]) <br>
+                            new TypeSix("demo-graph-6").build(80).animate();
+                        </code>
+                    </p>
+                </div>
+            </div>
+        </div>
+
     </div>
 </div>
 
@@ -145,28 +163,33 @@
 <script>
 
     const barGraphValues = [500,400,500,400,600,344,344];
-    // const barGraphValues = [0,0,0,0,0];
     const pieChartValue = 850;
     const polygonValues = [500,400,500,900,600];
     const pieChartValue2 = 800;
     const labels = ["Ab","Mo","Fo","Jo","Ho"];
 
-    const t1 = new TypeOne("demo-graph-1");
-    t1.setMultiplier(2).setMaxValue(900).setSegments(5).build(barGraphValues).setLabels(labels).animate();
+    function f(val = pieChartValue) {
+        const t1 = new TypeOne("demo-graph-1");
+        t1.setMultiplier(2).setMaxValue(900).setSegments(5).build(barGraphValues).setLabels(labels).animate();
 
+        const t2 = new TypeTwo("demo-graph-2");
+        t2.setMultiplier(2).build(val).animate();
 
-    const t2 = new TypeTwo("demo-graph-2");
-    t2.setMultiplier(2).build(pieChartValue).animate();
+        const t3 = new TypeThree("demo-graph-3");
+        t3.setMultiplier(2).build(barGraphValues, pieChartValue, polygonValues).animate();
 
-    const t3 = new TypeThree("demo-graph-3");
-    t3.setMultiplier(2).build(barGraphValues, pieChartValue, polygonValues).animate();
+        const t4 = new TypeFour("demo-graph-4");
+        t4.setMultiplier(2).build(polygonValues).setLabels(labels).animate();
 
-    const t4 = new TypeFour("demo-graph-4");
-    t4.setMultiplier(2).build(polygonValues).setLabels(labels).animate();
+        const t5 = new TypeFive("demo-graph-5");
+        t5.setMultiplier(2).build(pieChartValue, pieChartValue2).animate();
 
-    const t5 = new TypeFive("demo-graph-5");
-    t5.setMultiplier(2).build(pieChartValue, pieChartValue2).animate();
+        const t6 = new TypeSix("demo-graph-6");
+        t6.setMultiplier(2).build(15).animate();
 
+    }
+
+    f();
 
 </script>
 

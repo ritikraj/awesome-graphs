@@ -1,7 +1,7 @@
 class AwesomeGraph {
     constructor(id) {
         this.id = id;
-        this.multiplier = 1;
+        this.multiplier = 2;
         this.canvasWidth = 300 * this.multiplier;
         this.canvasHeight = 300 * this.multiplier;
         this.context = null;
@@ -21,9 +21,6 @@ class AwesomeGraph {
         this.labels = [];
         this.firstBuild = true;
     }
-
-
-
 
     calculate(data, thickness = this.maxArea) {
         if (Array.isArray(data)) {
@@ -48,8 +45,7 @@ class AwesomeGraph {
         return coordinates;
     }
 
-    drawSegmentedCircles(color, array = 0, radius = this.radius, area = this.maxArea) {
-        let startAngle = 0.5 * Math.PI;
+    drawSegmentedCircles(color, array = 0, radius = this.radius, area = this.maxArea,startAngle = 0.5 * Math.PI) {
         for (let i = 0; i < this.segments; i++) {
             let width = this.totalAngle / this.segments;
             let endAngle = startAngle + width - this.spacer;
@@ -65,8 +61,7 @@ class AwesomeGraph {
         }
     }
 
-    drawAThreeQuarterCircle(color, radius = this.radius, value = this.totalAngle, thickness = this.thickness) {
-        let startAngle = 0.5 * Math.PI;
+    drawAThreeQuarterCircle(color, radius = this.radius, value = this.totalAngle, thickness = this.thickness, startAngle = 0.5 * Math.PI) {
         this.context.beginPath();
         this.context.arc(this.center, this.center, radius, startAngle, startAngle + value);
         this.context.strokeStyle = color;
@@ -98,7 +93,7 @@ class AwesomeGraph {
         this.context.stroke();
     }
 
-    animatePie(time) {
+    animatePie(time, type = 0) {
         let props = [], a = [];
         for (let i = 0; i < this.animationProps.length; i++) {
             if (!Array.isArray(this.animationProps[i])) {
@@ -109,7 +104,7 @@ class AwesomeGraph {
         const animation = () => {
             this.context.clearRect(0, 0, this.canvasWidth, this.canvasHeight);
             props.forEach((prop, index) => {
-                a[index] = a[index] + prop / time;
+                a[index] = a[index] + (prop === 0 ? 0.1 : prop) / time;
             });
             let anim = true;
             a.forEach((ai, index) => {
@@ -118,9 +113,14 @@ class AwesomeGraph {
             this.showTotal();
             this.showType();
             if (anim) {
-                this.build(...a);
+                let b = a;
+                if(type === 6) b = a.map(item => item * 100 / this.maxValue);
+                this.build(...b);
                 window.requestAnimationFrame(animation);
-            } else this.build(...props);
+            } else {
+                if(type === 6) props = props.map(item => item * 100 / this.maxValue);
+                this.build(...props);
+            }
         };
         animation();
     }
@@ -561,3 +561,64 @@ class TypeFive extends AwesomeGraph {
         return this;
     }
 }
+
+class TypeSix extends AwesomeGraph {
+    constructor(id) {
+        super(id);
+        this.foreground = 'rgb(123, 146, 180)';
+        this.background = 'rgb(229, 233, 240)';
+        this.value = 0;
+    }
+
+    drawGaps(gaps, startAngle){
+        for (let i = 1; i <= gaps; i++) {
+            this.context.beginPath();
+            let angle = startAngle + i * (this.totalAngle/ (gaps + 1));
+            let a1 = this.center + (this.radius - this.maxArea / 2 - 1) * Math.cos(angle);
+            let b1 = this.center + (this.radius - this.maxArea / 2 - 1) * Math.sin(angle);
+            let a2 = this.center + (this.radius + this.maxArea / 2 + 1) * Math.cos(angle);
+            let b2 = this.center + (this.radius + this.maxArea / 2 + 1) * Math.sin(angle);
+            this.context.moveTo(a1,b1);
+            this.context.lineTo(a2,b2);
+            this.context.strokeStyle = "#FFF";
+            this.context.lineWidth = 2 * this.multiplier;
+            this.context.stroke();
+            this.context.closePath();
+        }
+    }
+
+    build(value, foregroundColor = this.foreground, backgroundColor = this.background) {
+        super.build();
+        this.segments = 3;
+        let uncalculatedValue = value * this.maxValue / 100;
+        this.drawAThreeQuarterCircle(backgroundColor, this.radius, this.totalAngle, this.maxArea, 0.75 * Math.PI);
+        this.drawAThreeQuarterCircle(foregroundColor, this.radius, this.calculate(uncalculatedValue), this.maxArea, 0.75 * Math.PI);
+        if (this.firstBuild) {
+            this.value = value;
+            this.firstBuild = false;
+            this.animationProps.push(uncalculatedValue);
+        }
+        this.drawGaps(this.segments - 1,0.75 * Math.PI);
+        this.showTotal();
+        return this;
+    }
+
+    showTotal() {
+        let fontSizeLg = 36 * this.multiplier;
+        let fontSizeSm = 16 * this.multiplier;
+        this.context.font = "normal normal bold "+ fontSizeLg +"px Roboto";
+        this.context.fillStyle = "#000";
+        this.context.textAlign = "right";
+        this.context.fillText(this.value, this.center + 15 * this.multiplier, this.center + 10 * this.multiplier);
+        this.context.font = "normal normal 300 "+ fontSizeSm +"px Roboto";
+        this.context.textAlign = "left";
+        this.context.fillText("%", this.center + 17 * this.multiplier, this.center + 7 * this.multiplier);
+    }
+
+    animate(time = 15) {
+        this.animatePie(time, 6);
+        return this;
+    }
+}
+
+

@@ -19,8 +19,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3439">
-              <caret line="149" column="42" selection-start-line="149" selection-start-column="42" selection-end-line="149" selection-end-column="42" />
+            <state relative-caret-position="846">
+              <caret line="187" column="36" selection-start-line="187" selection-start-column="36" selection-end-line="187" selection-end-column="36" />
             </state>
           </provider>
         </entry>
@@ -28,14 +28,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/awesome-graph.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="462">
-              <caret line="92" column="30" lean-forward="true" selection-start-line="92" selection-start-column="30" selection-end-line="92" selection-end-column="30" />
+            <state relative-caret-position="469">
+              <caret line="594" column="12" selection-start-line="594" selection-start-column="12" selection-end-line="594" selection-end-column="12" />
               <folding>
-                <element signature="n#!!block;n#calculate#0;n#AwesomeGraph#0" />
                 <element signature="n#!!block;n#changeValuesToPoints#0;n#AwesomeGraph#0" />
-                <element signature="n#!!block;n#drawSegmentedCircles#0;n#AwesomeGraph#0" />
                 <element signature="n#!!block;n#drawFullCircle#0;n#AwesomeGraph#0" />
-                <element signature="n#!!block;n#animatePie#0;n#AwesomeGraph#0" />
                 <element signature="n#!!block;n#animatePolyAndBarGraph#0;n#AwesomeGraph#0" />
                 <element signature="n#!!block;n#setMaxValue#0;n#AwesomeGraph#0" />
                 <element signature="n#!!block;n#setMaxValue#1;n#AwesomeGraph#0" />
@@ -45,11 +42,9 @@
                 <element signature="n#!!block;n#showType#0;n#AwesomeGraph#0" />
                 <element signature="n#!!block;n#showTypeMethod#0;n#AwesomeGraph#0" />
                 <element signature="n#TypeOne#0" />
-                <element signature="n#TypeTwo#0" />
                 <element signature="n#TypeThree#0" />
                 <element signature="n#!!block;n#buildPolygon#0;n#TypeThree#0" />
                 <element signature="n#!!block;n#animate#0;n#TypeThree#0" />
-                <element signature="n#TypeFour#0" />
               </folding>
             </state>
           </provider>
@@ -78,6 +73,7 @@
       <find>construc</find>
       <find>build(</find>
       <find>init</find>
+      <find>console</find>
     </findStrings>
     <replaceStrings>
       <replace>AwesomeGraph</replace>
@@ -155,12 +151,12 @@
       <updated>1577701353616</updated>
       <workItem from="1577701355075" duration="38606000" />
       <workItem from="1577864768478" duration="8830000" />
-      <workItem from="1575267791035" duration="23937000" />
+      <workItem from="1575267791035" duration="33343000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="71373000" />
+    <option name="totallyTimeSpent" value="80779000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
@@ -191,21 +187,18 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3439">
-          <caret line="149" column="42" selection-start-line="149" selection-start-column="42" selection-end-line="149" selection-end-column="42" />
+        <state relative-caret-position="846">
+          <caret line="187" column="36" selection-start-line="187" selection-start-column="36" selection-end-line="187" selection-end-column="36" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/awesome-graph.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="92" column="30" lean-forward="true" selection-start-line="92" selection-start-column="30" selection-end-line="92" selection-end-column="30" />
+        <state relative-caret-position="469">
+          <caret line="594" column="12" selection-start-line="594" selection-start-column="12" selection-end-line="594" selection-end-column="12" />
           <folding>
-            <element signature="n#!!block;n#calculate#0;n#AwesomeGraph#0" />
             <element signature="n#!!block;n#changeValuesToPoints#0;n#AwesomeGraph#0" />
-            <element signature="n#!!block;n#drawSegmentedCircles#0;n#AwesomeGraph#0" />
             <element signature="n#!!block;n#drawFullCircle#0;n#AwesomeGraph#0" />
-            <element signature="n#!!block;n#animatePie#0;n#AwesomeGraph#0" />
             <element signature="n#!!block;n#animatePolyAndBarGraph#0;n#AwesomeGraph#0" />
             <element signature="n#!!block;n#setMaxValue#0;n#AwesomeGraph#0" />
             <element signature="n#!!block;n#setMaxValue#1;n#AwesomeGraph#0" />
@@ -215,11 +208,9 @@
             <element signature="n#!!block;n#showType#0;n#AwesomeGraph#0" />
             <element signature="n#!!block;n#showTypeMethod#0;n#AwesomeGraph#0" />
             <element signature="n#TypeOne#0" />
-            <element signature="n#TypeTwo#0" />
             <element signature="n#TypeThree#0" />
             <element signature="n#!!block;n#buildPolygon#0;n#TypeThree#0" />
             <element signature="n#!!block;n#animate#0;n#TypeThree#0" />
-            <element signature="n#TypeFour#0" />
           </folding>
         </state>
       </provider>
