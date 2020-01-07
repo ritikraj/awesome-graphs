@@ -38,6 +38,8 @@
 
 <div class="container-fluid">
     <h1 class="display-4 py-4 text-center">Awesome Graphs</h1>
+
+<!--    <canvas id="can" width="800" height="800"></canvas>-->
     <div class="row">
         <div class="col-12">
             <div class="row align-items-center">
@@ -177,6 +179,20 @@
 
     const t6 = new TypeSix("demo-graph-6");
     t6.build(15).animate();
+
+
+    // let src = "aq.png";
+    // const img = new Image();
+    // img.crossOrigin = 'Anonymous';
+    // img.onload = function() {
+    //     let canvas = document.getElementById('can');
+    //     let ctx = canvas.getContext('2d');
+    //     let dataURL;
+    //     ctx.drawImage(this, 0, 0, 700, 374);
+    //     dataURL = canvas.toDataURL("image/png");
+    //     console.log(dataURL);
+    // };
+    // img.src = src;
 
 </script>
 
