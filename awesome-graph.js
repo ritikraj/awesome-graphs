@@ -510,7 +510,7 @@ class TypeFive extends AwesomeGraph {
         this.showTotal();
         this.drawAThreeQuarterCircle(backgroundColor);
         this.drawAThreeQuarterCircle(foregroundColor, this.radius, this.calculate(value1));
-        if(value2) {
+        if(value2 !== null) {
             this.drawAThreeQuarterCircle(backgroundColor, this.radius - this.gap);
             this.drawAThreeQuarterCircle(foregroundColor, this.radius - this.gap, this.calculate(value2));
         }
