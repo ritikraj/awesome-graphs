@@ -18,9 +18,9 @@
             padding: 20px;
             background: #fafafa;
             display: block;
+            min-width: 100%;
         }
         .desc {
-            max-width: max-content;
             padding-right: 20px;
         }
         .col-12{
@@ -29,7 +29,7 @@
 
         @media only screen and (max-width: 768px) {
             .demo-graph {
-                zoom: 0.5;
+                zoom: 0.7;
             }
         }
     </style>
@@ -37,125 +37,133 @@
 <body>
 
 <div class="container-fluid">
-    <h1 class="display-4 py-4 text-center">Awesome Graphs</h1>
 
+    <div class="container">
+        <div class="d-flex w-100 py-4 justify-content-between align-items-center flex-column flex-md-row">
+            <h1 class="display-4 my-3 text-center">Awesome Graphs</h1>
+            <a href="https://github.com/ritikraj/awesome-graphs"> Github -> </a>
+        </div>
+    </div>
 <!--    <canvas id="can" width="800" height="800"></canvas>-->
-    <div class="row">
-        <div class="col-12">
-            <div class="row align-items-center">
-                <div id="demo-graph-1" class="demo-graph col"></div>
-                <div class="col desc">
-                    <h1 class="mb-3">Type One</h1>
-                    <p>
-                        <code>
-                            // demo-graph-1 = ID of the div <br>
-                            new TypeOne("demo-graph-1").build([426,515,140,251,690]);<br><br>
 
-                            // animate(frames [optional]) <br>
-                            new TypeOne("demo-graph-1").build([426,515,140,251,690]).animate(140).setLabels(["Ab","Mo","Fo","Jo","Ho"]);
-                        </code>
-                    </p>
+    <div class="container py-5">
+        <div class="row">
+            <div class="col-12">
+                <div class="row align-items-center">
+                    <div id="demo-graph-1" class="demo-graph col"></div>
+                    <div class="col-12 desc">
+                        <h1 class="mb-3">Type One</h1>
+                        <p>
+                            <code>
+                                // demo-graph-1 = ID of the div <br>
+                                new TypeOne("demo-graph-1").build([426,515,140,251,690]);<br><br>
+
+                                // animate(frames [optional]) <br>
+                                new TypeOne("demo-graph-1").build([426,515,140,251,690]).animate(140).setLabels(["Ab","Mo","Fo","Jo","Ho"]);
+                            </code>
+                        </p>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="col-12">
-            <div class="row align-items-center">
-                <div id="demo-graph-2" class="demo-graph col"></div>
-                <div class="col desc">
-                    <h1 class="mb-3">Type Two</h1>
-                    <p>
-                        <code>
-                            // demo-graph-2 = ID of the div <br>
-                            new TypeTwo("demo-graph-2").build(505);<br><br>
+            <div class="col-12">
+                <div class="row align-items-center">
+                    <div id="demo-graph-2" class="demo-graph col"></div>
+                    <div class="col-12 desc">
+                        <h1 class="mb-3">Type Two</h1>
+                        <p>
+                            <code>
+                                // demo-graph-2 = ID of the div <br>
+                                new TypeTwo("demo-graph-2").build(505);<br><br>
 
-                            // animate(frames [optional]) <br>
-                            new TypeTwo("demo-graph-2").build(505).animate(200);
-                        </code>
-                    </p>
+                                // animate(frames [optional]) <br>
+                                new TypeTwo("demo-graph-2").build(505).animate(200);
+                            </code>
+                        </p>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="col-12">
-            <div class="row align-items-center">
-                <div id="demo-graph-31" class="demo-graph col"></div>
-                <div id="demo-graph-32" class="demo-graph col"></div>
-                <div class="col desc">
-                    <h1 class="mb-3">Type Three</h1>
-                    <p>
-                        <code>
-                            const barGraphValues = [426,515,140,251,690];<br>
-                            const pieChartValue = 505;<br>
-                            const polygonValues = [426,555,740,351,300];<br><br>
+            <div class="col-12">
+                <div class="row align-items-center">
+                    <div id="demo-graph-31" class="demo-graph col"></div>
+                    <div id="demo-graph-32" class="demo-graph col"></div>
+                    <div class="col-12 desc">
+                        <h1 class="mb-3">Type Three</h1>
+                        <p>
+                            <code>
+                                const barGraphValues = [426,515,140,251,690];<br>
+                                const pieChartValue = 505;<br>
+                                const polygonValues = [426,555,740,351,300];<br><br>
 
-                            // demo-graph-31, demo-graph-32 = ID of the div <br>
-                            new TypeThree("demo-graph-31").build(barGraphValues, pieChartValue, polygonValues);  // First<br>
-                            new TypeThree("demo-graph-32").build(barGraphValues, pieChartValue, polygonValues, 800);  // Second<br><br>
+                                // demo-graph-31, demo-graph-32 = ID of the div <br>
+                                new TypeThree("demo-graph-31").build(barGraphValues, pieChartValue, polygonValues);  // First<br>
+                                new TypeThree("demo-graph-32").build(barGraphValues, pieChartValue, polygonValues, 800);  // Second<br><br>
 
-                            // animate(framesForPieChart [optional], framesForOtherTwoCharts [optional]) <br>
-                            new TypeThree("demo-graph-31").build(barGraphValues, pieChartValue, polygonValues).animate(20,20); <br>
-                            new TypeThree("demo-graph-32").build(barGraphValues, pieChartValue, polygonValues, 800).animate(20,20);
-                        </code>
-                    </p>
+                                // animate(framesForPieChart [optional], framesForOtherTwoCharts [optional]) <br>
+                                new TypeThree("demo-graph-31").build(barGraphValues, pieChartValue, polygonValues).animate(20,20); <br>
+                                new TypeThree("demo-graph-32").build(barGraphValues, pieChartValue, polygonValues, 800).animate(20,20);
+                            </code>
+                        </p>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="col-12">
-            <div class="row align-items-center">
-                <div id="demo-graph-4" class="demo-graph col"></div>
-                <div class="col desc">
-                    <h1 class="mb-3">Type Four</h1>
-                    <p>
-                        <code>
-                            // demo-graph-4 = ID of the div <br>
-                            new TypeFour("demo-graph-4").build([426,555,740,351,300]);<br><br>
+            <div class="col-12">
+                <div class="row align-items-center">
+                    <div id="demo-graph-4" class="demo-graph col"></div>
+                    <div class="col-12 desc">
+                        <h1 class="mb-3">Type Four</h1>
+                        <p>
+                            <code>
+                                // demo-graph-4 = ID of the div <br>
+                                new TypeFour("demo-graph-4").build([426,555,740,351,300]);<br><br>
 
-                            // animate(frames [optional]) <br>
-                            new TypeFour("demo-graph-4").build([426,555,740,351,300]).animate(30).setLabels(["Ab","Mo","Fo","Jo","Ho"]);
-                        </code>
-                    </p>
+                                // animate(frames [optional]) <br>
+                                new TypeFour("demo-graph-4").build([426,555,740,351,300]).animate(30).setLabels(["Ab","Mo","Fo","Jo","Ho"]);
+                            </code>
+                        </p>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="col-12">
-            <div class="row align-items-center">
-                <div id="demo-graph-51" class="demo-graph col"></div>
-                <div id="demo-graph-52" class="demo-graph col"></div>
-                <div class="col desc">
-                    <h1 class="mb-3">Type Five</h1>
-                    <p>
-                        <code>
-                            // demo-graph-5 = ID of the div <br>
-                            new TypeFive("demo-graph-51").build(500);  // first<br>
-                            new TypeFive("demo-graph-52").build(500, 600);   // second<br><br>
+            <div class="col-12">
+                <div class="row align-items-center">
+                    <div id="demo-graph-51" class="demo-graph col"></div>
+                    <div id="demo-graph-52" class="demo-graph col"></div>
+                    <div class="col-12 desc">
+                        <h1 class="mb-3">Type Five</h1>
+                        <p>
+                            <code>
+                                // demo-graph-5 = ID of the div <br>
+                                new TypeFive("demo-graph-51").build(500);  // first<br>
+                                new TypeFive("demo-graph-52").build(500, 600);   // second<br><br>
 
-                            // animate(frames [optional]) <br>
-                            new TypeFive("demo-graph-5").build(500  ).animate(30); <br>
-                            new TypeFive("demo-graph-5").build(500, 600).animate(30);
-                        </code>
-                    </p>
+                                // animate(frames [optional]) <br>
+                                new TypeFive("demo-graph-5").build(500).animate(30); <br>
+                                new TypeFive("demo-graph-5").build(500, 600).animate(30);
+                            </code>
+                        </p>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="col-12">
-            <div class="row align-items-center">
-                <div id="demo-graph-6" class="demo-graph col"></div>
-                <div class="col desc">
-                    <h1 class="mb-3">Type Six</h1>
-                    <p>
-                        <code>
-                            // demo-graph-6 = ID of the div <br>
-                            new TypeSix("demo-graph-6").build(15);<br><br>
+            <div class="col-12">
+                <div class="row align-items-center">
+                    <div id="demo-graph-6" class="demo-graph col"></div>
+                    <div class="col-12 desc">
+                        <h1 class="mb-3">Type Six</h1>
+                        <p>
+                            <code>
+                                // demo-graph-6 = ID of the div <br>
+                                new TypeSix("demo-graph-6").build(15);<br><br>
 
-                            // animate(frames [optional]) <br>
-                            new TypeSix("demo-graph-6").build(15).animate();
-                        </code>
-                    </p>
+                                // animate(frames [optional]) <br>
+                                new TypeSix("demo-graph-6").build(15).animate();
+                            </code>
+                        </p>
+                    </div>
                 </div>
             </div>
-        </div>
 
+        </div>
     </div>
 </div>
 
@@ -169,26 +177,26 @@
     const labels = ["Ab","Mo","Fo","Jo","Ho"];
 
     const t1 = new TypeOne("demo-graph-1");
-    t1.build(barGraphValues).setLabels(labels).animate();
+    t1.setMultiplier(1.6).build(barGraphValues).setLabels(labels).animate();
 
     const t2 = new TypeTwo("demo-graph-2");
-    t2.build(pieChartValue).animate();
+    t2.setMultiplier(1.6).build(pieChartValue).animate();
 
     const t31 = new TypeThree("demo-graph-31");
-    t31.build(barGraphValues, pieChartValue, polygonValues).animate();
+    t31.setMultiplier(1.6).build(barGraphValues, pieChartValue, polygonValues).animate();
     const t32 = new TypeThree("demo-graph-32");
-    t32.build(barGraphValues, pieChartValue, polygonValues, 800).animate();
+    t32.setMultiplier(1.6).build(barGraphValues, pieChartValue, polygonValues, 800).animate();
 
     const t4 = new TypeFour("demo-graph-4");
-    t4.build(polygonValues).setLabels(labels).animate();
+    t4.setMultiplier(1.6).build(polygonValues).setLabels(labels).animate();
 
     const t51 = new TypeFive("demo-graph-51");
-    t51.build(pieChartValue).animate();
+    t51.setMultiplier(1.6).build(pieChartValue).animate();
     const t52 = new TypeFive("demo-graph-52");
-    t52.build(pieChartValue, pieChartValue).animate();
+    t52.setMultiplier(1.6).build(pieChartValue, pieChartValue).animate();
 
     const t6 = new TypeSix("demo-graph-6");
-    t6.build(15).animate();
+    t6.setMultiplier(1.6).build(15).animate();
 
 
     // let src = "aq.png";
