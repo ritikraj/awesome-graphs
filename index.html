@@ -77,7 +77,8 @@
         </div>
         <div class="col-12">
             <div class="row align-items-center">
-                <div id="demo-graph-3" class="demo-graph col"></div>
+                <div id="demo-graph-31" class="demo-graph col"></div>
+                <div id="demo-graph-32" class="demo-graph col"></div>
                 <div class="col desc">
                     <h1 class="mb-3">Type Three</h1>
                     <p>
@@ -86,11 +87,13 @@
                             const pieChartValue = 505;<br>
                             const polygonValues = [426,555,740,351,300];<br><br>
 
-                            // demo-graph-3 = ID of the div <br>
-                            new TypeThree("demo-graph-3").build(barGraphValues, pieChartValue, polygonValues);<br><br>
+                            // demo-graph-31, demo-graph-32 = ID of the div <br>
+                            new TypeThree("demo-graph-31").build(barGraphValues, pieChartValue, polygonValues);  // First<br>
+                            new TypeThree("demo-graph-32").build(barGraphValues, pieChartValue, polygonValues, 800);  // Second<br><br>
 
                             // animate(framesForPieChart [optional], framesForOtherTwoCharts [optional]) <br>
-                            new TypeThree("demo-graph-3").build(barGraphValues, pieChartValue, polygonValues).animate(20,20);
+                            new TypeThree("demo-graph-31").build(barGraphValues, pieChartValue, polygonValues).animate(20,20); <br>
+                            new TypeThree("demo-graph-32").build(barGraphValues, pieChartValue, polygonValues, 800).animate(20,20);
                         </code>
                     </p>
                 </div>
@@ -116,15 +119,18 @@
 
         <div class="col-12">
             <div class="row align-items-center">
-                <div id="demo-graph-5" class="demo-graph col"></div>
+                <div id="demo-graph-51" class="demo-graph col"></div>
+                <div id="demo-graph-52" class="demo-graph col"></div>
                 <div class="col desc">
                     <h1 class="mb-3">Type Five</h1>
                     <p>
                         <code>
                             // demo-graph-5 = ID of the div <br>
-                            new TypeFive("demo-graph-5").build(500, 600);<br><br>
+                            new TypeFive("demo-graph-51").build(500);  // first<br>
+                            new TypeFive("demo-graph-52").build(500, 600);   // second<br><br>
 
                             // animate(frames [optional]) <br>
+                            new TypeFive("demo-graph-5").build(500  ).animate(30); <br>
                             new TypeFive("demo-graph-5").build(500, 600).animate(30);
                         </code>
                     </p>
@@ -168,14 +174,18 @@
     const t2 = new TypeTwo("demo-graph-2");
     t2.build(pieChartValue).animate();
 
-    const t3 = new TypeThree("demo-graph-3");
-    t3.build(barGraphValues, pieChartValue, polygonValues).animate();
+    const t31 = new TypeThree("demo-graph-31");
+    t31.build(barGraphValues, pieChartValue, polygonValues).animate();
+    const t32 = new TypeThree("demo-graph-32");
+    t32.build(barGraphValues, pieChartValue, polygonValues, 800).animate();
 
     const t4 = new TypeFour("demo-graph-4");
     t4.build(polygonValues).setLabels(labels).animate();
 
-    const t5 = new TypeFive("demo-graph-5");
-    t5.build(pieChartValue, pieChartValue).animate();
+    const t51 = new TypeFive("demo-graph-51");
+    t51.build(pieChartValue).animate();
+    const t52 = new TypeFive("demo-graph-52");
+    t52.build(pieChartValue, pieChartValue).animate();
 
     const t6 = new TypeSix("demo-graph-6");
     t6.build(15).animate();
