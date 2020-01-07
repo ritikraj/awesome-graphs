@@ -21,71 +21,6 @@ class AwesomeGraph {
         this.labels = [];
         this.firstBuild = true;
     }
-    calculate(data, thickness = this.maxArea) {
-        if (Array.isArray(data)) {
-            let newValues = [];
-            for (let i = 0; i < this.segments; i++) {
-                newValues.push(thickness * data[i] / this.maxValue);
-            }
-            return newValues;
-        } else return (data / this.maxValue * this.totalAngle);
-    }
-    changeValuesToPoints(array) {
-        let coordinates = [];
-        let a, b, v, angle;
-        for (let i = 0; i < this.segments; i++) {
-            v = array[i] * this.radius / this.maxValue;
-            angle = (1.5 * Math.PI) + i * (2 * Math.PI / this.segments);
-            a = Math.abs(this.center + v * Math.cos(angle));
-            b = Math.abs(this.center + v * Math.sin(angle));
-            coordinates.push({x: a, y: b});
-        }
-        return coordinates;
-    }
-    drawSegmentedCircles(color, array = 0, radius = this.radius, area = this.maxArea,startAngle = 0.5 * Math.PI) {
-        for (let i = 0; i < this.segments; i++) {
-            let width = this.totalAngle / this.segments;
-            let endAngle = startAngle + width - this.spacer;
-            this.context.beginPath();
-            if (array === 0) this.context.arc(this.center, this.center, radius, startAngle, endAngle);
-            else this.context.arc(this.center, this.center, radius + (array[i] === 0 ? 0.1 : array[i]) / 2 - area / 2, startAngle, endAngle);
-            startAngle = endAngle + this.spacer;
-            this.context.strokeStyle = color;
-            if (array === 0) this.context.lineWidth = area;
-            else this.context.lineWidth = array[i] === 0 ? 0.1 : array[i];
-            this.context.stroke();
-            this.context.closePath();
-        }
-    }
-    drawAThreeQuarterCircle(color, radius = this.radius, value = this.totalAngle, thickness = this.thickness, startAngle = 0.5 * Math.PI) {
-        this.context.beginPath();
-        this.context.arc(this.center, this.center, radius, startAngle, startAngle + value);
-        this.context.strokeStyle = color;
-        this.context.lineWidth = thickness;
-        this.context.stroke();
-        this.context.closePath();
-    }
-    drawFullCircle(radius, strokeColor, strokeWidth) {
-        this.context.beginPath();
-        this.context.arc(this.center, this.center, radius, 0, 2 * Math.PI);
-        this.context.strokeStyle = strokeColor;
-        this.context.lineWidth = strokeWidth;
-        this.context.stroke();
-        this.context.closePath();
-    }
-    drawPolygon(color, width, coordinates) {
-        this.context.beginPath();
-        this.context.moveTo(coordinates[0].x, coordinates[0].y);
-        this.context.lineJoin = "round";
-        for (let i = 0; i < coordinates.length; i++) {
-            if (i === coordinates.length - 1) this.context.lineTo(coordinates[0].x, coordinates[0].y);
-            else this.context.lineTo(coordinates[i + 1].x, coordinates[i + 1].y);
-        }
-        this.context.closePath();
-        this.context.strokeStyle = color;
-        this.context.lineWidth = width;
-        this.context.stroke();
-    }
     animatePie(time, type = 0) {
         let props = [], a = [];
         for (let i = 0; i < this.animationProps.length; i++) {
@@ -151,6 +86,73 @@ class AwesomeGraph {
         this.init(this.id);
         return this;
     }
+    calculate(data, thickness = this.maxArea) {
+        if (Array.isArray(data)) {
+            let newValues = [];
+            for (let i = 0; i < this.segments; i++) {
+                newValues.push(thickness * data[i] / this.maxValue);
+            }
+            return newValues;
+        } else return (data / this.maxValue * this.totalAngle);
+    }
+    changeValuesToPoints(array) {
+        let coordinates = [];
+        let a, b, v, angle;
+        for (let i = 0; i < this.segments; i++) {
+            v = array[i] * this.radius / this.maxValue;
+            angle = (1.5 * Math.PI) + i * (2 * Math.PI / this.segments);
+            a = Math.abs(this.center + v * Math.cos(angle));
+            b = Math.abs(this.center + v * Math.sin(angle));
+            coordinates.push({x: a, y: b});
+        }
+        return coordinates;
+    }
+    drawAThreeQuarterCircle(color, radius = this.radius, value = this.totalAngle, thickness = this.thickness, startAngle = 0.5 * Math.PI) {
+        this.context.beginPath();
+        this.context.arc(this.center, this.center, radius, startAngle, startAngle + value);
+        this.context.strokeStyle = color;
+        this.context.lineWidth = thickness;
+        this.context.stroke();
+        this.context.closePath();
+    }
+    drawFullCircle(radius, strokeColor, strokeWidth) {
+        this.context.beginPath();
+        this.context.arc(this.center, this.center, radius, 0, 2 * Math.PI);
+        this.context.strokeStyle = strokeColor;
+        this.context.lineWidth = strokeWidth;
+        this.context.stroke();
+        this.context.closePath();
+    }
+    drawPolygon(color, width, coordinates) {
+        this.context.beginPath();
+        this.context.moveTo(coordinates[0].x, coordinates[0].y);
+        this.context.lineJoin = "round";
+        for (let i = 0; i < coordinates.length; i++) {
+            if (i === coordinates.length - 1) this.context.lineTo(coordinates[0].x, coordinates[0].y);
+            else this.context.lineTo(coordinates[i + 1].x, coordinates[i + 1].y);
+        }
+        this.context.closePath();
+        this.context.strokeStyle = color;
+        this.context.lineWidth = width;
+        this.context.stroke();
+    }
+    drawSegmentedCircles(color, array = 0, radius = this.radius, area = this.maxArea,startAngle = 0.5 * Math.PI) {
+        for (let i = 0; i < this.segments; i++) {
+            let width = this.totalAngle / this.segments;
+            let endAngle = startAngle + width - this.spacer;
+            this.context.beginPath();
+            if (array === 0) this.context.arc(this.center, this.center, radius, startAngle, endAngle);
+            else this.context.arc(this.center, this.center, radius + (array[i] === 0 ? 0.1 : array[i]) / 2 - area / 2, startAngle, endAngle);
+            startAngle = endAngle + this.spacer;
+            this.context.strokeStyle = color;
+            if (array === 0) this.context.lineWidth = area;
+            else this.context.lineWidth = array[i] === 0 ? 0.1 : array[i];
+            this.context.stroke();
+            this.context.closePath();
+        }
+    }
+    setLabels() {
+    }
     setMaxValue(maxValue) {
         this.maxValue = maxValue;
         return this;
@@ -162,8 +164,6 @@ class AwesomeGraph {
     setSegments(segments) {
         this.segments = segments;
         return this;
-    }
-    setLabels() {
     }
     showTotal() {
     }
@@ -222,7 +222,7 @@ class AwesomeGraph {
         this.center = this.canvasHeight / 2;
         this.radius = 7 * this.center / 12;
         this.maxArea = this.radius / 2;
-        this.thickness = -2 * this.multiplier +2 * this.maxArea / 3;
+        this.thickness = -2 * this.multiplier + 2 * this.maxArea / 3;
         canvas.width = this.canvasWidth;
         canvas.height = this.canvasHeight;
         this.context = canvas.getContext("2d");
@@ -332,9 +332,7 @@ class TypeThree extends AwesomeGraph {
         polygonValue = polygonValue.map(item => item / 2);
         this.drawPolygon(foregroundColor, 3 * this.multiplier, this.changeValuesToPoints(polygonValue));
     }
-    build(barGraphValue, pieChartValue, polygonValue,
-          backgroundColor = this.background,
-          foregroundColor = this.foreground) {
+    build(barGraphValue, pieChartValue, polygonValue, backgroundColor = this.background, foregroundColor = this.foreground) {
         super.build();
         this.setValues();
         if (this.firstBuild) {
@@ -460,11 +458,7 @@ class TypeFour extends AwesomeGraph {
         }
         return this;
     }
-    build(values,
-          circlesColor = this.circleColor,
-          backgroundPolygonColor = this.backgroundPolygonColor,
-          linesColor = this.linesColor,
-          foregroundPolygonColor = this.foregroundPolygonColor) {
+    build(values, circlesColor = this.circleColor, backgroundPolygonColor = this.backgroundPolygonColor, linesColor = this.linesColor, foregroundPolygonColor = this.foregroundPolygonColor) {
 
         super.build();
         this.drawBackground(circlesColor, backgroundPolygonColor, linesColor);
@@ -491,10 +485,7 @@ class TypeFive extends AwesomeGraph {
         this.radius += 20 * this.multiplier;
         this.gap = 35 * this.multiplier;
     }
-    build(value1,
-          value2,
-          backgroundColor = this.backgroundColor,
-          foregroundColor = this.foregroundColor) {
+    build(value1, value2 = null, backgroundColor = this.backgroundColor, foregroundColor = this.foregroundColor) {
         super.build();
         this.setValues();
         if (this.firstBuild) {
@@ -504,9 +495,11 @@ class TypeFive extends AwesomeGraph {
         }
         this.showTotal();
         this.drawAThreeQuarterCircle(backgroundColor);
-        this.drawAThreeQuarterCircle(backgroundColor, this.radius - this.gap);
         this.drawAThreeQuarterCircle(foregroundColor, this.radius, this.calculate(value1));
-        this.drawAThreeQuarterCircle(foregroundColor, this.radius - this.gap, this.calculate(value2));
+        if(value2) {
+            this.drawAThreeQuarterCircle(backgroundColor, this.radius - this.gap);
+            this.drawAThreeQuarterCircle(foregroundColor, this.radius - this.gap, this.calculate(value2));
+        }
         return this;
     }
     showTotal() {
@@ -521,7 +514,7 @@ class TypeFive extends AwesomeGraph {
         img.src = imgdata;
     }
     animate(time = 15) {
-        this.animatePie(time, false);
+        this.animatePie(time);
         return this;
     }
 }

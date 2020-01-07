@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="402062b2-3c3e-417f-bbde-966ea9c19d1a" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ai.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/awesome-graph.js" beforeDir="false" afterPath="$PROJECT_DIR$/awesome-graph.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
@@ -19,8 +21,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1188">
-              <caret line="48" column="17" selection-start-line="48" selection-end-line="49" />
+            <state relative-caret-position="535">
+              <caret line="175" column="26" selection-start-line="175" selection-start-column="26" selection-end-line="175" selection-end-column="26" />
             </state>
           </provider>
         </entry>
@@ -28,18 +30,63 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/awesome-graph.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="436">
-              <caret line="569" column="52" selection-start-line="569" selection-start-column="52" selection-end-line="569" selection-end-column="52" />
+            <state relative-caret-position="492">
+              <caret line="498" selection-start-line="498" selection-end-line="498" />
               <folding>
-                <element signature="n#!!block;n#changeValuesToPoints#0;n#AwesomeGraph#0" />
-                <element signature="n#!!block;n#drawFullCircle#0;n#AwesomeGraph#0" />
+                <element signature="n#!!block;n#constructor#0;n#AwesomeGraph#0" />
+                <element signature="n#!!block;n#animatePie#0;n#AwesomeGraph#0" />
                 <element signature="n#!!block;n#animatePolyAndBarGraph#0;n#AwesomeGraph#0" />
-                <element signature="n#!!block;n#setMaxValue#0;n#AwesomeGraph#0" />
-                <element signature="n#!!block;n#setMaxValue#1;n#AwesomeGraph#0" />
-                <element signature="n#!!block;n#setMultiplier#1;n#AwesomeGraph#0" />
+                <element signature="n#!!block;n#build#0;n#AwesomeGraph#0" />
+                <element signature="n#!!block;n#calculate#0;n#AwesomeGraph#0" />
+                <element signature="n#!!block;n#changeValuesToPoints#0;n#AwesomeGraph#0" />
+                <element signature="n#!!block;n#drawAThreeQuarterCircle#0;n#AwesomeGraph#0" />
+                <element signature="n#!!block;n#drawFullCircle#0;n#AwesomeGraph#0" />
+                <element signature="n#!!block;n#drawPolygon#0;n#AwesomeGraph#0" />
+                <element signature="n#!!block;n#drawSegmentedCircles#0;n#AwesomeGraph#0" />
                 <element signature="n#!!block;n#setLabels#0;n#AwesomeGraph#0" />
+                <element signature="n#!!block;n#setMaxValue#0;n#AwesomeGraph#0" />
+                <element signature="n#!!block;n#setMultiplier#0;n#AwesomeGraph#0" />
+                <element signature="n#!!block;n#setSegments#0;n#AwesomeGraph#0" />
                 <element signature="n#!!block;n#showTotal#0;n#AwesomeGraph#0" />
-                <element signature="n#TypeSix#0" />
+                <element signature="n#!!block;n#showTotalMethod#0;n#AwesomeGraph#0" />
+                <element signature="n#!!block;n#showType#0;n#AwesomeGraph#0" />
+                <element signature="n#!!block;n#showTypeMethod#0;n#AwesomeGraph#0" />
+                <element signature="n#!!block;n#init#0;n#AwesomeGraph#0" />
+                <element signature="n#!!block;n#constructor#0;n#TypeOne#0" />
+                <element signature="n#!!block;n#setLabels#0;n#TypeOne#0" />
+                <element signature="n#!!block;n#build#0;n#TypeOne#0" />
+                <element signature="n#!!block;n#showTotal#0;n#TypeOne#0" />
+                <element signature="n#!!block;n#showType#0;n#TypeOne#0" />
+                <element signature="n#!!block;n#animate#0;n#TypeOne#0" />
+                <element signature="n#!!block;n#constructor#0;n#TypeTwo#0" />
+                <element signature="n#!!block;n#build#0;n#TypeTwo#0" />
+                <element signature="n#!!block;n#showType#0;n#TypeTwo#0" />
+                <element signature="n#!!block;n#showTotal#0;n#TypeTwo#0" />
+                <element signature="n#!!block;n#animate#0;n#TypeTwo#0" />
+                <element signature="n#!!block;n#constructor#0;n#TypeThree#0" />
+                <element signature="n#!!block;n#setValues#0;n#TypeThree#0" />
+                <element signature="n#!!block;n#buildPie#0;n#TypeThree#0" />
+                <element signature="n#!!block;n#buildSegmented#0;n#TypeThree#0" />
+                <element signature="n#!!block;n#buildPolygon#0;n#TypeThree#0" />
+                <element signature="n#!!block;n#build#0;n#TypeThree#0" />
+                <element signature="n#!!block;n#showTotal#0;n#TypeThree#0" />
+                <element signature="n#!!block;n#animate#0;n#TypeThree#0" />
+                <element signature="n#!!block;n#constructor#0;n#TypeFour#0" />
+                <element signature="n#!!block;n#drawLinesFromOrigin#0;n#TypeFour#0" />
+                <element signature="n#!!block;n#regularPolygonCoordinates#0;n#TypeFour#0" />
+                <element signature="n#!!block;n#drawBackground#0;n#TypeFour#0" />
+                <element signature="n#!!block;n#insertValues#0;n#TypeFour#0" />
+                <element signature="n#!!block;n#setLabels#0;n#TypeFour#0" />
+                <element signature="n#!!block;n#build#0;n#TypeFour#0" />
+                <element signature="n#!!block;n#animate#0;n#TypeFour#0" />
+                <element signature="n#!!block;n#showTotal#0;n#TypeFive#0" />
+                <element signature="n#!!block;n#drawCentralImage#0;n#TypeFive#0" />
+                <element signature="n#!!block;n#animate#0;n#TypeFive#0" />
+                <element signature="n#!!block;n#constructor#0;n#TypeSix#0" />
+                <element signature="n#!!block;n#drawGaps#0;n#TypeSix#0" />
+                <element signature="n#!!block;n#build#0;n#TypeSix#0" />
+                <element signature="n#!!block;n#showTotal#0;n#TypeSix#0" />
+                <element signature="n#!!block;n#animate#0;n#TypeSix#0" />
               </folding>
             </state>
           </provider>
@@ -148,18 +195,21 @@
       <updated>1577701353616</updated>
       <workItem from="1577701355075" duration="38606000" />
       <workItem from="1577864768478" duration="8830000" />
-      <workItem from="1575267791035" duration="37680000" />
+      <workItem from="1575267791035" duration="38715000" />
+      <workItem from="1578312217026" duration="3158000" />
+      <workItem from="1578388414164" duration="599000" />
+      <workItem from="1578391699199" duration="258000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="85116000" />
+    <option name="totallyTimeSpent" value="90166000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24973656" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24933967" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -184,25 +234,70 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1188">
-          <caret line="48" column="17" selection-start-line="48" selection-end-line="49" />
+        <state relative-caret-position="535">
+          <caret line="175" column="26" selection-start-line="175" selection-start-column="26" selection-end-line="175" selection-end-column="26" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/awesome-graph.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="436">
-          <caret line="569" column="52" selection-start-line="569" selection-start-column="52" selection-end-line="569" selection-end-column="52" />
+        <state relative-caret-position="492">
+          <caret line="498" selection-start-line="498" selection-end-line="498" />
           <folding>
-            <element signature="n#!!block;n#changeValuesToPoints#0;n#AwesomeGraph#0" />
-            <element signature="n#!!block;n#drawFullCircle#0;n#AwesomeGraph#0" />
+            <element signature="n#!!block;n#constructor#0;n#AwesomeGraph#0" />
+            <element signature="n#!!block;n#animatePie#0;n#AwesomeGraph#0" />
             <element signature="n#!!block;n#animatePolyAndBarGraph#0;n#AwesomeGraph#0" />
-            <element signature="n#!!block;n#setMaxValue#0;n#AwesomeGraph#0" />
-            <element signature="n#!!block;n#setMaxValue#1;n#AwesomeGraph#0" />
-            <element signature="n#!!block;n#setMultiplier#1;n#AwesomeGraph#0" />
+            <element signature="n#!!block;n#build#0;n#AwesomeGraph#0" />
+            <element signature="n#!!block;n#calculate#0;n#AwesomeGraph#0" />
+            <element signature="n#!!block;n#changeValuesToPoints#0;n#AwesomeGraph#0" />
+            <element signature="n#!!block;n#drawAThreeQuarterCircle#0;n#AwesomeGraph#0" />
+            <element signature="n#!!block;n#drawFullCircle#0;n#AwesomeGraph#0" />
+            <element signature="n#!!block;n#drawPolygon#0;n#AwesomeGraph#0" />
+            <element signature="n#!!block;n#drawSegmentedCircles#0;n#AwesomeGraph#0" />
             <element signature="n#!!block;n#setLabels#0;n#AwesomeGraph#0" />
+            <element signature="n#!!block;n#setMaxValue#0;n#AwesomeGraph#0" />
+            <element signature="n#!!block;n#setMultiplier#0;n#AwesomeGraph#0" />
+            <element signature="n#!!block;n#setSegments#0;n#AwesomeGraph#0" />
             <element signature="n#!!block;n#showTotal#0;n#AwesomeGraph#0" />
-            <element signature="n#TypeSix#0" />
+            <element signature="n#!!block;n#showTotalMethod#0;n#AwesomeGraph#0" />
+            <element signature="n#!!block;n#showType#0;n#AwesomeGraph#0" />
+            <element signature="n#!!block;n#showTypeMethod#0;n#AwesomeGraph#0" />
+            <element signature="n#!!block;n#init#0;n#AwesomeGraph#0" />
+            <element signature="n#!!block;n#constructor#0;n#TypeOne#0" />
+            <element signature="n#!!block;n#setLabels#0;n#TypeOne#0" />
+            <element signature="n#!!block;n#build#0;n#TypeOne#0" />
+            <element signature="n#!!block;n#showTotal#0;n#TypeOne#0" />
+            <element signature="n#!!block;n#showType#0;n#TypeOne#0" />
+            <element signature="n#!!block;n#animate#0;n#TypeOne#0" />
+            <element signature="n#!!block;n#constructor#0;n#TypeTwo#0" />
+            <element signature="n#!!block;n#build#0;n#TypeTwo#0" />
+            <element signature="n#!!block;n#showType#0;n#TypeTwo#0" />
+            <element signature="n#!!block;n#showTotal#0;n#TypeTwo#0" />
+            <element signature="n#!!block;n#animate#0;n#TypeTwo#0" />
+            <element signature="n#!!block;n#constructor#0;n#TypeThree#0" />
+            <element signature="n#!!block;n#setValues#0;n#TypeThree#0" />
+            <element signature="n#!!block;n#buildPie#0;n#TypeThree#0" />
+            <element signature="n#!!block;n#buildSegmented#0;n#TypeThree#0" />
+            <element signature="n#!!block;n#buildPolygon#0;n#TypeThree#0" />
+            <element signature="n#!!block;n#build#0;n#TypeThree#0" />
+            <element signature="n#!!block;n#showTotal#0;n#TypeThree#0" />
+            <element signature="n#!!block;n#animate#0;n#TypeThree#0" />
+            <element signature="n#!!block;n#constructor#0;n#TypeFour#0" />
+            <element signature="n#!!block;n#drawLinesFromOrigin#0;n#TypeFour#0" />
+            <element signature="n#!!block;n#regularPolygonCoordinates#0;n#TypeFour#0" />
+            <element signature="n#!!block;n#drawBackground#0;n#TypeFour#0" />
+            <element signature="n#!!block;n#insertValues#0;n#TypeFour#0" />
+            <element signature="n#!!block;n#setLabels#0;n#TypeFour#0" />
+            <element signature="n#!!block;n#build#0;n#TypeFour#0" />
+            <element signature="n#!!block;n#animate#0;n#TypeFour#0" />
+            <element signature="n#!!block;n#showTotal#0;n#TypeFive#0" />
+            <element signature="n#!!block;n#drawCentralImage#0;n#TypeFive#0" />
+            <element signature="n#!!block;n#animate#0;n#TypeFive#0" />
+            <element signature="n#!!block;n#constructor#0;n#TypeSix#0" />
+            <element signature="n#!!block;n#drawGaps#0;n#TypeSix#0" />
+            <element signature="n#!!block;n#build#0;n#TypeSix#0" />
+            <element signature="n#!!block;n#showTotal#0;n#TypeSix#0" />
+            <element signature="n#!!block;n#animate#0;n#TypeSix#0" />
           </folding>
         </state>
       </provider>

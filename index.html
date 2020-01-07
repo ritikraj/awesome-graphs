@@ -5,19 +5,13 @@
     <title>Awesome Graphs</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
     <link href="https://fonts.googleapis.com/css?family=Ma+Shan+Zheng&display=swap" rel="stylesheet">
-
-
-
     <style>
-
         canvas {
             font-family: 'Ma Shan Zheng', cursive;
         }
         .demo-graph {
             max-width: max-content;
-            /*width: 300px;*/
             height: max-content;
         }
         code {
@@ -43,10 +37,7 @@
 <body>
 
 <div class="container-fluid">
-    <h1 class="display-4 py-4 text-center">
-        Awesome Graphs
-    </h1>
-<!--    <img src="ai.png" style="width: 300px" id="img">-->
+    <h1 class="display-4 py-4 text-center">Awesome Graphs</h1>
     <div class="row">
         <div class="col-12">
             <div class="row align-items-center">
@@ -160,12 +151,6 @@
     </div>
 </div>
 
-<!--<div class="demo-graph m-3 float-left" id="demo-graph-1"></div>-->
-<!--<div class="demo-graph m-3 float-left" id="demo-graph-2"></div>-->
-<!--<div class="demo-graph m-3 float-left" id="demo-graph-3"></div>-->
-<!--<div class="demo-graph m-3 float-left" id="demo-graph-4"></div>-->
-<!--<div class="demo-graph m-3 float-left" id="demo-graph-5"></div>-->
-
 <script src="awesome-graph.js"></script>
 <script>
 
@@ -175,27 +160,23 @@
     const pieChartValue2 = 600;
     const labels = ["Ab","Mo","Fo","Jo","Ho"];
 
-    function f(val = pieChartValue) {
-        const t1 = new TypeOne("demo-graph-1");
-        t1.setMultiplier(2).setMaxValue(900).setSegments(5).build(barGraphValues).setLabels(labels).animate();
+    const t1 = new TypeOne("demo-graph-1");
+    t1.build(barGraphValues).setLabels(labels).animate();
 
-        const t2 = new TypeTwo("demo-graph-2");
-        t2.setMultiplier(2).build(val).animate();
+    const t2 = new TypeTwo("demo-graph-2");
+    t2.build(pieChartValue).animate();
 
-        const t3 = new TypeThree("demo-graph-3");
-        t3.setMultiplier(2).build(barGraphValues, pieChartValue, polygonValues).animate();
+    const t3 = new TypeThree("demo-graph-3");
+    t3.build(barGraphValues, pieChartValue, polygonValues).animate();
 
-        const t4 = new TypeFour("demo-graph-4");
-        t4.setMultiplier(2).build(polygonValues).setLabels(labels).animate();
+    const t4 = new TypeFour("demo-graph-4");
+    t4.build(polygonValues).setLabels(labels).animate();
 
-        const t5 = new TypeFive("demo-graph-5");
-        t5.setMultiplier(2).build(pieChartValue, pieChartValue2).animate();
+    const t5 = new TypeFive("demo-graph-5");
+    t5.build(pieChartValue, pieChartValue).animate();
 
-        const t6 = new TypeSix("demo-graph-6");
-        t6.setMultiplier(2).build(15).animate();
-    }
-
-    f();
+    const t6 = new TypeSix("demo-graph-6");
+    t6.build(15).animate();
 
 </script>
 
