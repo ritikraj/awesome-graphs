@@ -170,11 +170,13 @@
                         <h1 class="mb-3">Type Seven</h1>
                         <p>
                             <code>
+                                const text = "Lorem Ipsum dolor sit amet, consectuter adipiscing elit"; <br><br>
+
                                 // demo-graph-6 = ID of the div <br>
-                                new TypeSeven("demo-graph-7").setRange(200).setLimits([-20,20]).build(15, ["Start", "End"]);<br><br>
+                                new TypeSeven("demo-graph-7").setRange(200).setLimits([-20,20]).build(15, [text, text], true);<br><br>
 
                                 // animate(frames [optional]) <br>
-                                new TypeSeven("demo-graph-7").setRange(200).setLimits([-20,20]).build(15, ["Start", "End"]).animate();
+                                new TypeSeven("demo-graph-7").setRange(200).setLimits([-20,20]).build(15, [text, text], true).animate();
                             </code>
                         </p>
                     </div>
@@ -219,7 +221,8 @@
     const t7 = new TypeSeven("demo-graph-7");
     t7.setRange(300);
     t7.setLimits([-20,20]);
-    t7.build(-50, ["Start", "End"], true).animate(15);
+    const text = "Lorem Ipsum dolor sit amet, consectuter adipiscing elit";
+    t7.build(-50, [text, text], true).animate(15);
 
 
     // let src = "aq.png";

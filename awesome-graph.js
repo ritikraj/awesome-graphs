@@ -726,19 +726,19 @@ class TypeSeven extends AwesomeGraph {
     }
 
     showLabels(labels) {
-        let fontSize = 16 * this.multiplier;
+        let fontSize = 12 * this.multiplier;
         this.context.font = "normal normal Bold " + fontSize + "px Roboto";
         this.context.fillStyle = "#000";
         let align = "right";
-        let x = 70 * this.multiplier;
+        let x = 100 * this.multiplier;
         let y = this.center + 50 * this.multiplier;
         for (let i = 0; i < labels.length; i++) {
             if(i === 1) {
-                x = 230 * this.multiplier;
+                x = 200 * this.multiplier;
                 align = "left";
             }
             this.context.textAlign = align;
-            this.context.fillText(labels[i], x, y);
+            this.wrapText(labels[i], x, y, 100 * this.multiplier, 18 * this.multiplier);
         }
         return this;
     }
@@ -760,6 +760,27 @@ class TypeSeven extends AwesomeGraph {
         this.drawNeedle(value, foregroundColor);
         return this;
     }
+
+    wrapText(text, x, y, maxWidth, lineHeight) {
+        const words = text.split(' ');
+        let line = '';
+
+        for(let n = 0; n < words.length; n++) {
+            const testLine = line + words[n] + ' ';
+            const metrics = this.context.measureText(testLine);
+            const testWidth = metrics.width;
+            if (testWidth > maxWidth && n > 0) {
+                this.context.fillText(line, x, y);
+                line = words[n] + ' ';
+                y += lineHeight;
+            }
+            else {
+                line = testLine;
+            }
+        }
+        this.context.fillText(line, x, y);
+    }
+
 
 
     animate(time = 20) {

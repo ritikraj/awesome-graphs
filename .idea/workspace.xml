@@ -19,8 +19,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/awesome-graph.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="634">
-              <caret line="769" column="47" selection-start-line="769" selection-start-column="47" selection-end-line="769" selection-end-column="47" />
+            <state relative-caret-position="63">
+              <caret line="736" column="22" selection-start-line="736" selection-start-column="22" selection-end-line="736" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -28,8 +28,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="337">
-              <caret line="218" column="80" selection-start-line="218" selection-start-column="80" selection-end-line="218" selection-end-column="80" />
+            <state relative-caret-position="568">
+              <caret line="178" column="117" selection-start-line="178" selection-start-column="117" selection-end-line="178" selection-end-column="117" />
             </state>
           </provider>
         </entry>
@@ -145,12 +145,12 @@
       <workItem from="1578388414164" duration="599000" />
       <workItem from="1578391699199" duration="2763000" />
       <workItem from="1578396432987" duration="4106000" />
-      <workItem from="1580199424906" duration="11067000" />
+      <workItem from="1580199424906" duration="15777000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="107844000" />
+    <option name="totallyTimeSpent" value="112554000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
@@ -181,15 +181,15 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="337">
-          <caret line="218" column="80" selection-start-line="218" selection-start-column="80" selection-end-line="218" selection-end-column="80" />
+        <state relative-caret-position="568">
+          <caret line="178" column="117" selection-start-line="178" selection-start-column="117" selection-end-line="178" selection-end-column="117" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/awesome-graph.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="634">
-          <caret line="769" column="47" selection-start-line="769" selection-start-column="47" selection-end-line="769" selection-end-column="47" />
+        <state relative-caret-position="63">
+          <caret line="736" column="22" selection-start-line="736" selection-start-column="22" selection-end-line="736" selection-end-column="22" />
         </state>
       </provider>
     </entry>
