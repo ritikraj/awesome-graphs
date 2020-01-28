@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="402062b2-3c3e-417f-bbde-966ea9c19d1a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/awesome-graph.js" beforeDir="false" afterPath="$PROJECT_DIR$/awesome-graph.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -19,8 +18,140 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/awesome-graph.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="403">
-              <caret line="750" column="33" lean-forward="true" selection-start-line="750" selection-start-column="33" selection-end-line="750" selection-end-column="33" />
+            <state relative-caret-position="198">
+              <caret line="344" column="37" selection-start-line="344" selection-start-column="37" selection-end-line="344" selection-end-column="37" />
+              <folding>
+                <element signature="n#AwesomeGraph#0" />
+                <element signature="n#!!block;n#constructor#0;n#AwesomeGraph#0" />
+                <element signature="n#!!block;n#animatePie#0;n#AwesomeGraph#0" />
+                <element signature="e#807#969#0" />
+                <element signature="e#865#959#0" />
+                <element signature="e#1002#1800#0" />
+                <element signature="e#1126#1213#0" />
+                <element signature="e#1282#1350#0" />
+                <element signature="e#1434#1645#0" />
+                <element signature="e#1651#1790#0" />
+                <element signature="n#!!block;n#animatePolyAndBarGraph#0;n#AwesomeGraph#0" />
+                <element signature="e#1958#2093#0" />
+                <element signature="e#2015#2083#0" />
+                <element signature="e#2126#2915#0" />
+                <element signature="e#2248#2903#0" />
+                <element signature="e#2297#2456#0" />
+                <element signature="e#2533#2609#0" />
+                <element signature="e#2638#2753#0" />
+                <element signature="n#!!block;n#build#0;n#AwesomeGraph#0" />
+                <element signature="n#!!block;n#calculate#0;n#AwesomeGraph#0" />
+                <element signature="e#3094#3304#0" />
+                <element signature="e#3180#3264#0" />
+                <element signature="n#!!block;n#changeValuesToPoints#0;n#AwesomeGraph#0" />
+                <element signature="e#3505#3811#0" />
+                <element signature="n#!!block;n#drawAThreeQuarterCircle#0;n#AwesomeGraph#0" />
+                <element signature="n#!!block;n#drawFullCircle#0;n#AwesomeGraph#0" />
+                <element signature="n#!!block;n#drawPolygon#0;n#AwesomeGraph#0" />
+                <element signature="e#4837#5033#0" />
+                <element signature="n#!!block;n#drawSegmentedCircles#0;n#AwesomeGraph#0" />
+                <element signature="e#5350#6065#0" />
+                <element signature="n#!!block;n#setLabels#0;n#AwesomeGraph#0" />
+                <element signature="n#!!block;n#setMaxValue#0;n#AwesomeGraph#0" />
+                <element signature="n#!!block;n#setMultiplier#0;n#AwesomeGraph#0" />
+                <element signature="n#!!block;n#setSegments#0;n#AwesomeGraph#0" />
+                <element signature="n#!!block;n#showTotal#0;n#AwesomeGraph#0" />
+                <element signature="n#!!block;n#showTotalMethod#0;n#AwesomeGraph#0" />
+                <element signature="e#6644#6768#0" />
+                <element signature="e#6922#7281#0" />
+                <element signature="e#7317#7651#0" />
+                <element signature="n#!!block;n#showType#0;n#AwesomeGraph#0" />
+                <element signature="n#!!block;n#showTypeMethod#0;n#AwesomeGraph#0" />
+                <element signature="n#!!block;n#init#0;n#AwesomeGraph#0" />
+                <element signature="n#TypeOne#0" />
+                <element signature="n#!!block;n#constructor#0;n#TypeOne#0" />
+                <element signature="n#!!block;n#setLabels#0;n#TypeOne#0" />
+                <element signature="e#10160#10627#0" />
+                <element signature="n#!!block;n#build#0;n#TypeOne#0" />
+                <element signature="e#10923#11016#0" />
+                <element signature="n#!!block;n#showTotal#0;n#TypeOne#0" />
+                <element signature="n#!!block;n#showType#0;n#TypeOne#0" />
+                <element signature="n#!!block;n#animate#0;n#TypeOne#0" />
+                <element signature="n#TypeTwo#0" />
+                <element signature="n#!!block;n#constructor#0;n#TypeTwo#0" />
+                <element signature="n#!!block;n#build#0;n#TypeTwo#0" />
+                <element signature="e#11926#12019#0" />
+                <element signature="n#!!block;n#showType#0;n#TypeTwo#0" />
+                <element signature="n#!!block;n#showTotal#0;n#TypeTwo#0" />
+                <element signature="n#!!block;n#animate#0;n#TypeTwo#0" />
+                <element signature="n#TypeThree#0" />
+                <element signature="n#!!block;n#constructor#0;n#TypeThree#0" />
+                <element signature="n#!!block;n#setValues#0;n#TypeThree#0" />
+                <element signature="n#!!block;n#buildPie#0;n#TypeThree#0" />
+                <element signature="n#!!block;n#buildSegmented#0;n#TypeThree#0" />
+                <element signature="n#!!block;n#buildPolygon#0;n#TypeThree#0" />
+                <element signature="n#!!block;n#build#0;n#TypeThree#0" />
+                <element signature="e#13986#14234#0" />
+                <element signature="n#!!block;n#showTotal#0;n#TypeThree#0" />
+                <element signature="n#!!block;n#showLogo#0;n#TypeThree#0" />
+                <element signature="e#79040#79209#0" />
+                <element signature="n#!!block;n#animate#0;n#TypeThree#0" />
+                <element signature="e#79540#81483#0" />
+                <element signature="e#79667#79873#0" />
+                <element signature="e#79932#80024#0" />
+                <element signature="e#80147#80210#0" />
+                <element signature="e#80257#80475#0" />
+                <element signature="e#80538#80630#0" />
+                <element signature="e#80852#81319#0" />
+                <element signature="e#81325#81473#0" />
+                <element signature="n#TypeFour#0" />
+                <element signature="n#!!block;n#constructor#0;n#TypeFour#0" />
+                <element signature="n#!!block;n#drawLinesFromOrigin#0;n#TypeFour#0" />
+                <element signature="e#82003#82285#0" />
+                <element signature="n#!!block;n#regularPolygonCoordinates#0;n#TypeFour#0" />
+                <element signature="e#82451#82741#0" />
+                <element signature="n#!!block;n#drawBackground#0;n#TypeFour#0" />
+                <element signature="e#82884#83003#0" />
+                <element signature="n#!!block;n#insertValues#0;n#TypeFour#0" />
+                <element signature="n#!!block;n#setLabels#0;n#TypeFour#0" />
+                <element signature="e#83610#84420#0" />
+                <element signature="n#!!block;n#build#0;n#TypeFour#0" />
+                <element signature="e#84830#84924#0" />
+                <element signature="n#!!block;n#animate#0;n#TypeFour#0" />
+                <element signature="n#TypeFive#0" />
+                <element signature="n#!!block;n#constructor#0;n#TypeFive#0" />
+                <element signature="n#!!block;n#setValues#0;n#TypeFive#0" />
+                <element signature="n#!!block;n#build#0;n#TypeFive#0" />
+                <element signature="e#85550#85690#0" />
+                <element signature="e#85892#86093#0" />
+                <element signature="n#!!block;n#showTotal#0;n#TypeFive#0" />
+                <element signature="n#!!block;n#drawCentralImage#0;n#TypeFive#0" />
+                <element signature="e#96806#97006#0" />
+                <element signature="n#!!block;n#animate#0;n#TypeFive#0" />
+                <element signature="n#TypeSix#0" />
+                <element signature="n#!!block;n#constructor#0;n#TypeSix#0" />
+                <element signature="n#!!block;n#drawGaps#0;n#TypeSix#0" />
+                <element signature="e#97403#98146#0" />
+                <element signature="n#!!block;n#build#0;n#TypeSix#0" />
+                <element signature="e#98630#98767#0" />
+                <element signature="n#!!block;n#showTotal#0;n#TypeSix#0" />
+                <element signature="n#!!block;n#animate#0;n#TypeSix#0" />
+                <element signature="n#TypeSeven#0" />
+                <element signature="n#!!block;n#constructor#0;n#TypeSix#1" />
+                <element signature="n#!!block;n#setScale#0;n#TypeSeven#0" />
+                <element signature="n#!!block;n#setLimits#0;n#TypeSeven#0" />
+                <element signature="n#!!block;n#drawLimits#0;n#TypeSeven#0" />
+                <element signature="e#99919#99943#0" />
+                <element signature="n#!!block;n#drawScale#0;n#TypeSeven#0" />
+                <element signature="e#100107#100742#0" />
+                <element signature="n#!!block;n#drawNeedle#0;n#TypeSeven#0" />
+                <element signature="n#!!block;n#showLabels#0;n#TypeSeven#0" />
+                <element signature="e#103334#103767#0" />
+                <element signature="e#103360#103424#0" />
+                <element signature="n#!!block;n#build#0;n#TypeSeven#0" />
+                <element signature="e#103997#104161#0" />
+                <element signature="n#!!block;n#wrapText#0;n#TypeSeven#0" />
+                <element signature="e#104611#105019#0" />
+                <element signature="e#104810#104943#0" />
+                <element signature="e#104961#105009#0" />
+                <element signature="n#!!block;n#animate#0;n#TypeSix#1" />
+                <element signature="e#103640#103664#0" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -29,7 +160,7 @@
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="429">
-              <caret line="224" column="49" selection-start-line="224" selection-start-column="49" selection-end-line="224" selection-end-column="49" />
+              <caret line="224" column="62" selection-start-line="224" selection-start-column="62" selection-end-line="224" selection-end-column="62" />
             </state>
           </provider>
         </entry>
@@ -145,12 +276,12 @@
       <workItem from="1578388414164" duration="599000" />
       <workItem from="1578391699199" duration="2763000" />
       <workItem from="1578396432987" duration="4106000" />
-      <workItem from="1580199424906" duration="16512000" />
+      <workItem from="1580199424906" duration="16979000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="113289000" />
+    <option name="totallyTimeSpent" value="113756000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
@@ -182,14 +313,146 @@
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="429">
-          <caret line="224" column="49" selection-start-line="224" selection-start-column="49" selection-end-line="224" selection-end-column="49" />
+          <caret line="224" column="62" selection-start-line="224" selection-start-column="62" selection-end-line="224" selection-end-column="62" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/awesome-graph.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="403">
-          <caret line="750" column="33" lean-forward="true" selection-start-line="750" selection-start-column="33" selection-end-line="750" selection-end-column="33" />
+        <state relative-caret-position="198">
+          <caret line="344" column="37" selection-start-line="344" selection-start-column="37" selection-end-line="344" selection-end-column="37" />
+          <folding>
+            <element signature="n#AwesomeGraph#0" />
+            <element signature="n#!!block;n#constructor#0;n#AwesomeGraph#0" />
+            <element signature="n#!!block;n#animatePie#0;n#AwesomeGraph#0" />
+            <element signature="e#807#969#0" />
+            <element signature="e#865#959#0" />
+            <element signature="e#1002#1800#0" />
+            <element signature="e#1126#1213#0" />
+            <element signature="e#1282#1350#0" />
+            <element signature="e#1434#1645#0" />
+            <element signature="e#1651#1790#0" />
+            <element signature="n#!!block;n#animatePolyAndBarGraph#0;n#AwesomeGraph#0" />
+            <element signature="e#1958#2093#0" />
+            <element signature="e#2015#2083#0" />
+            <element signature="e#2126#2915#0" />
+            <element signature="e#2248#2903#0" />
+            <element signature="e#2297#2456#0" />
+            <element signature="e#2533#2609#0" />
+            <element signature="e#2638#2753#0" />
+            <element signature="n#!!block;n#build#0;n#AwesomeGraph#0" />
+            <element signature="n#!!block;n#calculate#0;n#AwesomeGraph#0" />
+            <element signature="e#3094#3304#0" />
+            <element signature="e#3180#3264#0" />
+            <element signature="n#!!block;n#changeValuesToPoints#0;n#AwesomeGraph#0" />
+            <element signature="e#3505#3811#0" />
+            <element signature="n#!!block;n#drawAThreeQuarterCircle#0;n#AwesomeGraph#0" />
+            <element signature="n#!!block;n#drawFullCircle#0;n#AwesomeGraph#0" />
+            <element signature="n#!!block;n#drawPolygon#0;n#AwesomeGraph#0" />
+            <element signature="e#4837#5033#0" />
+            <element signature="n#!!block;n#drawSegmentedCircles#0;n#AwesomeGraph#0" />
+            <element signature="e#5350#6065#0" />
+            <element signature="n#!!block;n#setLabels#0;n#AwesomeGraph#0" />
+            <element signature="n#!!block;n#setMaxValue#0;n#AwesomeGraph#0" />
+            <element signature="n#!!block;n#setMultiplier#0;n#AwesomeGraph#0" />
+            <element signature="n#!!block;n#setSegments#0;n#AwesomeGraph#0" />
+            <element signature="n#!!block;n#showTotal#0;n#AwesomeGraph#0" />
+            <element signature="n#!!block;n#showTotalMethod#0;n#AwesomeGraph#0" />
+            <element signature="e#6644#6768#0" />
+            <element signature="e#6922#7281#0" />
+            <element signature="e#7317#7651#0" />
+            <element signature="n#!!block;n#showType#0;n#AwesomeGraph#0" />
+            <element signature="n#!!block;n#showTypeMethod#0;n#AwesomeGraph#0" />
+            <element signature="n#!!block;n#init#0;n#AwesomeGraph#0" />
+            <element signature="n#TypeOne#0" />
+            <element signature="n#!!block;n#constructor#0;n#TypeOne#0" />
+            <element signature="n#!!block;n#setLabels#0;n#TypeOne#0" />
+            <element signature="e#10160#10627#0" />
+            <element signature="n#!!block;n#build#0;n#TypeOne#0" />
+            <element signature="e#10923#11016#0" />
+            <element signature="n#!!block;n#showTotal#0;n#TypeOne#0" />
+            <element signature="n#!!block;n#showType#0;n#TypeOne#0" />
+            <element signature="n#!!block;n#animate#0;n#TypeOne#0" />
+            <element signature="n#TypeTwo#0" />
+            <element signature="n#!!block;n#constructor#0;n#TypeTwo#0" />
+            <element signature="n#!!block;n#build#0;n#TypeTwo#0" />
+            <element signature="e#11926#12019#0" />
+            <element signature="n#!!block;n#showType#0;n#TypeTwo#0" />
+            <element signature="n#!!block;n#showTotal#0;n#TypeTwo#0" />
+            <element signature="n#!!block;n#animate#0;n#TypeTwo#0" />
+            <element signature="n#TypeThree#0" />
+            <element signature="n#!!block;n#constructor#0;n#TypeThree#0" />
+            <element signature="n#!!block;n#setValues#0;n#TypeThree#0" />
+            <element signature="n#!!block;n#buildPie#0;n#TypeThree#0" />
+            <element signature="n#!!block;n#buildSegmented#0;n#TypeThree#0" />
+            <element signature="n#!!block;n#buildPolygon#0;n#TypeThree#0" />
+            <element signature="n#!!block;n#build#0;n#TypeThree#0" />
+            <element signature="e#13986#14234#0" />
+            <element signature="n#!!block;n#showTotal#0;n#TypeThree#0" />
+            <element signature="n#!!block;n#showLogo#0;n#TypeThree#0" />
+            <element signature="e#79040#79209#0" />
+            <element signature="n#!!block;n#animate#0;n#TypeThree#0" />
+            <element signature="e#79540#81483#0" />
+            <element signature="e#79667#79873#0" />
+            <element signature="e#79932#80024#0" />
+            <element signature="e#80147#80210#0" />
+            <element signature="e#80257#80475#0" />
+            <element signature="e#80538#80630#0" />
+            <element signature="e#80852#81319#0" />
+            <element signature="e#81325#81473#0" />
+            <element signature="n#TypeFour#0" />
+            <element signature="n#!!block;n#constructor#0;n#TypeFour#0" />
+            <element signature="n#!!block;n#drawLinesFromOrigin#0;n#TypeFour#0" />
+            <element signature="e#82003#82285#0" />
+            <element signature="n#!!block;n#regularPolygonCoordinates#0;n#TypeFour#0" />
+            <element signature="e#82451#82741#0" />
+            <element signature="n#!!block;n#drawBackground#0;n#TypeFour#0" />
+            <element signature="e#82884#83003#0" />
+            <element signature="n#!!block;n#insertValues#0;n#TypeFour#0" />
+            <element signature="n#!!block;n#setLabels#0;n#TypeFour#0" />
+            <element signature="e#83610#84420#0" />
+            <element signature="n#!!block;n#build#0;n#TypeFour#0" />
+            <element signature="e#84830#84924#0" />
+            <element signature="n#!!block;n#animate#0;n#TypeFour#0" />
+            <element signature="n#TypeFive#0" />
+            <element signature="n#!!block;n#constructor#0;n#TypeFive#0" />
+            <element signature="n#!!block;n#setValues#0;n#TypeFive#0" />
+            <element signature="n#!!block;n#build#0;n#TypeFive#0" />
+            <element signature="e#85550#85690#0" />
+            <element signature="e#85892#86093#0" />
+            <element signature="n#!!block;n#showTotal#0;n#TypeFive#0" />
+            <element signature="n#!!block;n#drawCentralImage#0;n#TypeFive#0" />
+            <element signature="e#96806#97006#0" />
+            <element signature="n#!!block;n#animate#0;n#TypeFive#0" />
+            <element signature="n#TypeSix#0" />
+            <element signature="n#!!block;n#constructor#0;n#TypeSix#0" />
+            <element signature="n#!!block;n#drawGaps#0;n#TypeSix#0" />
+            <element signature="e#97403#98146#0" />
+            <element signature="n#!!block;n#build#0;n#TypeSix#0" />
+            <element signature="e#98630#98767#0" />
+            <element signature="n#!!block;n#showTotal#0;n#TypeSix#0" />
+            <element signature="n#!!block;n#animate#0;n#TypeSix#0" />
+            <element signature="n#TypeSeven#0" />
+            <element signature="n#!!block;n#constructor#0;n#TypeSix#1" />
+            <element signature="n#!!block;n#setScale#0;n#TypeSeven#0" />
+            <element signature="n#!!block;n#setLimits#0;n#TypeSeven#0" />
+            <element signature="n#!!block;n#drawLimits#0;n#TypeSeven#0" />
+            <element signature="e#99919#99943#0" />
+            <element signature="n#!!block;n#drawScale#0;n#TypeSeven#0" />
+            <element signature="e#100107#100742#0" />
+            <element signature="n#!!block;n#drawNeedle#0;n#TypeSeven#0" />
+            <element signature="n#!!block;n#showLabels#0;n#TypeSeven#0" />
+            <element signature="e#103334#103767#0" />
+            <element signature="e#103360#103424#0" />
+            <element signature="n#!!block;n#build#0;n#TypeSeven#0" />
+            <element signature="e#103997#104161#0" />
+            <element signature="n#!!block;n#wrapText#0;n#TypeSeven#0" />
+            <element signature="e#104611#105019#0" />
+            <element signature="e#104810#104943#0" />
+            <element signature="e#104961#105009#0" />
+            <element signature="n#!!block;n#animate#0;n#TypeSix#1" />
+            <element signature="e#103640#103664#0" />
+          </folding>
         </state>
       </provider>
     </entry>
