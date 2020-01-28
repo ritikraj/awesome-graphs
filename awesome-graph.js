@@ -748,6 +748,9 @@ class TypeSeven extends AwesomeGraph {
         this.drawAThreeQuarterCircle(backgroundColor, this.radius, Math.PI + 0.5, this.thickness, Math.PI - 0.25);
         if (this.firstBuild) {
             this.labels = labels;
+            this.limits = limits;
+            this.background = backgroundColor;
+            this.foreground = foregroundColor;
             this.showLimits = showLimits;
             this.value = value;
             this.firstBuild = false;
