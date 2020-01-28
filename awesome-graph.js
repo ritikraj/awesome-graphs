@@ -644,20 +644,22 @@ class TypeSeven extends AwesomeGraph {
         super(id);
         this.foreground = '#292929';
         this.background = 'rgb(245, 160, 78)';
-        // this.background = '#F5C116';
         this.limits = [-20, 20];
         this.maxValue = 200;
         this.radius = this.radius + 50 * this.multiplier;
         this.value = null;
         this.startAngle = Math.PI;
         this.totalAngle = Math.PI;
+        this.showLimits =  false;
     }
 
     setRange(range) {
         this.maxValue = range;
+        return this;
     }
     setLimits(limits) {
         this.limits = limits;
+        return this;
     }
 
     drawLimits(limits, color) {
@@ -672,6 +674,7 @@ class TypeSeven extends AwesomeGraph {
             let y = this.center + start * Math.sin(angle) + 6 * this.multiplier;
             this.context.fillText(limits[i], x, y);
         }
+        return this;
     }
 
     drawScale(limits) {
@@ -694,6 +697,7 @@ class TypeSeven extends AwesomeGraph {
             this.context.stroke();
             this.context.closePath();
         }
+        return this;
     }
 
     drawNeedle(value, color, startAngle = this.startAngle + Math.PI/2) {
@@ -718,6 +722,7 @@ class TypeSeven extends AwesomeGraph {
         this.context.lineTo(x + dxy, y + dy);
         this.context.fill();
         this.context.closePath();
+        return this;
     }
 
     showLabels(labels) {
@@ -735,19 +740,22 @@ class TypeSeven extends AwesomeGraph {
             this.context.textAlign = align;
             this.context.fillText(labels[i], x, y);
         }
+        return this;
     }
 
-    build(value, labels = this.labels, limits = this.limits, foregroundColor = this.foreground, backgroundColor = this.background) {
+    build(value, labels = this.labels, showLimits = this.showLimits, limits = this.limits, foregroundColor = this.foreground, backgroundColor = this.background) {
         super.build();
         this.drawAThreeQuarterCircle(backgroundColor, this.radius, Math.PI + 0.5, this.thickness, Math.PI - 0.25);
         if (this.firstBuild) {
             this.labels = labels;
+            this.showLimits = showLimits;
             this.value = value;
             this.firstBuild = false;
-            this.animationProps.push(this.value);
+            this.animationProps = this.value;
+            console.log(this);
         }
         this.drawScale(limits);
-        // this.drawLimits(limits, backgroundColor);
+        if(this.showLimits) this.drawLimits(limits, backgroundColor);
         this.showLabels(labels);
         this.drawNeedle(value, foregroundColor);
         return this;

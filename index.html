@@ -171,10 +171,10 @@
                         <p>
                             <code>
                                 // demo-graph-6 = ID of the div <br>
-                                new TypeSix("demo-graph-6").build(15);<br><br>
+                                new TypeSeven("demo-graph-7").setRange(200).setLimits([-20,20]).build(15, ["Start", "End"]);<br><br>
 
                                 // animate(frames [optional]) <br>
-                                new TypeSix("demo-graph-6").build(15).animate();
+                                new TypeSeven("demo-graph-7").setRange(200).setLimits([-20,20]).build(15, ["Start", "End"]).animate();
                             </code>
                         </p>
                     </div>
@@ -217,9 +217,9 @@
     t6.setMultiplier(1.6).build(15).animate();
 
     const t7 = new TypeSeven("demo-graph-7");
-    // t7.setRange(300);
-    // t7.setLimits([-20,20]);
-    t7.build(-50, ["Start", "End"]).animate(15);
+    t7.setRange(300);
+    t7.setLimits([-20,20]);
+    t7.build(-50, ["Start", "End"], true).animate(15);
 
 
     // let src = "aq.png";
