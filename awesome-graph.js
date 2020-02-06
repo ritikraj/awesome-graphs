@@ -20,6 +20,7 @@ class AwesomeGraph {
         this.animationProps = [];
         this.labels = [];
         this.firstBuild = true;
+        this.customTotal = null;
     }
 
     animatePie(time, type = 0) {
@@ -164,6 +165,11 @@ class AwesomeGraph {
     setLabels() {
     }
 
+    setCustomTotal(customTotal) {
+        this.customTotal = customTotal;
+        return this;
+    }
+
     setMaxValue(maxValue) {
         this.maxValue = maxValue;
         return this;
@@ -187,6 +193,7 @@ class AwesomeGraph {
         let fontSizeLg = 36 * this.multiplier;
         let fontSizeSm = 16 * this.multiplier;
         if (score) average = score;
+        else if(this.customTotal !== null) average = this.customTotal;
         else {
             total.map(item => average = average + item);
             average = parseInt(average / total.length);

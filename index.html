@@ -197,10 +197,10 @@
     const labels = ["Ab","Mo","Fo","Jo","Ho"];
 
     const t1 = new TypeOne("demo-graph-1");
-    t1.setMultiplier(1.6).build(barGraphValues).setLabels(labels).animate();
+    t1.setMultiplier(1.6).build(barGraphValues).setLabels(labels).setCustomTotal(700).animate();
 
     const t2 = new TypeTwo("demo-graph-2");
-    t2.setMultiplier(1.6).build(pieChartValue).animate();
+    t2.setMultiplier(1.6).build(pieChartValue).setCustomTotal(800).animate();
 
     const t31 = new TypeThree("demo-graph-31");
     t31.setMultiplier(1.6).build(barGraphValues, pieChartValue, polygonValues).animate();
