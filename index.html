@@ -9,6 +9,7 @@
     <style>
         canvas {
             font-family: 'Ma Shan Zheng', cursive;
+            background: #f9f9f9;
         }
         .demo-graph {
             max-width: max-content;
@@ -196,16 +197,19 @@
     const pieChartValue2 = 600;
     const labels = ["Ab","Mo","Fo","Jo","Ho"];
 
+    const arr = ["First value","Second Value","Third Value","Fourth Value","fifth Value"];
+    const arr2 = ["Lorem Ipsum","dolor","sit amet","consectuter","lol elit"];
+
     const t1 = new TypeOne("demo-graph-1");
-    t1.setMultiplier(1.6).build(barGraphValues).setLabels(labels).setCustomTotal(700).animate();
+    t1.setMultiplier(1.6).build(barGraphValues).setLabels(labels).setCustomTotal(700).setHover(arr).animate();
 
     const t2 = new TypeTwo("demo-graph-2");
     t2.setMultiplier(1.6).build(pieChartValue).setCustomTotal(800).animate();
 
     const t31 = new TypeThree("demo-graph-31");
-    t31.setMultiplier(1.6).build(barGraphValues, pieChartValue, polygonValues).animate();
+    t31.setMultiplier(1.6).build(barGraphValues, pieChartValue, polygonValues).setHover(arr2).animate();
     const t32 = new TypeThree("demo-graph-32");
-    t32.setMultiplier(1.6).build(barGraphValues, pieChartValue, polygonValues, 800).animate();
+    t32.setMultiplier(1.6).build(barGraphValues, pieChartValue, polygonValues, 800).setHover(arr2).animate();
 
     const t4 = new TypeFour("demo-graph-4");
     t4.setMultiplier(1.6).build(polygonValues).setLabels(labels).animate();

@@ -4,6 +4,7 @@ class AwesomeGraph {
         this.multiplier = 2;
         this.canvasWidth = 300 * this.multiplier;
         this.canvasHeight = 300 * this.multiplier;
+        this.canvas = null;
         this.context = null;
         this.center = this.canvasHeight / 2;
         this.radius = 7 * this.center / 12;
@@ -21,6 +22,20 @@ class AwesomeGraph {
         this.labels = [];
         this.firstBuild = true;
         this.customTotal = null;
+    }
+
+    bodyOffset() {
+        let offset = {left: 0, top: 0};
+        let element = document.getElementById(this.id);
+        do {
+            if (!isNaN(element.offsetLeft)) {
+                offset.left += element.offsetLeft;
+                offset.top += element.offsetTop;
+            }
+        } while (element = element.offsetParent);
+        let dx = window.scrollX;
+        let dy = window.scrollY;
+        return {left: offset.left - dx, top: offset.top - dy};
     }
 
     animatePie(time, type = 0) {
@@ -162,6 +177,67 @@ class AwesomeGraph {
         }
     }
 
+    hover() {    }
+
+    setSegmentedHover(array, radius, area) {
+        let angle, x,y, distance, p,b;
+        angle = x = y = p = b = null;
+        let div = document.createElement("div");
+        div.style.position = "fixed";
+        div.style.zIndex = "100000000";
+        div.style.opacity = "0.8";
+        div.style.backgroundColor = "rgba(0,0,0)";
+        div.style.color = "white";
+        div.style.padding = "10px 20px";
+        div.style.borderRadius = "4px";
+        document.getElementById(this.id).onmousemove = (e) => {
+            x = (e.clientX - this.bodyOffset().left);
+            y = (e.clientY - this.bodyOffset().top) ;
+            distance = Math.sqrt( (x - this.center) * (x - this.center) + (y - this.center) * (y - this.center));
+            if(x < this.center && y < this.center) { //q2
+                b = this.center - x;
+                p = this.center - y;
+                angle = Math.PI + Math.atan(p/b);
+            }
+            else if(x < this.center && y > this.center) { //q3
+                b = this.center - x;
+                p = y - this.center;
+                angle = Math.PI - Math.atan(p/b);
+            }
+            else if(x > this.center && y < this.center) {  //q1
+                b = x - this.center;
+                p = this.center - y;
+                angle = 2 * Math.PI - Math.atan(p/b);
+            }
+            else if(x > this.center && y > this.center) { //q4 - not hoverable
+                angle = 0;
+            }
+            if (distance > radius -  area/2 && distance <= radius +  area/2 && angle !== 0){
+                let width = this.totalAngle / this.segments;
+                for(let i = 0; i< this.segments; i++) {
+                    if(angle > (Math.PI/2 + width * i) && angle < (Math.PI/2 + width * (i+1))) {
+                        // console.log(angle * 57.3,array[i]);
+                        div.remove();
+                        div.innerHTML = array[i];
+                        document.body.append(div);
+                        div.style.top = e.clientY + 10 + "px";
+                        div.style.left = e.clientX + 10 + "px";
+                    }
+                }
+            }
+            else div.remove();
+
+            // y = y > 150 ? y : 150 - y;
+            // x = x > 150 ? x : 150 - x;
+            // console.log(Math.atan(y/x) * 57.2958);
+        };
+        document.getElementById(this.id).onmouseout = () => {
+            div.remove();
+        };
+
+
+        }
+
     setLabels() {
     }
 
@@ -242,19 +318,20 @@ class AwesomeGraph {
     }
 
     init(id) {
-        let canvas = document.createElement("canvas");
+        this.canvas = document.createElement("canvas");
         document.getElementById(id).innerHTML = "";
-        document.getElementById(id).append(canvas);
+        document.getElementById(id).append(this.canvas);
         this.canvasWidth = 300 * this.multiplier;
         this.canvasHeight = 300 * this.multiplier;
         this.center = this.canvasHeight / 2;
         this.radius = 7 * this.center / 12;
         this.maxArea = this.radius / 2;
         this.thickness = -2 * this.multiplier + 2 * this.maxArea / 3;
-        canvas.width = this.canvasWidth;
-        canvas.height = this.canvasHeight;
-        this.context = canvas.getContext("2d");
+        this.canvas.width = this.canvasWidth;
+        this.canvas.height = this.canvasHeight;
+        this.context = this.canvas.getContext("2d");
         this.context.clearRect(0, 0, this.canvasWidth, this.canvasHeight);
+        this.hover();
     }
 }
 
@@ -296,6 +373,11 @@ class TypeOne extends AwesomeGraph {
             this.animationProps.push(array);
         }
         this.showTotal();
+        return this;
+    }
+
+    setHover(data) {
+        this.setSegmentedHover(data, this.radius, this.maxArea);
         return this;
     }
 
@@ -396,6 +478,11 @@ class TypeThree extends AwesomeGraph {
         this.buildPolygon(polygonValue, foregroundColor);
         if (this.score !== null) this.showTotalMethod(0, "bottom", this.score);
         else this.showTotal();
+        return this;
+    }
+
+    setHover(data) {
+        this.setSegmentedHover(data, this.outerRadius + 10 *this.multiplier, this.outerThickness );
         return this;
     }
 
@@ -777,7 +864,6 @@ class TypeSeven extends AwesomeGraph {
             this.value = value;
             this.firstBuild = false;
             this.animationProps = this.value;
-            console.log(this);
         }
         this.drawScale(limits);
         if (this.showLimits) this.drawLimits(limits, backgroundColor);
