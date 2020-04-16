@@ -56,11 +56,13 @@
                         <h1 class="mb-3">Type One</h1>
                         <p>
                             <code>
+                                const arr = ["First value","Second Value","Third Value","Fourth Value","fifth Value"];<br><br>
+
                                 // demo-graph-1 = ID of the div <br>
-                                new TypeOne("demo-graph-1").build([426,515,140,251,690]);<br><br>
+                                new TypeOne("demo-graph-1").build([426,515,140,251,690]).setHover(arr);<br><br>
 
                                 // animate(frames [optional]) <br>
-                                new TypeOne("demo-graph-1").build([426,515,140,251,690]).animate(140).setLabels(["Ab","Mo","Fo","Jo","Ho"]);
+                                new TypeOne("demo-graph-1").build([426,515,140,251,690]).setHover(arr).animate(140).setLabels(["Ab","Mo","Fo","Jo","Ho"]);
                             </code>
                         </p>
                     </div>
@@ -74,10 +76,10 @@
                         <p>
                             <code>
                                 // demo-graph-2 = ID of the div <br>
-                                new TypeTwo("demo-graph-2").build(505);<br><br>
+                                new TypeTwo("demo-graph-2").build(505).setHover("It's a value");<br><br>
 
                                 // animate(frames [optional]) <br>
-                                new TypeTwo("demo-graph-2").build(505).animate(200);
+                                new TypeTwo("demo-graph-2").build(505).setHover("It's a value").animate(200);
                             </code>
                         </p>
                     </div>
@@ -93,15 +95,17 @@
                             <code>
                                 const barGraphValues = [426,515,140,251,690];<br>
                                 const pieChartValue = 505;<br>
-                                const polygonValues = [426,555,740,351,300];<br><br>
+                                const polygonValues = [426,555,740,351,300];<br>
+                                const arr = ["First value","Second Value","Third Value","Fourth Value","fifth Value"];<br>
+                                const arr2 = ["Lorem Ipsum","dolor","sit amet","consectuter","lol elit"];<br><br>
 
                                 // demo-graph-31, demo-graph-32 = ID of the div <br>
-                                new TypeThree("demo-graph-31").build(barGraphValues, pieChartValue, polygonValues);  // First<br>
-                                new TypeThree("demo-graph-32").build(barGraphValues, pieChartValue, polygonValues, 800);  // Second<br><br>
+                                new TypeThree("demo-graph-31").build(barGraphValues, pieChartValue, polygonValues).setHover(arr, "Pie Value", arr2);  // First<br>
+                                new TypeThree("demo-graph-32").build(barGraphValues, pieChartValue, polygonValues, 800).setHover(arr, "Pie Value", arr2);  // Second<br><br>
 
                                 // animate(framesForPieChart [optional], framesForOtherTwoCharts [optional]) <br>
-                                new TypeThree("demo-graph-31").build(barGraphValues, pieChartValue, polygonValues).animate(20,20); <br>
-                                new TypeThree("demo-graph-32").build(barGraphValues, pieChartValue, polygonValues, 800).animate(20,20);
+                                new TypeThree("demo-graph-31").build(barGraphValues, pieChartValue, polygonValues).setHover(arr, "Pie Value", arr2).animate(20,20); <br>
+                                new TypeThree("demo-graph-32").build(barGraphValues, pieChartValue, polygonValues, 800).setHover(arr, "Pie Value", arr2).animate(20,20);
                             </code>
                         </p>
                     </div>
@@ -114,11 +118,13 @@
                         <h1 class="mb-3">Type Four</h1>
                         <p>
                             <code>
+                                const arr = ["Lorem Ipsum","dolor","sit amet","consectuter","lol elit"];<br><br>
+
                                 // demo-graph-4 = ID of the div <br>
-                                new TypeFour("demo-graph-4").build([426,555,740,351,300]);<br><br>
+                                new TypeFour("demo-graph-4").build([426,555,740,351,300]).setHover(arr);<br><br>
 
                                 // animate(frames [optional]) <br>
-                                new TypeFour("demo-graph-4").build([426,555,740,351,300]).animate(30).setLabels(["Ab","Mo","Fo","Jo","Ho"]);
+                                new TypeFour("demo-graph-4").build([426,555,740,351,300]).setHover(arr).animate(30).setLabels(["Ab","Mo","Fo","Jo","Ho"]);
                             </code>
                         </p>
                     </div>

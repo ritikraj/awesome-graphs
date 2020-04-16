@@ -366,14 +366,22 @@ class AwesomeGraph {
     }
 
     tooltip(action, value = null, x = 0, y = 0) {
-        if(action === "show") {
-            this.tooltipDiv.remove();
-            this.tooltipDiv.innerHTML = value;
-            document.body.append(this.tooltipDiv);
-            this.tooltipDiv.style.top = y + 10 + "px";
-            this.tooltipDiv.style.left = x + 10 + "px";
+        let vw = 0;
+        let resize = () => {
+            vw = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+        };
+        resize();
+        window.onresize = resize;
+        if(vw > 992) {
+            if(action === "show") {
+                this.tooltipDiv.remove();
+                this.tooltipDiv.innerHTML = value;
+                document.body.append(this.tooltipDiv);
+                this.tooltipDiv.style.top = y + 10 + "px";
+                this.tooltipDiv.style.left = x + 10 + "px";
+            }
+            else this.tooltipDiv.remove();
         }
-        else this.tooltipDiv.remove();
     }
 }
 
