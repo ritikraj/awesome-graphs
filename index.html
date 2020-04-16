@@ -201,26 +201,26 @@
     const arr2 = ["Lorem Ipsum","dolor","sit amet","consectuter","lol elit"];
 
     const t1 = new TypeOne("demo-graph-1");
-    t1.setMultiplier(1.6).build(barGraphValues).setLabels(labels).setCustomTotal(700).setHover(arr).animate();
+    t1.build(barGraphValues).setLabels(labels).setCustomTotal(700).setHover(arr).animate();
 
     const t2 = new TypeTwo("demo-graph-2");
-    t2.setMultiplier(1.6).build(pieChartValue).setCustomTotal(800).setHover("It's a value").animate();
+    t2.build(pieChartValue).setCustomTotal(800).setHover("It's a value").animate();
 
     const t31 = new TypeThree("demo-graph-31");
-    t31.setMultiplier(1.6).build(barGraphValues, pieChartValue, polygonValues).setHover(arr, "Pie Value", arr2).animate();
+    t31.setMultiplier(2.1).build(barGraphValues, pieChartValue, polygonValues).setHover(arr, "Pie Value", arr2).animate();
     const t32 = new TypeThree("demo-graph-32");
-    t32.setMultiplier(1.6).build(barGraphValues, pieChartValue, polygonValues, 800).setHover(arr, "Pie Value", arr2).animate();
+    t32.setMultiplier(2.1).build(barGraphValues, pieChartValue, polygonValues, 800).setHover(arr, "Pie Value", arr2).animate();
 
     const t4 = new TypeFour("demo-graph-4");
-    t4.setMultiplier(1.6).build(polygonValues).setLabels(labels).animate();
+    t4.setMultiplier(2).build(polygonValues).setLabels(labels).setHover(arr).animate();
 
     const t51 = new TypeFive("demo-graph-51");
-    t51.setMultiplier(1.6).build(pieChartValue).animate();
+    t51.build(pieChartValue).animate();
     const t52 = new TypeFive("demo-graph-52");
-    t52.setMultiplier(1.6).build(pieChartValue, pieChartValue2).animate();
+    t52.build(pieChartValue, pieChartValue2).animate();
 
     const t6 = new TypeSix("demo-graph-6");
-    t6.setMultiplier(1.6).build(15).animate();
+    t6.build(15).animate();
 
     const t7 = new TypeSeven("demo-graph-7");
     t7.setRange(300);

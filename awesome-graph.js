@@ -1,7 +1,7 @@
 class AwesomeGraph {
     constructor(id) {
         this.id = id;
-        this.multiplier = 2;
+        this.multiplier = 1;
         this.canvasWidth = 300 * this.multiplier;
         this.canvasHeight = 300 * this.multiplier;
         this.canvas = null;
@@ -209,7 +209,6 @@ class AwesomeGraph {
         let pointerData = null;
         document.getElementById(this.id).onmousemove = (e) => {
             pointerData = this.findAngleAndDistance(e);
-            console.log("Seg.");
             if (pointerData.distance > radius -  area/2 && pointerData.distance <= radius +  area/2 && pointerData.angle !== 0){
                 let width = this.totalAngle / this.segments;
                 for(let i = 0; i< this.segments; i++) {
@@ -229,17 +228,33 @@ class AwesomeGraph {
         let pointerData = null;
         document.getElementById(this.id).onmousemove = (e) => {
             pointerData = this.findAngleAndDistance(e);
-            console.log("Pie");
             if (pointerData.distance > radius -  area/2 && pointerData.distance <= radius +  area/2 && pointerData.angle !== 0){
-                let width = this.totalAngle / this.segments;
-                for(let i = 0; i< this.segments; i++) {
-                    if(pointerData.angle > (Math.PI/2 + width * i) && pointerData.angle < (Math.PI/2 + width * (i+1))) {
-                        this.tooltip("show", value, e.clientX, e.clientY);
-                    }
-                }
+                this.tooltip("show", value, e.clientX, e.clientY);
             }
             else {
                 this.tooltip("remove");
+            }
+        };
+        document.getElementById(this.id).onmouseout = () => {
+            this.tooltip("remove");
+        };
+    }
+
+    setPolygonHover(array) {
+        let hoverPoints = this.changeValuesToPoints(this.animationProps[0]);
+        let x,y;
+        document.getElementById(this.id).onmousemove = (e) => {
+            x = (e.clientX - this.bodyOffset().left);
+            y = (e.clientY - this.bodyOffset().top);
+            for(let i = 0; i < array.length; i++){
+                if(x < hoverPoints[i].x + 10 * this.multiplier &&
+                    x > hoverPoints[i].x - 10 * this.multiplier &&
+                    y < hoverPoints[i].y + 10 * this.multiplier &&
+                    y > hoverPoints[i].y - 10 * this.multiplier ){
+                    this.tooltip("show", array[i], e.clientX, e.clientY);
+                    break;
+                }
+                else this.tooltip("remove");
             }
         };
         document.getElementById(this.id).onmouseout = () => {
@@ -525,11 +540,24 @@ class TypeThree extends AwesomeGraph {
                 }
             }
             else if (pointerData.distance > this.innerRadius -  this.innerThickness/2 && pointerData.distance <= this.innerRadius +  this.innerThickness/2 && pointerData.angle !== 0){
-                let width = this.totalAngle / this.segments;
-                for(let i = 0; i< this.segments; i++) {
-                    if(pointerData.angle > (Math.PI/2 + width * i) && pointerData.angle < (Math.PI/2 + width * (i+1))) {
-                        this.tooltip("show", pieData, e.clientX, e.clientY);
+                this.tooltip("show", pieData, e.clientX, e.clientY);
+            }
+            else if (pointerData.distance < this.innerRadius) {
+                let values = this.animationProps[2];
+                values = values.map(item => item / 2);
+                let hoverPoints = this.changeValuesToPoints(values);
+                let x,y;
+                x = (e.clientX - this.bodyOffset().left);
+                y = (e.clientY - this.bodyOffset().top);
+                for(let i = 0; i < polygonData.length; i++){
+                    if(x < hoverPoints[i].x + 10 * this.multiplier &&
+                        x > hoverPoints[i].x - 10 * this.multiplier &&
+                        y < hoverPoints[i].y + 10 * this.multiplier &&
+                        y > hoverPoints[i].y - 10 * this.multiplier ){
+                        this.tooltip("show", polygonData[i], e.clientX, e.clientY);
+                        break;
                     }
+                    else this.tooltip("remove");
                 }
             }
             else {
@@ -648,6 +676,11 @@ class TypeFour extends AwesomeGraph {
 
     insertValues(values, foregroundPolygonColor) {
         this.drawPolygon(foregroundPolygonColor, 5 * this.multiplier, this.changeValuesToPoints(values))
+    }
+
+    setHover(array) {
+        this.setPolygonHover(array);
+        return this;
     }
 
     setLabels(array, font = "Roboto") {

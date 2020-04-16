@@ -19,16 +19,19 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/awesome-graph.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="553">
-              <caret line="536" column="13" lean-forward="true" selection-start-line="536" selection-start-column="13" selection-end-line="536" selection-end-column="13" />
+            <state relative-caret-position="295">
+              <caret line="545" column="29" selection-start-line="545" selection-start-column="29" selection-end-line="545" selection-end-column="33" />
               <folding>
                 <element signature="n#!!block;n#animatePie#0;n#AwesomeGraph#0" />
                 <element signature="n#!!block;n#animatePolyAndBarGraph#0;n#AwesomeGraph#0" />
-                <element signature="n#!!block;n#build#0;n#AwesomeGraph#0" />
                 <element signature="n#!!block;n#calculate#0;n#AwesomeGraph#0" />
-                <element signature="n#!!block;n#changeValuesToPoints#0;n#AwesomeGraph#0" />
+                <element signature="n#!!block;n#drawAThreeQuarterCircle#0;n#AwesomeGraph#0" />
                 <element signature="n#!!block;n#drawFullCircle#0;n#AwesomeGraph#0" />
                 <element signature="n#!!block;n#drawPolygon#0;n#AwesomeGraph#0" />
+                <element signature="n#!!block;n#drawSegmentedCircles#0;n#AwesomeGraph#0" />
+                <element signature="n#!!block;n#findAngleAndDistance#0;n#AwesomeGraph#0" />
+                <element signature="n#!!block;n#setSegmentedHover#0;n#AwesomeGraph#0" />
+                <element signature="n#!!block;n#setPieHover#0;n#AwesomeGraph#0" />
                 <element signature="n#!!block;n#setLabels#0;n#AwesomeGraph#0" />
                 <element signature="n#!!block;n#setMaxValue#0;n#AwesomeGraph#0" />
                 <element signature="n#!!block;n#setMultiplier#0;n#AwesomeGraph#0" />
@@ -37,6 +40,7 @@
                 <element signature="n#!!block;n#showTotalMethod#0;n#AwesomeGraph#0" />
                 <element signature="n#!!block;n#showType#0;n#AwesomeGraph#0" />
                 <element signature="n#!!block;n#showTypeMethod#0;n#AwesomeGraph#0" />
+                <element signature="n#!!block;n#init#0;n#AwesomeGraph#0" />
                 <element signature="n#TypeOne#0" />
                 <element signature="n#!!block;n#setLabels#0;n#TypeOne#0" />
                 <element signature="n#!!block;n#showTotal#0;n#TypeOne#0" />
@@ -51,18 +55,14 @@
                 <element signature="n#!!block;n#setValues#0;n#TypeThree#0" />
                 <element signature="n#!!block;n#buildPie#0;n#TypeThree#0" />
                 <element signature="n#!!block;n#buildPolygon#0;n#TypeThree#0" />
-                <element signature="n#!!block;n#build#0;n#TypeThree#0" />
                 <element signature="n#!!block;n#showTotal#0;n#TypeThree#0" />
                 <element signature="n#!!block;n#showLogo#0;n#TypeThree#0" />
                 <element signature="n#!!block;n#animate#0;n#TypeThree#0" />
-                <element signature="n#TypeFour#0" />
                 <element signature="n#!!block;n#constructor#0;n#TypeFour#0" />
                 <element signature="n#!!block;n#drawLinesFromOrigin#0;n#TypeFour#0" />
                 <element signature="n#!!block;n#regularPolygonCoordinates#0;n#TypeFour#0" />
                 <element signature="n#!!block;n#drawBackground#0;n#TypeFour#0" />
-                <element signature="n#!!block;n#insertValues#0;n#TypeFour#0" />
                 <element signature="n#!!block;n#setLabels#0;n#TypeFour#0" />
-                <element signature="n#!!block;n#build#0;n#TypeFour#0" />
                 <element signature="n#!!block;n#animate#0;n#TypeFour#0" />
                 <element signature="n#TypeFive#0" />
                 <element signature="n#!!block;n#constructor#0;n#TypeFive#0" />
@@ -95,8 +95,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="700">
-              <caret line="211" column="115" selection-start-line="211" selection-start-column="115" selection-end-line="211" selection-end-column="115" />
+            <state relative-caret-position="436">
+              <caret line="214" column="22" selection-start-line="214" selection-start-column="22" selection-end-line="214" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -129,6 +129,7 @@
       <find>col desc</find>
       <find>op</find>
       <find>this.div</find>
+      <find>.setMultiplier(1.6)</find>
     </findStrings>
     <replaceStrings>
       <replace>AwesomeGraph</replace>
@@ -219,12 +220,12 @@
       <workItem from="1580996519648" duration="1070000" />
       <workItem from="1582796393409" duration="1198000" />
       <workItem from="1586944207703" duration="4241000" />
-      <workItem from="1587018432076" duration="9459000" />
+      <workItem from="1587018432076" duration="11230000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="130393000" />
+    <option name="totallyTimeSpent" value="132164000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
@@ -255,23 +256,26 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="700">
-          <caret line="211" column="115" selection-start-line="211" selection-start-column="115" selection-end-line="211" selection-end-column="115" />
+        <state relative-caret-position="436">
+          <caret line="214" column="22" selection-start-line="214" selection-start-column="22" selection-end-line="214" selection-end-column="22" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/awesome-graph.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="553">
-          <caret line="536" column="13" lean-forward="true" selection-start-line="536" selection-start-column="13" selection-end-line="536" selection-end-column="13" />
+        <state relative-caret-position="295">
+          <caret line="545" column="29" selection-start-line="545" selection-start-column="29" selection-end-line="545" selection-end-column="33" />
           <folding>
             <element signature="n#!!block;n#animatePie#0;n#AwesomeGraph#0" />
             <element signature="n#!!block;n#animatePolyAndBarGraph#0;n#AwesomeGraph#0" />
-            <element signature="n#!!block;n#build#0;n#AwesomeGraph#0" />
             <element signature="n#!!block;n#calculate#0;n#AwesomeGraph#0" />
-            <element signature="n#!!block;n#changeValuesToPoints#0;n#AwesomeGraph#0" />
+            <element signature="n#!!block;n#drawAThreeQuarterCircle#0;n#AwesomeGraph#0" />
             <element signature="n#!!block;n#drawFullCircle#0;n#AwesomeGraph#0" />
             <element signature="n#!!block;n#drawPolygon#0;n#AwesomeGraph#0" />
+            <element signature="n#!!block;n#drawSegmentedCircles#0;n#AwesomeGraph#0" />
+            <element signature="n#!!block;n#findAngleAndDistance#0;n#AwesomeGraph#0" />
+            <element signature="n#!!block;n#setSegmentedHover#0;n#AwesomeGraph#0" />
+            <element signature="n#!!block;n#setPieHover#0;n#AwesomeGraph#0" />
             <element signature="n#!!block;n#setLabels#0;n#AwesomeGraph#0" />
             <element signature="n#!!block;n#setMaxValue#0;n#AwesomeGraph#0" />
             <element signature="n#!!block;n#setMultiplier#0;n#AwesomeGraph#0" />
@@ -280,6 +284,7 @@
             <element signature="n#!!block;n#showTotalMethod#0;n#AwesomeGraph#0" />
             <element signature="n#!!block;n#showType#0;n#AwesomeGraph#0" />
             <element signature="n#!!block;n#showTypeMethod#0;n#AwesomeGraph#0" />
+            <element signature="n#!!block;n#init#0;n#AwesomeGraph#0" />
             <element signature="n#TypeOne#0" />
             <element signature="n#!!block;n#setLabels#0;n#TypeOne#0" />
             <element signature="n#!!block;n#showTotal#0;n#TypeOne#0" />
@@ -294,18 +299,14 @@
             <element signature="n#!!block;n#setValues#0;n#TypeThree#0" />
             <element signature="n#!!block;n#buildPie#0;n#TypeThree#0" />
             <element signature="n#!!block;n#buildPolygon#0;n#TypeThree#0" />
-            <element signature="n#!!block;n#build#0;n#TypeThree#0" />
             <element signature="n#!!block;n#showTotal#0;n#TypeThree#0" />
             <element signature="n#!!block;n#showLogo#0;n#TypeThree#0" />
             <element signature="n#!!block;n#animate#0;n#TypeThree#0" />
-            <element signature="n#TypeFour#0" />
             <element signature="n#!!block;n#constructor#0;n#TypeFour#0" />
             <element signature="n#!!block;n#drawLinesFromOrigin#0;n#TypeFour#0" />
             <element signature="n#!!block;n#regularPolygonCoordinates#0;n#TypeFour#0" />
             <element signature="n#!!block;n#drawBackground#0;n#TypeFour#0" />
-            <element signature="n#!!block;n#insertValues#0;n#TypeFour#0" />
             <element signature="n#!!block;n#setLabels#0;n#TypeFour#0" />
-            <element signature="n#!!block;n#build#0;n#TypeFour#0" />
             <element signature="n#!!block;n#animate#0;n#TypeFour#0" />
             <element signature="n#TypeFive#0" />
             <element signature="n#!!block;n#constructor#0;n#TypeFive#0" />
