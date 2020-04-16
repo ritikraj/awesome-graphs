@@ -204,12 +204,12 @@
     t1.setMultiplier(1.6).build(barGraphValues).setLabels(labels).setCustomTotal(700).setHover(arr).animate();
 
     const t2 = new TypeTwo("demo-graph-2");
-    t2.setMultiplier(1.6).build(pieChartValue).setCustomTotal(800).animate();
+    t2.setMultiplier(1.6).build(pieChartValue).setCustomTotal(800).setHover("It's a value").animate();
 
     const t31 = new TypeThree("demo-graph-31");
-    t31.setMultiplier(1.6).build(barGraphValues, pieChartValue, polygonValues).setHover(arr2).animate();
+    t31.setMultiplier(1.6).build(barGraphValues, pieChartValue, polygonValues).setHover(arr, "Pie Value", arr2).animate();
     const t32 = new TypeThree("demo-graph-32");
-    t32.setMultiplier(1.6).build(barGraphValues, pieChartValue, polygonValues, 800).setHover(arr2).animate();
+    t32.setMultiplier(1.6).build(barGraphValues, pieChartValue, polygonValues, 800).setHover(arr, "Pie Value", arr2).animate();
 
     const t4 = new TypeFour("demo-graph-4");
     t4.setMultiplier(1.6).build(polygonValues).setLabels(labels).animate();

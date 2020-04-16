@@ -22,6 +22,7 @@ class AwesomeGraph {
         this.labels = [];
         this.firstBuild = true;
         this.customTotal = null;
+        this.tooltipDiv = null;
     }
 
     bodyOffset() {
@@ -177,66 +178,74 @@ class AwesomeGraph {
         }
     }
 
-    hover() {    }
+    findAngleAndDistance(e) {
+        let angle, x,y, distance, p,b;
+        angle = p = b = null;
+        x = (e.clientX - this.bodyOffset().left);
+        y = (e.clientY - this.bodyOffset().top) ;
+        distance = Math.sqrt( (x - this.center) * (x - this.center) + (y - this.center) * (y - this.center));
+        if(x < this.center && y < this.center) { //q2
+            b = this.center - x;
+            p = this.center - y;
+            angle = Math.PI + Math.atan(p/b);
+        }
+        else if(x < this.center && y > this.center) { //q3
+            b = this.center - x;
+            p = y - this.center;
+            angle = Math.PI - Math.atan(p/b);
+        }
+        else if(x > this.center && y < this.center) {  //q1
+            b = x - this.center;
+            p = this.center - y;
+            angle = 2 * Math.PI - Math.atan(p/b);
+        }
+        else if(x > this.center && y > this.center) { //q4 - not hoverable
+            angle = 0;
+        }
+        return {angle: angle, distance:distance};
+    }
 
     setSegmentedHover(array, radius, area) {
-        let angle, x,y, distance, p,b;
-        angle = x = y = p = b = null;
-        let div = document.createElement("div");
-        div.style.position = "fixed";
-        div.style.zIndex = "100000000";
-        div.style.opacity = "0.8";
-        div.style.backgroundColor = "rgba(0,0,0)";
-        div.style.color = "white";
-        div.style.padding = "10px 20px";
-        div.style.borderRadius = "4px";
+        let pointerData = null;
         document.getElementById(this.id).onmousemove = (e) => {
-            x = (e.clientX - this.bodyOffset().left);
-            y = (e.clientY - this.bodyOffset().top) ;
-            distance = Math.sqrt( (x - this.center) * (x - this.center) + (y - this.center) * (y - this.center));
-            if(x < this.center && y < this.center) { //q2
-                b = this.center - x;
-                p = this.center - y;
-                angle = Math.PI + Math.atan(p/b);
-            }
-            else if(x < this.center && y > this.center) { //q3
-                b = this.center - x;
-                p = y - this.center;
-                angle = Math.PI - Math.atan(p/b);
-            }
-            else if(x > this.center && y < this.center) {  //q1
-                b = x - this.center;
-                p = this.center - y;
-                angle = 2 * Math.PI - Math.atan(p/b);
-            }
-            else if(x > this.center && y > this.center) { //q4 - not hoverable
-                angle = 0;
-            }
-            if (distance > radius -  area/2 && distance <= radius +  area/2 && angle !== 0){
+            pointerData = this.findAngleAndDistance(e);
+            console.log("Seg.");
+            if (pointerData.distance > radius -  area/2 && pointerData.distance <= radius +  area/2 && pointerData.angle !== 0){
                 let width = this.totalAngle / this.segments;
                 for(let i = 0; i< this.segments; i++) {
-                    if(angle > (Math.PI/2 + width * i) && angle < (Math.PI/2 + width * (i+1))) {
-                        // console.log(angle * 57.3,array[i]);
-                        div.remove();
-                        div.innerHTML = array[i];
-                        document.body.append(div);
-                        div.style.top = e.clientY + 10 + "px";
-                        div.style.left = e.clientX + 10 + "px";
+                    if(pointerData.angle > (Math.PI/2 + width * i) && pointerData.angle < (Math.PI/2 + width * (i+1))) {
+                        this.tooltip("show", array[i], e.clientX, e.clientY);
                     }
                 }
             }
-            else div.remove();
-
-            // y = y > 150 ? y : 150 - y;
-            // x = x > 150 ? x : 150 - x;
-            // console.log(Math.atan(y/x) * 57.2958);
+            else this.tooltip("remove");
         };
         document.getElementById(this.id).onmouseout = () => {
-            div.remove();
+            this.tooltip("remove");
         };
+    }
 
-
-        }
+    setPieHover(value, radius, area) {
+        let pointerData = null;
+        document.getElementById(this.id).onmousemove = (e) => {
+            pointerData = this.findAngleAndDistance(e);
+            console.log("Pie");
+            if (pointerData.distance > radius -  area/2 && pointerData.distance <= radius +  area/2 && pointerData.angle !== 0){
+                let width = this.totalAngle / this.segments;
+                for(let i = 0; i< this.segments; i++) {
+                    if(pointerData.angle > (Math.PI/2 + width * i) && pointerData.angle < (Math.PI/2 + width * (i+1))) {
+                        this.tooltip("show", value, e.clientX, e.clientY);
+                    }
+                }
+            }
+            else {
+                this.tooltip("remove");
+            }
+        };
+        document.getElementById(this.id).onmouseout = () => {
+            this.tooltip("remove");
+        };
+    }
 
     setLabels() {
     }
@@ -331,7 +340,25 @@ class AwesomeGraph {
         this.canvas.height = this.canvasHeight;
         this.context = this.canvas.getContext("2d");
         this.context.clearRect(0, 0, this.canvasWidth, this.canvasHeight);
-        this.hover();
+        this.tooltipDiv = document.createElement("div");
+        this.tooltipDiv.style.position = "fixed";
+        this.tooltipDiv.style.zIndex = "100000000";
+        this.tooltipDiv.style.opacity = "0.8";
+        this.tooltipDiv.style.backgroundColor = "rgba(0,0,0)";
+        this.tooltipDiv.style.color = "white";
+        this.tooltipDiv.style.padding = "10px 20px";
+        this.tooltipDiv.style.borderRadius = "4px";
+    }
+
+    tooltip(action, value = null, x = 0, y = 0) {
+        if(action === "show") {
+            this.tooltipDiv.remove();
+            this.tooltipDiv.innerHTML = value;
+            document.body.append(this.tooltipDiv);
+            this.tooltipDiv.style.top = y + 10 + "px";
+            this.tooltipDiv.style.left = x + 10 + "px";
+        }
+        else this.tooltipDiv.remove();
     }
 }
 
@@ -417,6 +444,10 @@ class TypeTwo extends AwesomeGraph {
         return this;
     }
 
+    setHover(value) {
+        this.setPieHover(value, this.radius, this.maxArea);
+        return this;
+    }
     showType() {
         this.showTypeMethod("E");
     }
@@ -481,8 +512,33 @@ class TypeThree extends AwesomeGraph {
         return this;
     }
 
-    setHover(data) {
-        this.setSegmentedHover(data, this.outerRadius + 10 *this.multiplier, this.outerThickness );
+    setHover(barData, pieData, polygonData) {
+        let pointerData = null;
+        document.getElementById(this.id).onmousemove = (e) => {
+            pointerData = this.findAngleAndDistance(e);
+            if (pointerData.distance > this.outerRadius -  this.outerThickness/2 && pointerData.distance <= this.outerRadius +  this.outerThickness/2 && pointerData.angle !== 0){
+                let width = this.totalAngle / this.segments;
+                for(let i = 0; i< this.segments; i++) {
+                    if(pointerData.angle > (Math.PI/2 + width * i) && pointerData.angle < (Math.PI/2 + width * (i+1))) {
+                        this.tooltip("show", barData[i], e.clientX, e.clientY);
+                    }
+                }
+            }
+            else if (pointerData.distance > this.innerRadius -  this.innerThickness/2 && pointerData.distance <= this.innerRadius +  this.innerThickness/2 && pointerData.angle !== 0){
+                let width = this.totalAngle / this.segments;
+                for(let i = 0; i< this.segments; i++) {
+                    if(pointerData.angle > (Math.PI/2 + width * i) && pointerData.angle < (Math.PI/2 + width * (i+1))) {
+                        this.tooltip("show", pieData, e.clientX, e.clientY);
+                    }
+                }
+            }
+            else {
+                this.tooltip("remove");
+            }
+        };
+        document.getElementById(this.id).onmouseout = () => {
+            this.tooltip("remove");
+        };
         return this;
     }
 
