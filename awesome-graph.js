@@ -463,6 +463,7 @@ class TypeTwo extends AwesomeGraph {
         this.setPieHover(value, this.radius, this.maxArea);
         return this;
     }
+
     showType() {
         this.showTypeMethod("E");
     }
@@ -758,6 +759,26 @@ class TypeFive extends AwesomeGraph {
 
     showTotal() {
         this.drawCentralImage()
+    }
+
+    setHover(innerValue, outerValue) {
+        let pointerData = null;
+        document.getElementById(this.id).onmousemove = (e) => {
+            pointerData = this.findAngleAndDistance(e);
+            if (pointerData.distance > this.radius -  this.maxArea/2 && pointerData.distance <= this.radius +  this.maxArea/2 && pointerData.angle !== 0){
+                this.tooltip("show", outerValue, e.clientX, e.clientY);
+            }
+            else if (pointerData.distance > this.radius - this.gap -  this.maxArea/2 && pointerData.distance <= this.radius - this.gap +  this.maxArea/2 && pointerData.angle !== 0){
+                this.tooltip("show", innerValue, e.clientX, e.clientY);
+            }
+            else {
+                this.tooltip("remove");
+            }
+        };
+        document.getElementById(this.id).onmouseout = () => {
+            this.tooltip("remove");
+        };
+        return this;
     }
 
     drawCentralImage() {

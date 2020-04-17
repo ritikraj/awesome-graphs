@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="402062b2-3c3e-417f-bbde-966ea9c19d1a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/awesome-graph.js" beforeDir="false" afterPath="$PROJECT_DIR$/awesome-graph.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -18,8 +20,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/awesome-graph.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="191">
-              <caret line="374" column="19" selection-start-line="374" selection-start-column="19" selection-end-line="374" selection-end-column="19" />
+            <state relative-caret-position="270">
+              <caret line="763" column="35" selection-start-line="763" selection-start-column="25" selection-end-line="763" selection-end-column="35" />
               <folding>
                 <element signature="n#!!block;n#animatePie#0;n#AwesomeGraph#0" />
                 <element signature="n#!!block;n#animatePolyAndBarGraph#0;n#AwesomeGraph#0" />
@@ -30,7 +32,6 @@
                 <element signature="n#!!block;n#drawSegmentedCircles#0;n#AwesomeGraph#0" />
                 <element signature="n#!!block;n#findAngleAndDistance#0;n#AwesomeGraph#0" />
                 <element signature="n#!!block;n#setSegmentedHover#0;n#AwesomeGraph#0" />
-                <element signature="n#!!block;n#setPieHover#0;n#AwesomeGraph#0" />
                 <element signature="n#!!block;n#setLabels#0;n#AwesomeGraph#0" />
                 <element signature="n#!!block;n#setMaxValue#0;n#AwesomeGraph#0" />
                 <element signature="n#!!block;n#setMultiplier#0;n#AwesomeGraph#0" />
@@ -45,24 +46,24 @@
                 <element signature="n#!!block;n#showTotal#0;n#TypeOne#0" />
                 <element signature="n#!!block;n#showType#0;n#TypeOne#0" />
                 <element signature="n#!!block;n#animate#0;n#TypeOne#0" />
-                <element signature="n#TypeTwo#0" />
                 <element signature="n#!!block;n#constructor#0;n#TypeTwo#0" />
                 <element signature="n#!!block;n#build#0;n#TypeTwo#0" />
                 <element signature="n#!!block;n#showType#0;n#TypeTwo#0" />
                 <element signature="n#!!block;n#showTotal#0;n#TypeTwo#0" />
                 <element signature="n#!!block;n#animate#0;n#TypeTwo#0" />
+                <element signature="n#TypeThree#0" />
                 <element signature="n#!!block;n#setValues#0;n#TypeThree#0" />
                 <element signature="n#!!block;n#buildPie#0;n#TypeThree#0" />
                 <element signature="n#!!block;n#showTotal#0;n#TypeThree#0" />
                 <element signature="n#!!block;n#showLogo#0;n#TypeThree#0" />
                 <element signature="n#!!block;n#animate#0;n#TypeThree#0" />
+                <element signature="n#TypeFour#0" />
                 <element signature="n#!!block;n#constructor#0;n#TypeFour#0" />
                 <element signature="n#!!block;n#drawLinesFromOrigin#0;n#TypeFour#0" />
                 <element signature="n#!!block;n#regularPolygonCoordinates#0;n#TypeFour#0" />
                 <element signature="n#!!block;n#drawBackground#0;n#TypeFour#0" />
                 <element signature="n#!!block;n#setLabels#0;n#TypeFour#0" />
                 <element signature="n#!!block;n#animate#0;n#TypeFour#0" />
-                <element signature="n#TypeFive#0" />
                 <element signature="n#!!block;n#constructor#0;n#TypeFive#0" />
                 <element signature="n#!!block;n#setValues#0;n#TypeFive#0" />
                 <element signature="n#!!block;n#build#0;n#TypeFive#0" />
@@ -93,8 +94,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="733">
-              <caret line="81" column="95" selection-start-line="81" selection-start-column="95" selection-end-line="81" selection-end-column="95" />
+            <state relative-caret-position="535">
+              <caret line="147" column="115" selection-start-line="147" selection-start-column="115" selection-end-line="147" selection-end-column="115" />
             </state>
           </provider>
         </entry>
@@ -145,8 +146,8 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/piebargraph.js" />
-        <option value="$PROJECT_DIR$/awesome-graph.js" />
         <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/awesome-graph.js" />
       </list>
     </option>
   </component>
@@ -162,6 +163,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -173,7 +175,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -219,14 +220,16 @@
       <workItem from="1582796393409" duration="1198000" />
       <workItem from="1586944207703" duration="4241000" />
       <workItem from="1587018432076" duration="14048000" />
+      <workItem from="1587106254607" duration="1282000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="134982000" />
+    <option name="totallyTimeSpent" value="136264000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24933967" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -240,7 +243,7 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32917964" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="9" visible="true" weight="0.32943678" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.32943678" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -253,15 +256,15 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="733">
-          <caret line="81" column="95" selection-start-line="81" selection-start-column="95" selection-end-line="81" selection-end-column="95" />
+        <state relative-caret-position="535">
+          <caret line="147" column="115" selection-start-line="147" selection-start-column="115" selection-end-line="147" selection-end-column="115" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/awesome-graph.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="191">
-          <caret line="374" column="19" selection-start-line="374" selection-start-column="19" selection-end-line="374" selection-end-column="19" />
+        <state relative-caret-position="270">
+          <caret line="763" column="35" selection-start-line="763" selection-start-column="25" selection-end-line="763" selection-end-column="35" />
           <folding>
             <element signature="n#!!block;n#animatePie#0;n#AwesomeGraph#0" />
             <element signature="n#!!block;n#animatePolyAndBarGraph#0;n#AwesomeGraph#0" />
@@ -272,7 +275,6 @@
             <element signature="n#!!block;n#drawSegmentedCircles#0;n#AwesomeGraph#0" />
             <element signature="n#!!block;n#findAngleAndDistance#0;n#AwesomeGraph#0" />
             <element signature="n#!!block;n#setSegmentedHover#0;n#AwesomeGraph#0" />
-            <element signature="n#!!block;n#setPieHover#0;n#AwesomeGraph#0" />
             <element signature="n#!!block;n#setLabels#0;n#AwesomeGraph#0" />
             <element signature="n#!!block;n#setMaxValue#0;n#AwesomeGraph#0" />
             <element signature="n#!!block;n#setMultiplier#0;n#AwesomeGraph#0" />
@@ -287,24 +289,24 @@
             <element signature="n#!!block;n#showTotal#0;n#TypeOne#0" />
             <element signature="n#!!block;n#showType#0;n#TypeOne#0" />
             <element signature="n#!!block;n#animate#0;n#TypeOne#0" />
-            <element signature="n#TypeTwo#0" />
             <element signature="n#!!block;n#constructor#0;n#TypeTwo#0" />
             <element signature="n#!!block;n#build#0;n#TypeTwo#0" />
             <element signature="n#!!block;n#showType#0;n#TypeTwo#0" />
             <element signature="n#!!block;n#showTotal#0;n#TypeTwo#0" />
             <element signature="n#!!block;n#animate#0;n#TypeTwo#0" />
+            <element signature="n#TypeThree#0" />
             <element signature="n#!!block;n#setValues#0;n#TypeThree#0" />
             <element signature="n#!!block;n#buildPie#0;n#TypeThree#0" />
             <element signature="n#!!block;n#showTotal#0;n#TypeThree#0" />
             <element signature="n#!!block;n#showLogo#0;n#TypeThree#0" />
             <element signature="n#!!block;n#animate#0;n#TypeThree#0" />
+            <element signature="n#TypeFour#0" />
             <element signature="n#!!block;n#constructor#0;n#TypeFour#0" />
             <element signature="n#!!block;n#drawLinesFromOrigin#0;n#TypeFour#0" />
             <element signature="n#!!block;n#regularPolygonCoordinates#0;n#TypeFour#0" />
             <element signature="n#!!block;n#drawBackground#0;n#TypeFour#0" />
             <element signature="n#!!block;n#setLabels#0;n#TypeFour#0" />
             <element signature="n#!!block;n#animate#0;n#TypeFour#0" />
-            <element signature="n#TypeFive#0" />
             <element signature="n#!!block;n#constructor#0;n#TypeFive#0" />
             <element signature="n#!!block;n#setValues#0;n#TypeFive#0" />
             <element signature="n#!!block;n#build#0;n#TypeFive#0" />
