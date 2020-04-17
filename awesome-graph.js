@@ -761,7 +761,7 @@ class TypeFive extends AwesomeGraph {
         this.drawCentralImage()
     }
 
-    setHover(innerValue, outerValue) {
+    setHover(outerValue, innerValue = null) {
         let pointerData = null;
         document.getElementById(this.id).onmousemove = (e) => {
             pointerData = this.findAngleAndDistance(e);
@@ -769,6 +769,7 @@ class TypeFive extends AwesomeGraph {
                 this.tooltip("show", outerValue, e.clientX, e.clientY);
             }
             else if (pointerData.distance > this.radius - this.gap -  this.maxArea/2 && pointerData.distance <= this.radius - this.gap +  this.maxArea/2 && pointerData.angle !== 0){
+                if (this.animationProps[1] !== null)
                 this.tooltip("show", innerValue, e.clientX, e.clientY);
             }
             else {

@@ -140,12 +140,12 @@
                         <p>
                             <code>
                                 // demo-graph-5 = ID of the div <br>
-                                new TypeFive("demo-graph-51").build(500).setHover("Inner Value", "Outer Value");  // first<br>
-                                new TypeFive("demo-graph-52").build(500, 600).setHover("Inner Value", "Outer Value");   // second<br><br>
+                                new TypeFive("demo-graph-51").build(500).setHover("Outer Value");  // first<br>
+                                new TypeFive("demo-graph-52").build(500, 600).setHover("Outer Value", "Inner Value");   // second<br><br>
 
                                 // animate(frames [optional]) <br>
-                                new TypeFive("demo-graph-5").build(500).setHover("Inner Value", "Outer Value").animate(30); <br>
-                                new TypeFive("demo-graph-5").build(500, 600).setHover("Inner Value", "Outer Value").animate(30);
+                                new TypeFive("demo-graph-5").build(500).setHover("Outer Value").animate(30); <br>
+                                new TypeFive("demo-graph-5").build(500, 600).setHover("Outer Value", "Inner Value").animate(30);
                             </code>
                         </p>
                     </div>
@@ -221,9 +221,9 @@
     t4.setMultiplier(2).build(polygonValues).setLabels(labels).setHover(arr).animate();
 
     const t51 = new TypeFive("demo-graph-51");
-    t51.build(pieChartValue).setHover("Inner Value", "Outer Value").animate();
+    t51.build(pieChartValue).setHover("Outer Value").animate();
     const t52 = new TypeFive("demo-graph-52");
-    t52.build(pieChartValue, pieChartValue2).setHover("Inner Value", "Outer Value").animate();
+    t52.build(pieChartValue, pieChartValue2).setHover("Outer Value", "Inner Value").animate();
 
     const t6 = new TypeSix("demo-graph-6");
     t6.build(15).animate();
