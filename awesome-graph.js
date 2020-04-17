@@ -26,17 +26,9 @@ class AwesomeGraph {
     }
 
     bodyOffset() {
-        let offset = {left: 0, top: 0};
         let element = document.getElementById(this.id);
-        do {
-            if (!isNaN(element.offsetLeft)) {
-                offset.left += element.offsetLeft;
-                offset.top += element.offsetTop;
-            }
-        } while (element = element.offsetParent);
-        let dx = window.scrollX;
-        let dy = window.scrollY;
-        return {left: offset.left - dx, top: offset.top - dy};
+        const container = element.getBoundingClientRect();
+        return {left:container.left, top: container.top };
     }
 
     animatePie(time, type = 0) {
