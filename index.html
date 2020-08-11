@@ -48,6 +48,20 @@
             <h1 class="display-4 my-3 text-center">Awesome Graphs</h1>
             <a href="https://github.com/ritikraj/awesome-graphs"> Github -> </a>
         </div>
+
+        <div class="w-100 my-3">
+            <div class="alert alert-success" style="font-size: 24px">
+                the way to chain the functions: <br>
+                1. set() functions <br>
+                2. build() function <br>
+                3. buildChanged() functions (optional) <br>
+                4. animate() function (optional) <br>
+            </div>
+
+            <div class="alert alert-danger">
+                <b>NOTE: </b>animate() won't work with buildChanged() functions
+            </div>
+        </div>
     </div>
 <!--    <canvas id="can" width="800" height="800"></canvas>-->
 
@@ -91,10 +105,16 @@
                         <p>
                             <code>
                                 // demo-graph-2 = ID of the div <br>
-                                new TypeTwo("demo-graph-2").build(505).setHover("It's a value");<br><br>
-
-                                // animate(frames [optional]) <br>
-                                new TypeTwo("demo-graph-2").build(505).setHover("It's a value").animate(200);
+                                // pieChartValue = 500 <br>
+                                // changed = Value when input number is changed (default here is 500)<br>
+                                // difference = changed - pieChartValue; <br><br>
+                                new TypeTwo("demo-graph-2") <br>
+                                &emsp; .setCustomTotal(changed) <br>
+                                &emsp; .setChangedLabel(difference) <br>
+                                &emsp; .setHover("It's a value") &emsp; // set() functions <br>
+                                &emsp; .build(pieChartValue) <br>
+                                &emsp; .buildChanged(changed) <br>
+                                &emsp; .animate();
                             </code>
                         </p>
                     </div>
@@ -228,12 +248,12 @@
     t2.build(pieChartValue).setCustomTotal(pieChartValue).setHover("It's a value").animate();
 
     const t31 = new TypeThree("demo-graph-31");
-    t31.setMultiplier(2.1).build(barGraphValues, pieChartValue, polygonValues).setHover(arr, "Pie Value", arr2).animate();
+    t31.setMultiplier(1.2).build(barGraphValues, pieChartValue, polygonValues).setHover(arr, "Pie Value", arr2).animate();
     const t32 = new TypeThree("demo-graph-32");
-    t32.setMultiplier(2.1).build(barGraphValues, pieChartValue, polygonValues, 800).setHover(arr, "Pie Value", arr2).animate();
+    t32.setMultiplier(1.2).build(barGraphValues, pieChartValue, polygonValues, 800).setHover(arr, "Pie Value", arr2).animate();
 
     const t4 = new TypeFour("demo-graph-4");
-    t4.setMultiplier(2).build(polygonValues).setLabels(labels).setHover(arr).animate();
+    t4.setMultiplier(1.2).build(polygonValues).setLabels(labels).setHover(arr).animate();
 
     const t51 = new TypeFive("demo-graph-51");
     t51.build(pieChartValue).setHover("Outer Value").animate();
@@ -268,9 +288,9 @@
     }
 
     function fn2(changed) {
-        let difference = parseInt(changed) - pieChartValue;
+        let difference = changed - pieChartValue;
         t2
-            .setCustomTotal(changed, pieChartValue)
+            .setCustomTotal(changed)
             .setChangedLabel(difference)
             .setHover("It's a value")
             .build(pieChartValue)
