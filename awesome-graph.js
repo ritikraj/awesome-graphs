@@ -283,11 +283,11 @@ class AwesomeGraph {
         let fontSize = 24 * this.multiplier;
         let x = this.canvasWidth - 50 * this.multiplier;
         let y = this.canvasHeight - 50 * this.multiplier;
-        this.context.font = fontSize + "px " + "Roboto";
+        this.context.font = "normal normal bold " + fontSize + "px " + "Roboto, sans-serif";
         this.context.textAlign = "right";
         this.context.fillStyle = this.changedTextColor;
         let sign = "";
-        if(this.changedTextColor === this.dangerColor) sign = "-";
+        if(this.changedTextColor === this.dangerColor) sign = "";
         else if(this.changedTextColor === this.successColor) sign = "+";
         else this.changedLabel = "";
         this.context.fillText(sign+this.changedLabel, x, y);
