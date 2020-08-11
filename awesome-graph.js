@@ -281,7 +281,6 @@ class AwesomeGraph {
     setChangedLabel(value = null) {
         if(value !== null) this.changedLabel = value;
         let fontSize = 24 * this.multiplier;
-        console.log(value);
         let x = this.canvasWidth - 50 * this.multiplier;
         let y = this.canvasHeight - 50 * this.multiplier;
         this.context.font = fontSize + "px " + "Roboto";
@@ -297,7 +296,6 @@ class AwesomeGraph {
 
     setCustomTotal(customTotal, previousValue = null) {
         if(previousValue !== null) {
-            console.log("Color and val:" , customTotal - previousValue);
             this.changedTextColor = (previousValue >= customTotal) ? ( (previousValue - customTotal === 0) ? this.textColor : this.dangerColor) : this.successColor;
         }
         this.customTotal = customTotal;
