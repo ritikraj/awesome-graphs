@@ -12,6 +12,15 @@ class AwesomeGraph {
         this.foreground = "";
         this.background = "";
 
+        this.dangerColor = "#F26262";
+        this.successColor = "#a9ca67";
+
+        this.textColor = "#000000";
+        this.changedTextColor = "#000000";
+
+        this.changes = false;
+        this.changedLabel = "";
+
         this.segments = 5;
         this.totalAngle = 1.5 * Math.PI;
         this.maxArea = this.radius / 2;
@@ -58,9 +67,10 @@ class AwesomeGraph {
             } else {
                 if (type === 6) props = props.map(item => item * 100 / this.maxValue);
                 this.build(...props);
+                this.firstBuild = true;
             }
         };
-        animation();
+        if(!this.changes) animation();
     }
 
     animatePolyAndBarGraph(time) {
@@ -85,13 +95,16 @@ class AwesomeGraph {
                 if (anim) {
                     this.build(a);
                     window.requestAnimationFrame(animation);
-                } else this.build(props);
+                } else {
+                    this.build(props);
+                    this.firstBuild = true;
+                }
                 this.setLabels(this.labels);
                 this.showTotal();
                 this.showType();
             });
         };
-        animation();
+        if(!this.changes) animation();
     }
 
     build() {
@@ -197,6 +210,10 @@ class AwesomeGraph {
         return {angle: angle, distance:distance};
     }
 
+    setDangerColor(dangerColor) {
+        this.dangerColor =  dangerColor;
+    }
+
     setSegmentedHover(array, radius, area) {
         let pointerData = null;
         document.getElementById(this.id).onmousemove = (e) => {
@@ -214,6 +231,10 @@ class AwesomeGraph {
         document.getElementById(this.id).onmouseout = () => {
             this.tooltip("remove");
         };
+    }
+
+    setSuccessColor(successColor) {
+        this.successColor =  successColor;
     }
 
     setPieHover(value, radius, area) {
@@ -257,7 +278,30 @@ class AwesomeGraph {
     setLabels() {
     }
 
-    setCustomTotal(customTotal) {
+    setChangedLabel(value = null) {
+        if(value !== null) this.changedLabel = value;
+        let fontSize = 16 * this.multiplier;
+        console.log(value);
+        // let x = this.canvasWidth - 10 * this.multiplier;
+        // let y = this.canvasHeight - 10 * this.multiplier;
+        let x,y;
+        x = y = 10;
+        this.context.font = fontSize + "px " + "Roboto";
+        this.context.textAlign = "left";
+        this.context.fillStyle = this.changedTextColor;
+        let sign = "";
+        if(this.changedTextColor === this.dangerColor) sign = "-";
+        else if(this.changedTextColor === this.successColor) sign = "+";
+        else this.changedLabel = "";
+        this.context.fillText(sign+this.changedLabel, x, y);
+        return this;
+    }
+
+    setCustomTotal(customTotal, previousValue = null) {
+        if(previousValue !== null) {
+            console.log("Color and val:" , customTotal - previousValue);
+            this.changedTextColor = (previousValue >= customTotal) ? ( (previousValue - customTotal === 0) ? this.textColor : this.dangerColor) : this.successColor;
+        }
         this.customTotal = customTotal;
         return this;
     }
@@ -284,23 +328,26 @@ class AwesomeGraph {
         let average = 0;
         let fontSizeLg = 36 * this.multiplier;
         let fontSizeSm = 16 * this.multiplier;
-        if (score) average = score;
+        if (score!== null) average = score;
         else if(this.customTotal !== null) average = this.customTotal;
         else {
             total.map(item => average = average + item);
             average = parseInt(average / total.length);
         }
         this.context.font = "normal normal bold " + fontSizeLg + "px " + font;
-        this.context.fillStyle = "#000";
         if (position === "center") {
             this.context.textAlign = "center";
+            this.context.fillStyle = this.changedTextColor;
             this.context.fillText(average, this.center, this.center + 10 * this.multiplier);
             this.context.font = "normal normal 300 " + fontSizeSm + "px " + font;
+            this.context.fillStyle = "#000";
             this.context.fillText("/ " + this.maxValue, this.center + 5 * this.multiplier, this.center + 35 * this.multiplier);
         }
         if (position === "bottom") {
+            this.context.fillStyle = this.changedTextColor;
             this.context.fillText(average, this.center + 10 * this.multiplier, this.center + 75 * this.multiplier);
             this.context.font = "normal normal 300 " + fontSizeSm + "px " + font;
+            this.context.fillStyle = "#000";
             this.context.fillText("/ " + this.maxValue, this.center + 30 * this.multiplier, this.center + 95 * this.multiplier);
         }
     }
@@ -415,6 +462,8 @@ class TypeOne extends AwesomeGraph {
             this.animationProps.push(array);
         }
         this.showTotal();
+        this.setLabels(this.labels);
+        this.showType();
         return this;
     }
 
@@ -433,6 +482,12 @@ class TypeOne extends AwesomeGraph {
 
     animate(time = 15) {
         this.animatePolyAndBarGraph(time);
+        return this;
+    }
+
+    buildChanged(array) {
+        this.changes = true;
+        this.build(array);
         return this;
     }
 }
@@ -456,6 +511,7 @@ class TypeTwo extends AwesomeGraph {
         }
         this.showTotal();
         this.showType();
+        this.setChangedLabel();
         return this;
     }
 
@@ -470,6 +526,26 @@ class TypeTwo extends AwesomeGraph {
 
     showTotal() {
         this.showTotalMethod(this.animationProps, "center");
+    }
+
+    buildChanged(newVal) {
+        this.changes = true;
+        const difference = parseInt(newVal - this.animationProps[0]);
+        const angle = this.calculate(Math.abs(difference));
+        let newStartAngle = 0.5 * Math.PI;
+        //drawAThreeQuarterCircle(color, radius = this.radius, value = this.totalAngle, thickness = this.thickness, startAngle = 0.5 * Math.PI) {
+        if(difference > 0) {
+            newStartAngle += this.calculate(this.animationProps[0]);
+            this.drawAThreeQuarterCircle(this.successColor, this.radius + 5 * this.multiplier, angle, this.maxArea - 5 * this.multiplier, newStartAngle);
+
+        }
+        else if (difference < 0) {
+            newStartAngle += this.calculate(this.animationProps[0] + difference);
+            this.drawAThreeQuarterCircle(this.dangerColor, this.radius + 5 * this.multiplier, angle, this.maxArea - 5 * this.multiplier, newStartAngle);
+        }
+        else if (difference === 0)
+            this.build(this.animationProps[0]);
+        return this;
     }
 
     animate(time = 15) {
@@ -626,6 +702,7 @@ class TypeThree extends AwesomeGraph {
                 this.buildSegmented(props[0]);
                 this.buildPie(props[1]);
                 this.buildPolygon(props[2]);
+                this.firstBuild = false;
             }
         };
         animation();

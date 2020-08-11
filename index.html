@@ -28,6 +28,10 @@
             margin-bottom: 100px;
         }
 
+        .changes input{
+            margin-bottom: 10px;
+        }
+
         @media only screen and (max-width: 768px) {
             .demo-graph {
                 zoom: 0.7;
@@ -51,7 +55,15 @@
         <div class="row">
             <div class="col-12">
                 <div class="row align-items-center">
+
                     <div id="demo-graph-1" class="demo-graph col"></div>
+                    <div class="col changes">
+                        <input type="number" onchange="fn1([this.value,515,140,251,690])" value="426"> <br>
+                        <input type="number" onchange="fn1([426,this.value,140,251,690])" value="515"> <br>
+                        <input type="number" onchange="fn1([426,515,this.value,251,690])" value="140"> <br>
+                        <input type="number" onchange="fn1([426,515,140,this.value,690])" value="251"> <br>
+                        <input type="number" onchange="fn1([426,515,140,251,this.value])" value="690"> <br>
+                    </div>
                     <div class="col-12 desc">
                         <h1 class="mb-3">Type One</h1>
                         <p>
@@ -71,6 +83,9 @@
             <div class="col-12">
                 <div class="row align-items-center">
                     <div id="demo-graph-2" class="demo-graph col"></div>
+                    <div class="col changes">
+                        <input type="number" onchange="fn2(this.value)" value="500"> <br>
+                    </div>
                     <div class="col-12 desc">
                         <h1 class="mb-3">Type Two</h1>
                         <p>
@@ -198,7 +213,7 @@
 <script>
 
     const barGraphValues = [426,515,140,251,690];
-    const pieChartValue = 500;
+    let pieChartValue = 500;
     const polygonValues = [426,555,740,351,300];
     const pieChartValue2 = 600;
     const labels = ["Ab","Mo","Fo","Jo","Ho"];
@@ -210,7 +225,7 @@
     t1.build(barGraphValues).setLabels(labels).setCustomTotal(700).setHover(arr).animate();
 
     const t2 = new TypeTwo("demo-graph-2");
-    t2.build(pieChartValue).setCustomTotal(800).setHover("It's a value").animate();
+    t2.build(pieChartValue).setCustomTotal(pieChartValue).setHover("It's a value").animate();
 
     const t31 = new TypeThree("demo-graph-31");
     t31.setMultiplier(2.1).build(barGraphValues, pieChartValue, polygonValues).setHover(arr, "Pie Value", arr2).animate();
@@ -247,6 +262,22 @@
     //     console.log(dataURL);
     // };
     // img.src = src;
+
+    function fn1(changed) {
+        t1.build(barGraphValues).buildChanged(changed).setLabels(labels).setCustomTotal(700).setHover(arr).animate();
+    }
+
+    function fn2(changed) {
+        let difference = parseInt(changed) - pieChartValue;
+        console.log(difference);
+        t2
+            .setCustomTotal(changed, pieChartValue)
+            .setChangedLabel(difference)
+            .setHover("It's a value")
+            .build(pieChartValue)
+            .buildChanged(changed)
+            .animate();
+    }
 
 </script>
 
