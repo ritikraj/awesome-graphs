@@ -280,14 +280,12 @@ class AwesomeGraph {
 
     setChangedLabel(value = null) {
         if(value !== null) this.changedLabel = value;
-        let fontSize = 16 * this.multiplier;
+        let fontSize = 24 * this.multiplier;
         console.log(value);
-        // let x = this.canvasWidth - 10 * this.multiplier;
-        // let y = this.canvasHeight - 10 * this.multiplier;
-        let x,y;
-        x = y = 10;
+        let x = this.canvasWidth - 50 * this.multiplier;
+        let y = this.canvasHeight - 50 * this.multiplier;
         this.context.font = fontSize + "px " + "Roboto";
-        this.context.textAlign = "left";
+        this.context.textAlign = "right";
         this.context.fillStyle = this.changedTextColor;
         let sign = "";
         if(this.changedTextColor === this.dangerColor) sign = "-";
