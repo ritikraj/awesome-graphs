@@ -304,7 +304,6 @@
             .setLabels(labels)
             .build(barGraphValues)
             .buildChanged(newArr)
-            .animate();
     }
 
     function fn2(changed) {
@@ -316,7 +315,6 @@
             .setHover("It's a value")
             .build(pieChartValue)
             .buildChanged(changed)
-            .animate();
     }
 
     function fn3(i, changedOneValue, changedPieValue) {
@@ -329,12 +327,16 @@
         let color  = difference >= 0 ? (difference > 0 ? 1 : 0) : -1;
 
         t32.setMultiplier(1.2)
-            .setLabelColor(color)
-            .setChangedLabel(difference)
+            .setLabelColor(color)       // +1 green, -1 red, 0 black
+            .setChangedLabel(difference)    // label 32 => +32 or -35 => -35
             .setHover(arr, "Pie Value", arr2)
             .build(barGraphValues, pieChartValue, polygonValues, 800 + difference)
-            .buildChanged(newArrType3, newPieChartValue)
+            .buildChanged(newArrType3, newPieChartValue)                   // barGraphChangeValues, pieChartChangeValues
             .animate();
+
+
+        // 450
+        // 470
     }
 
 
