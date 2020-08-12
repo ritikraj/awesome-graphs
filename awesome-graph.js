@@ -183,6 +183,17 @@ class AwesomeGraph {
         }
     }
 
+    drawOneSegment(color, value, radius, area, startAngle) {
+        let width = this.totalAngle / this.segments;
+        let endAngle = startAngle + width - this.spacer;
+        this.context.beginPath();
+        this.context.arc(this.center, this.center, radius + (value === 0 ? 0.1 : value) / 2 - area / 2, startAngle, endAngle);
+        this.context.strokeStyle = color;
+        this.context.lineWidth = value === 0 ? 0.1 : value;
+        this.context.stroke();
+        this.context.closePath();
+    }
+
     findAngleAndDistance(e) {
         let angle, x, y, distance, p, b;
         angle = p = b = null;
@@ -272,10 +283,17 @@ class AwesomeGraph {
     setLabels() {
     }
 
+    setLabelColor(value) {
+        if(value === -1) this.changedTextColor = this.dangerColor;
+        else if(value === 1) this.changedTextColor = this.successColor;
+        else if(value === 0 || value) this.changedTextColor = this.textColor;
+        return this;
+    }
+
     setChangedLabel(value = null) {
         let sign = "";
         if(value !== null) this.changedLabel = value;
-        if (this.changedTextColor === this.successColor) sign = "+";
+        if (this.changedLabel > 0) sign = "+";
         if (this.changedLabel === 0) this.changedLabel = "";
         let fontSize = 24 * this.multiplier;
         let x = this.canvasWidth - 50 * this.multiplier;
@@ -444,7 +462,7 @@ class TypeOne extends AwesomeGraph {
             this.firstBuild = false;
             this.background = backgroundColor;
             this.foreground = foregroundColor;
-            this.animationProps.push(array);
+            this.animationProps[0] = array;
         }
         this.showTotal();
         this.setLabels(this.labels);
@@ -472,7 +490,22 @@ class TypeOne extends AwesomeGraph {
 
     buildChanged(array) {
         this.changes = true;
-        this.build(array);
+        let differenceArray = [];
+        let color = null, radius = null, area = null, angle = 0.5 * Math.PI, offsetRadius = 0, value = null;
+        for(let i = 0; i < this.segments; i++){
+            differenceArray[i] = array[i] - this.animationProps[0][i] ;
+            if(differenceArray[i] !== 0){
+                value = this.calculate([differenceArray[i]])[0];
+                color = differenceArray[i] > 0 ? this.successColor : this.dangerColor;
+                area = this.maxArea / 2;
+                if(differenceArray[i] > 0) offsetRadius = this.calculate([this.animationProps[0][i]])[0];
+                else offsetRadius = value + this.calculate([this.animationProps[0][i]])[0];
+                radius = this.radius + offsetRadius;
+                this.drawOneSegment(color, Math.abs(value), radius, this.maxArea, angle)
+            }
+            angle += (this.totalAngle / this.segments);
+        }
+        this.setChangedLabel();
         return this;
     }
 }
@@ -518,16 +551,13 @@ class TypeTwo extends AwesomeGraph {
         const angle = this.calculate(Math.abs(difference));
         let newStartAngle = 0.5 * Math.PI;
         if (difference > 0) {
-            this.changedTextColor = this.successColor;
             newStartAngle += this.calculate(this.animationProps[0]);
             this.drawAThreeQuarterCircle(this.successColor, this.radius + 5 * this.multiplier, angle, this.maxArea - 5 * this.multiplier, newStartAngle);
 
         } else if (difference < 0) {
-            this.changedTextColor = this.dangerColor;
             newStartAngle += this.calculate(this.animationProps[0] + difference);
             this.drawAThreeQuarterCircle(this.dangerColor, this.radius + 5 * this.multiplier, angle, this.maxArea - 5 * this.multiplier, newStartAngle);
         } else if (difference === 0) {
-            this.changedTextColor = this.textColor;
             this.build(this.animationProps[0]);
         }
 
@@ -552,6 +582,7 @@ class TypeThree extends AwesomeGraph {
 
     setValues() {
         this.score = null;
+        this.firstBuild = true;
         this.outerThickness = this.maxArea - 10 * this.multiplier;
         this.innerThickness = this.maxArea - 20 * this.multiplier;
         this.outerRadius = this.radius + 10 * this.multiplier;
@@ -577,7 +608,7 @@ class TypeThree extends AwesomeGraph {
         super.build();
         this.setValues();
         if (this.firstBuild) {
-            if (score) this.score = score;
+            if (score!== null) this.score = score;
             this.firstBuild = false;
             this.background = backgroundColor;
             this.foreground = foregroundColor;
@@ -588,8 +619,12 @@ class TypeThree extends AwesomeGraph {
         this.buildPie(pieChartValue, backgroundColor, foregroundColor);
         this.buildSegmented(barGraphValue, backgroundColor, foregroundColor);
         this.buildPolygon(polygonValue, foregroundColor);
-        if (this.score !== null) this.showTotalMethod(0, "bottom", this.score);
-        else this.showTotal();
+        if (this.score !== null) {
+            this.showTotalMethod(0, "bottom", this.score);
+        }
+        else {
+            this.showTotal();
+        }
         return this;
     }
 
@@ -645,6 +680,60 @@ class TypeThree extends AwesomeGraph {
         img.src = imgData;
     }
 
+    setChangedLabel(value = null) {
+        let sign = "";
+        if(value !== null) this.changedLabel = value;
+        if (this.changedTextColor === this.successColor) sign = "+";
+        if (this.changedLabel === 0) this.changedLabel = "";
+        let fontSize = 16 * this.multiplier;
+        let x = this.canvasWidth - 40 * this.multiplier;
+        let y = this.canvasHeight - 55 * this.multiplier;
+        this.context.font = "normal normal bold " + fontSize + "px " + "Roboto, sans-serif";
+        this.context.textAlign = "right";
+        this.context.fillStyle = this.changedTextColor;
+        this.context.fillText(sign + this.changedLabel, x, y);
+        return this;
+    }
+
+    buildChanged(changedBarArray, changedPieValue) {
+        this.changes = true;
+        const differencePie = parseInt(changedPieValue - this.animationProps[1]);
+        const anglePie = this.calculate(Math.abs(differencePie));
+
+        let differenceArray = [];
+        let color = null, radius = null, area = null, angleBar = 0.5 * Math.PI, offsetRadius = 0, value = null;
+
+
+        let newStartAnglePie = 0.5 * Math.PI;
+        if (differencePie > 0) {
+            this.changedTextColor = this.successColor;
+            newStartAnglePie += this.calculate(this.animationProps[1]);
+            this.drawAThreeQuarterCircle(this.successColor, this.innerRadius, anglePie, this.innerThickness, newStartAnglePie);
+
+        } else if (differencePie < 0) {
+            this.changedTextColor = this.dangerColor;
+            newStartAnglePie += this.calculate(this.animationProps[1] + differencePie);
+            this.drawAThreeQuarterCircle(this.dangerColor, this.innerRadius, anglePie, this.innerThickness, newStartAnglePie);
+        }
+
+        for(let i = 0; i < this.segments; i++){
+            differenceArray[i] = changedBarArray[i] - this.animationProps[0][i] ;
+            if(differenceArray[i] !== 0){
+                value = this.calculate([differenceArray[i]], this.outerThickness)[0];
+                color = differenceArray[i] > 0 ? this.successColor : this.dangerColor;
+                area = this.outerThickness / 2;
+                if(differenceArray[i] > 0) offsetRadius = this.calculate([this.animationProps[0][i]], this.outerThickness)[0];
+                else offsetRadius = value + this.calculate([this.animationProps[0][i]], this.outerThickness)[0];
+                radius = this.outerRadius + offsetRadius;
+                this.drawOneSegment(color, Math.abs(value), radius, this.outerThickness, angleBar)
+            }
+            angleBar += (this.totalAngle / this.segments);
+        }
+        this.setChangedLabel();
+
+        return this;
+    }
+
     animate(pieChartTime = 18, polygonBarGraphTime = 20) {
         let props = this.animationProps;
         let barAnimatedValues = [];
@@ -652,42 +741,44 @@ class TypeThree extends AwesomeGraph {
         let pieAnimatedValue = 0;
         let isAnimationPossible = [true, true, true];
         const animation = () => {
-            this.context.clearRect(0, 0, this.canvasWidth, this.canvasHeight);
-            props[0].forEach((prop, index) => {
-                prop = prop === 0 ? 0.1 : prop;
-                barAnimatedValues.push(0);
-                barAnimatedValues[index] = barAnimatedValues[index] + prop / (polygonBarGraphTime);
-            });
-            barAnimatedValues.forEach((value, index) => {
-                if (value > props[0][index]) isAnimationPossible[0] = false;
-            });
-            pieAnimatedValue = pieAnimatedValue + props[1] / pieChartTime;
-            if (pieAnimatedValue > props[1]) {
-                isAnimationPossible[1] = false;
-            }
-            props[2].forEach((prop, index) => {
-                prop = prop === 0 ? 0.1 : prop;
-                polygonAnimatedValues.push(0);
-                polygonAnimatedValues[index] = polygonAnimatedValues[index] + prop / (polygonBarGraphTime);
-            });
-            polygonAnimatedValues.forEach((value, index) => {
-                if (value > props[2][index]) isAnimationPossible[2] = false;
-            });
-            if (this.score) this.showTotalMethod(0, "bottom", this.score);
-            else this.showTotal(props[0], "bottom");
-            if (isAnimationPossible[0] || isAnimationPossible[1] || isAnimationPossible[2]) {
-                if (isAnimationPossible[0]) this.buildSegmented(barAnimatedValues);
-                else this.buildSegmented(props[0]);
-                if (isAnimationPossible[1]) this.buildPie(pieAnimatedValue);
-                else this.buildPie(props[1]);
-                if (isAnimationPossible[2]) this.buildPolygon(polygonAnimatedValues);
-                else this.buildPolygon(props[2]);
-                window.requestAnimationFrame(animation);
-            } else {
-                this.buildSegmented(props[0]);
-                this.buildPie(props[1]);
-                this.buildPolygon(props[2]);
-                this.firstBuild = false;
+            if(!this.changes) {
+                this.context.clearRect(0, 0, this.canvasWidth, this.canvasHeight);
+                props[0].forEach((prop, index) => {
+                    prop = prop === 0 ? 0.1 : prop;
+                    barAnimatedValues.push(0);
+                    barAnimatedValues[index] = barAnimatedValues[index] + prop / (polygonBarGraphTime);
+                });
+                barAnimatedValues.forEach((value, index) => {
+                    if (value > props[0][index]) isAnimationPossible[0] = false;
+                });
+                pieAnimatedValue = pieAnimatedValue + props[1] / pieChartTime;
+                if (pieAnimatedValue > props[1]) {
+                    isAnimationPossible[1] = false;
+                }
+                props[2].forEach((prop, index) => {
+                    prop = prop === 0 ? 0.1 : prop;
+                    polygonAnimatedValues.push(0);
+                    polygonAnimatedValues[index] = polygonAnimatedValues[index] + prop / (polygonBarGraphTime);
+                });
+                polygonAnimatedValues.forEach((value, index) => {
+                    if (value > props[2][index]) isAnimationPossible[2] = false;
+                });
+                if (this.score) this.showTotalMethod(0, "bottom", this.score);
+                else this.showTotal(props[0], "bottom");
+                if (isAnimationPossible[0] || isAnimationPossible[1] || isAnimationPossible[2]) {
+                    if (isAnimationPossible[0]) this.buildSegmented(barAnimatedValues);
+                    else this.buildSegmented(props[0]);
+                    if (isAnimationPossible[1]) this.buildPie(pieAnimatedValue);
+                    else this.buildPie(props[1]);
+                    if (isAnimationPossible[2]) this.buildPolygon(polygonAnimatedValues);
+                    else this.buildPolygon(props[2]);
+                    window.requestAnimationFrame(animation);
+                } else {
+                    this.buildSegmented(props[0]);
+                    this.buildPie(props[1]);
+                    this.buildPolygon(props[2]);
+                    this.firstBuild = true;
+                }
             }
         };
         animation();
