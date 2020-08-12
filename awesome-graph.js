@@ -225,6 +225,7 @@ class AwesomeGraph {
     setSegmentedHover(array, radius, area) {
         let pointerData = null;
         document.getElementById(this.id).onmousemove = (e) => {
+            this.tooltip("remove");
             pointerData = this.findAngleAndDistance(e);
             if (pointerData.distance > radius - area / 2 && pointerData.distance <= radius + area / 2 && pointerData.angle !== 0) {
                 let width = this.totalAngle / this.segments;
@@ -247,6 +248,7 @@ class AwesomeGraph {
     setPieHover(value, radius, area) {
         let pointerData = null;
         document.getElementById(this.id).onmousemove = (e) => {
+            this.tooltip("remove");
             pointerData = this.findAngleAndDistance(e);
             if (pointerData.distance > radius - area / 2 && pointerData.distance <= radius + area / 2 && pointerData.angle !== 0) {
                 this.tooltip("show", value, e.clientX, e.clientY);
@@ -399,6 +401,7 @@ class AwesomeGraph {
         this.context = this.canvas.getContext("2d");
         this.context.clearRect(0, 0, this.canvasWidth, this.canvasHeight);
         this.tooltipDiv = document.createElement("div");
+        this.tooltipDiv.classList.add("canvas-tooltip");
         this.tooltipDiv.style.position = "fixed";
         this.tooltipDiv.style.zIndex = "100000000";
         this.tooltipDiv.style.opacity = "0.8";
@@ -422,7 +425,13 @@ class AwesomeGraph {
                 document.body.append(this.tooltipDiv);
                 this.tooltipDiv.style.top = y + 10 + "px";
                 this.tooltipDiv.style.left = x + 10 + "px";
-            } else this.tooltipDiv.remove();
+            } else {
+                this.tooltipDiv.remove();
+                const allTooltips = document.querySelectorAll(".canvas-tooltip");
+                allTooltips.forEach( (tooltip, i) => {
+                    tooltip.remove();
+                });
+            }
         }
     }
 }

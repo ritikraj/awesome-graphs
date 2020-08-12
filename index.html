@@ -326,9 +326,10 @@
         let difference1 = changedPieValue - pieChartValue;
         let difference2 = Math.ceil(average(newArrType3) - average(barGraphValues));
         const difference = difference1 + difference2;
+        let color  = difference >= 0 ? (difference > 0 ? 1 : 0) : -1;
 
         t32.setMultiplier(1.2)
-            .setLabelColor(difference >= 0 ? (difference > 0 ? 1 : 0) : -1)
+            .setLabelColor(color)
             .setChangedLabel(difference)
             .setHover(arr, "Pie Value", arr2)
             .build(barGraphValues, pieChartValue, polygonValues, 800 + difference)
