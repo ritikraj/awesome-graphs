@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="402062b2-3c3e-417f-bbde-966ea9c19d1a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/awesome-graph.js" beforeDir="false" afterPath="$PROJECT_DIR$/awesome-graph.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -16,11 +17,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/awesome-graph.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="294">
-              <caret line="287" column="4" selection-start-line="287" selection-start-column="4" selection-end-line="287" selection-end-column="4" />
+            <state relative-caret-position="1350">
+              <caret line="705" column="51" lean-forward="true" selection-start-line="705" selection-start-column="51" selection-end-line="705" selection-end-column="51" />
               <folding>
                 <element signature="n#!!block;n#bodyOffset#0;n#AwesomeGraph#0" />
                 <element signature="n#!!block;n#animatePie#0;n#AwesomeGraph#0" />
@@ -35,10 +36,8 @@
                 <element signature="n#!!block;n#drawOneSegment#0;n#AwesomeGraph#0" />
                 <element signature="n#!!block;n#findAngleAndDistance#0;n#AwesomeGraph#0" />
                 <element signature="n#!!block;n#setDangerColor#0;n#AwesomeGraph#0" />
-                <element signature="n#!!block;n#setDangerColor#1;n#AwesomeGraph#0" />
                 <element signature="n#!!block;n#setPolygonHover#0;n#AwesomeGraph#0" />
                 <element signature="n#!!block;n#setLabels#0;n#AwesomeGraph#0" />
-                <element signature="n#!!block;n#setChangedLabel#0;n#AwesomeGraph#0" />
                 <element signature="n#!!block;n#setCustomTotal#0;n#AwesomeGraph#0" />
                 <element signature="n#!!block;n#setMaxValue#0;n#AwesomeGraph#0" />
                 <element signature="n#!!block;n#setMultiplier#0;n#AwesomeGraph#0" />
@@ -47,16 +46,12 @@
                 <element signature="n#!!block;n#showTotalMethod#0;n#AwesomeGraph#0" />
                 <element signature="n#!!block;n#showType#0;n#AwesomeGraph#0" />
                 <element signature="n#!!block;n#showTypeMethod#0;n#AwesomeGraph#0" />
-                <element signature="n#!!block;n#buildChanged#0;n#TypeOne#0" />
-                <element signature="n#TypeTwo#0" />
                 <element signature="n#!!block;n#constructor#0;n#TypeTwo#0" />
-                <element signature="n#TypeThree#0" />
                 <element signature="n#!!block;n#build#0;n#TypeThree#0" />
                 <element signature="n#!!block;n#setHover#0;n#TypeThree#0" />
                 <element signature="n#!!block;n#showTotal#0;n#TypeThree#0" />
                 <element signature="n#!!block;n#showLogo#0;n#TypeThree#0" />
                 <element signature="n#!!block;n#setChangedLabel#0;n#TypeThree#0" />
-                <element signature="n#!!block;n#buildChanged#0;n#TypeThree#0" />
                 <element signature="n#!!block;n#animate#0;n#TypeThree#0" />
                 <element signature="n#TypeFour#0" />
                 <element signature="n#!!block;n#constructor#0;n#TypeFour#0" />
@@ -91,20 +86,13 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="436">
-              <caret line="335" column="56" selection-start-line="335" selection-start-column="56" selection-end-line="335" selection-end-column="56" />
+            <state relative-caret-position="568">
+              <caret line="315" column="22" lean-forward="true" selection-start-line="315" selection-start-column="22" selection-end-line="315" selection-end-column="22" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="e#4621#4627#0" expanded="true" />
-                <element signature="e#4685#4691#0" expanded="true" />
-                <element signature="e#4695#4701#0" expanded="true" />
-                <element signature="e#4686#4692#0" expanded="true" />
-                <element signature="e#4742#4748#0" expanded="true" />
-                <element signature="e#4857#4863#0" expanded="true" />
-                <element signature="e#4924#4930#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -162,8 +150,8 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/piebargraph.js" />
-        <option value="$PROJECT_DIR$/awesome-graph.js" />
         <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/awesome-graph.js" />
       </list>
     </option>
   </component>
@@ -241,12 +229,13 @@
       <workItem from="1588317041335" duration="3726000" />
       <workItem from="1589965432247" duration="7000" />
       <workItem from="1589965489897" duration="2024000" />
-      <workItem from="1597130665760" duration="23282000" />
+      <workItem from="1597130665760" duration="24103000" />
+      <workItem from="1597647726342" duration="605000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="167013000" />
+    <option name="totallyTimeSpent" value="168439000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
@@ -294,10 +283,20 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="568">
+          <caret line="315" column="22" lean-forward="true" selection-start-line="315" selection-start-column="22" selection-end-line="315" selection-end-column="22" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/awesome-graph.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="287" column="4" selection-start-line="287" selection-start-column="4" selection-end-line="287" selection-end-column="4" />
+        <state relative-caret-position="1350">
+          <caret line="705" column="51" lean-forward="true" selection-start-line="705" selection-start-column="51" selection-end-line="705" selection-end-column="51" />
           <folding>
             <element signature="n#!!block;n#bodyOffset#0;n#AwesomeGraph#0" />
             <element signature="n#!!block;n#animatePie#0;n#AwesomeGraph#0" />
@@ -312,10 +311,8 @@
             <element signature="n#!!block;n#drawOneSegment#0;n#AwesomeGraph#0" />
             <element signature="n#!!block;n#findAngleAndDistance#0;n#AwesomeGraph#0" />
             <element signature="n#!!block;n#setDangerColor#0;n#AwesomeGraph#0" />
-            <element signature="n#!!block;n#setDangerColor#1;n#AwesomeGraph#0" />
             <element signature="n#!!block;n#setPolygonHover#0;n#AwesomeGraph#0" />
             <element signature="n#!!block;n#setLabels#0;n#AwesomeGraph#0" />
-            <element signature="n#!!block;n#setChangedLabel#0;n#AwesomeGraph#0" />
             <element signature="n#!!block;n#setCustomTotal#0;n#AwesomeGraph#0" />
             <element signature="n#!!block;n#setMaxValue#0;n#AwesomeGraph#0" />
             <element signature="n#!!block;n#setMultiplier#0;n#AwesomeGraph#0" />
@@ -324,16 +321,12 @@
             <element signature="n#!!block;n#showTotalMethod#0;n#AwesomeGraph#0" />
             <element signature="n#!!block;n#showType#0;n#AwesomeGraph#0" />
             <element signature="n#!!block;n#showTypeMethod#0;n#AwesomeGraph#0" />
-            <element signature="n#!!block;n#buildChanged#0;n#TypeOne#0" />
-            <element signature="n#TypeTwo#0" />
             <element signature="n#!!block;n#constructor#0;n#TypeTwo#0" />
-            <element signature="n#TypeThree#0" />
             <element signature="n#!!block;n#build#0;n#TypeThree#0" />
             <element signature="n#!!block;n#setHover#0;n#TypeThree#0" />
             <element signature="n#!!block;n#showTotal#0;n#TypeThree#0" />
             <element signature="n#!!block;n#showLogo#0;n#TypeThree#0" />
             <element signature="n#!!block;n#setChangedLabel#0;n#TypeThree#0" />
-            <element signature="n#!!block;n#buildChanged#0;n#TypeThree#0" />
             <element signature="n#!!block;n#animate#0;n#TypeThree#0" />
             <element signature="n#TypeFour#0" />
             <element signature="n#!!block;n#constructor#0;n#TypeFour#0" />
@@ -363,23 +356,6 @@
             <element signature="n#!!block;n#showLabels#0;n#TypeSeven#0" />
             <element signature="n#!!block;n#build#0;n#TypeSeven#0" />
             <element signature="n#!!block;n#wrapText#0;n#TypeSeven#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="436">
-          <caret line="335" column="56" selection-start-line="335" selection-start-column="56" selection-end-line="335" selection-end-column="56" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="e#4621#4627#0" expanded="true" />
-            <element signature="e#4685#4691#0" expanded="true" />
-            <element signature="e#4695#4701#0" expanded="true" />
-            <element signature="e#4686#4692#0" expanded="true" />
-            <element signature="e#4742#4748#0" expanded="true" />
-            <element signature="e#4857#4863#0" expanded="true" />
-            <element signature="e#4924#4930#0" expanded="true" />
           </folding>
         </state>
       </provider>

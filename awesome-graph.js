@@ -570,7 +570,6 @@ class TypeTwo extends AwesomeGraph {
             this.build(this.animationProps[0]);
         }
 
-        this.showTotal();
         this.setChangedLabel();
 
         return this;
