@@ -32,6 +32,7 @@ class AwesomeGraph {
         this.firstBuild = true;
         this.customTotal = null;
         this.tooltipDiv = null;
+        this.init(this.id);
     }
 
     bodyOffset() {
@@ -445,7 +446,7 @@ class TypeOne extends AwesomeGraph {
         this.background = 'rgb(245, 231, 241)';
     }
 
-    setLabels(array, font = "Roboto") {
+    setLabels(array, font = "Roboto, sans-serif") {
         this.labels = array;
         let width = this.totalAngle / this.segments;
         let angle = 0.5 * Math.PI + width / 2;
@@ -454,7 +455,7 @@ class TypeOne extends AwesomeGraph {
         for (let i = 0; i < this.segments; i++) {
             x = Math.abs((this.radius + 43 * this.multiplier) * Math.cos(angle) + this.center);
             y = Math.abs((this.radius + 43 * this.multiplier) * Math.sin(angle) + this.center + 5 * this.multiplier);
-            this.context.font = fontSize + "px " + font;
+            this.context.font = "normal normal normal " + fontSize + "px " + font;
             this.context.textAlign = "center";
             this.context.fillStyle = this.foreground;
             this.context.fillText(array[i], x, y);
@@ -845,7 +846,7 @@ class TypeFour extends AwesomeGraph {
         return this;
     }
 
-    setLabels(array, font = "Roboto") {
+    setLabels(array, font = "Roboto, sans-serif") {
         this.labels = array;
         let coordinates = this.regularPolygonCoordinates();
         let fontSize = 22 * this.multiplier;

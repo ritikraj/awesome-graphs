@@ -52,10 +52,11 @@
         <div class="w-100 my-3">
             <div class="alert alert-success" style="font-size: 24px">
                 the way to chain the functions: <br>
-                1. set() functions <br>
+                1. set() functions [except hover] <br>
                 2. build() function <br>
-                3. buildChanged() functions (optional) <br>
-                4. animate() function (optional) <br>
+                3. setHover() function (optional) <br>
+                4. buildChanged() functions (optional) <br>
+                5. animate() function (optional) <br>
             </div>
 
             <div class="alert alert-danger">
@@ -251,10 +252,10 @@
     const arr2 = ["Lorem Ipsum","dolor","sit amet","consectuter","lol elit"];
 
     const t1 = new TypeOne("demo-graph-1");
-    t1.build(barGraphValues).setLabels(labels).setCustomTotal(700).setHover(arr).animate();
+    t1.setCustomTotal(700).setHover(arr).setLabels(labels).build(barGraphValues).animate();
 
     const t2 = new TypeTwo("demo-graph-2");
-    t2.build(pieChartValue).setCustomTotal(pieChartValue).setHover("It's a value").animate();
+    t2.setCustomTotal(pieChartValue).setHover("It's a value").build(pieChartValue).animate();
 
     const t31 = new TypeThree("demo-graph-31");
     t31.setMultiplier(1.2)
@@ -332,8 +333,8 @@
         t32.setMultiplier(1.2)
             .setLabelColor(color)       // +1 green, -1 red, 0 black
             .setChangedLabel(difference)    // label 32 => +32 or -35 => -35
-            .setHover(arr, "Pie Value", arr2)
             .build(barGraphValues, pieChartValue, polygonValues, 800 + difference)
+            .setHover(arr, "Pie Value", arr2)
             .buildChanged(newArrType3, newPieChartValue)                   // barGraphChangeValues, pieChartChangeValues
             .animate();
 
@@ -344,12 +345,12 @@
 
 
     const t4 = new TypeFour("demo-graph-4");
-    t4.setMultiplier(1.2).build(polygonValues).setLabels(labels).setHover(arr).animate();
+    t4.setMultiplier(1.2).setLabels(labels).build(polygonValues).setHover(arr).animate();
 
     const t51 = new TypeFive("demo-graph-51");
-    t51.build(pieChartValue).setHover("Outer Value").animate();
+    t51.setHover("Outer Value").build(pieChartValue).animate();
     const t52 = new TypeFive("demo-graph-52");
-    t52.build(pieChartValue, pieChartValue2).setHover("Outer Value", "Inner Value").animate();
+    t52.setHover("Outer Value", "Inner Value").build(pieChartValue, pieChartValue2).animate();
 
     const t6 = new TypeSix("demo-graph-6");
     t6.build(15).animate();
