@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Awesome Graphs mark: three-quarter segment ring, open at the bottom-right like the charts -->
+  <g fill="none" stroke-width="12">
+    <path stroke="#c35d9f" d="M30.85 53.97 A22 22 0 0 1 10.03 33.15"/>
+    <path stroke="#5b7bb0" d="M10.03 30.85 A22 22 0 0 1 30.85 10.03"/>
+    <path stroke="#ee8a2f" d="M33.15 10.03 A22 22 0 0 1 53.97 30.85"/>
+  </g>
+</svg>
