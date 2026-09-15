@@ -50,13 +50,13 @@
 
 <header class="ag-topbar">
     <div class="ag-topbar__inner">
-        <a class="ag-brand" href="#classic"><span class="ag-brand__mark" aria-hidden="true"></span><span>Awesome Graphs</span></a>
+        <a class="ag-brand" href="#new"><span class="ag-brand__mark" aria-hidden="true"></span><span>Awesome Graphs</span></a>
 
         <div class="ag-tabs" role="tablist" aria-label="Library version">
-            <button class="ag-tab" type="button" role="tab" id="tab-classic" data-tab="classic" aria-controls="panel-classic" aria-selected="true">
+            <button class="ag-tab" type="button" role="tab" id="tab-classic" data-tab="classic" aria-controls="panel-classic" aria-selected="false" tabindex="-1">
                 Classic <span class="ag-tab__tag">v1</span>
             </button>
-            <button class="ag-tab" type="button" role="tab" id="tab-new" data-tab="new" aria-controls="panel-new" aria-selected="false" tabindex="-1">
+            <button class="ag-tab" type="button" role="tab" id="tab-new" data-tab="new" aria-controls="panel-new" aria-selected="true">
                 New <span class="ag-tab__tag">v2</span>
             </button>
         </div>
@@ -76,7 +76,7 @@
 <!-- ======================================================================
      Classic (v1) — the original page, unchanged
      ====================================================================== -->
-<section id="panel-classic" class="ag-panel ag-panel--classic" role="tabpanel" aria-labelledby="tab-classic">
+<section id="panel-classic" class="ag-panel ag-panel--classic" role="tabpanel" aria-labelledby="tab-classic" hidden>
 
 <div class="container-fluid">
 
@@ -282,7 +282,7 @@
      New (v2) — rebuilt library showcase. Chart cards are generated from
      the config in v2/demo/showcase.js.
      ====================================================================== -->
-<section id="panel-new" class="ag-panel" role="tabpanel" aria-labelledby="tab-new" hidden>
+<section id="panel-new" class="ag-panel" role="tabpanel" aria-labelledby="tab-new">
     <div class="ag">
 
         <section class="ag-hero">

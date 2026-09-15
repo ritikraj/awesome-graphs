@@ -63,5 +63,7 @@
     }
 
     window.addEventListener('hashchange', followHash);
-    if (!followHash()) select(tabs[0].dataset.tab);
+    // Default: whichever tab the markup marks as selected (New/v2).
+    const initial = tabs.find((tab) => tab.getAttribute('aria-selected') === 'true') || tabs[0];
+    if (!followHash()) select(initial.dataset.tab);
 })();
